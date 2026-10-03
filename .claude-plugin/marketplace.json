@@ -1,0 +1,16 @@
+{
+  "name": "my-skills",
+  "owner": {
+    "name": "chadrothermel-dev"
+  },
+  "metadata": {
+    "description": "Audited Claude skills converted from the my_prompts library: enterprise infrastructure, cloud, security, observability, operations, and personal productivity."
+  },
+  "plugins": [
+    {
+      "name": "my-skills",
+      "source": "./",
+      "description": "39 audited expert skills for enterprise systems engineering, operations, communication, and personal productivity."
+    }
+  ]
+}

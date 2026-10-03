@@ -1,0 +1,4 @@
+from cfg_tech import TECH
+from cfg_personal import PERSONAL, HANDWRITTEN_CFG, HANDWRITTEN
+
+SKILLS = TECH + PERSONAL + HANDWRITTEN_CFG
