@@ -1,4 +1,5 @@
 # Per-skill configuration for personal, communication, and meta skills.
+from pathlib import Path
 
 PERSONAL = [
 dict(
@@ -123,6 +124,46 @@ dict(
         ("- **Claude Code skill:** `SKILL.md` with YAML frontmatter (`name`, `description`). The description must say *when* to trigger. Keep the body focused; move large references to separate files.",
          "- **Claude skill (Claude Code, claude.ai, API):** `SKILL.md` with YAML frontmatter. `name`: lowercase letters, digits, hyphens (≤64 chars), matching the folder name. `description` (≤1024 chars): what it does **and** when to use it, written in third person with the trigger phrases a user would actually say — this is the only text Claude sees before deciding to load the skill. Keep the body under ~500 lines; move large catalogs to `references/*.md` and link them from the body (progressive disclosure); put deterministic helpers in `scripts/`."),
     ],
+),
+]
+
+# --------------------------------------------------------------------------- daily productivity
+DAILY = [
+dict(
+    src="daily_kickoff_shutdown_ritual_prompt.md", name="daily-kickoff-shutdown", category="daily", variant="coach",
+    title="Daily Kickoff & Shutdown Ritual Coach",
+    role="ADHD-aware daily operations coach who runs a 5-minute morning kickoff (one win, real focus time, a first step under 2 minutes) and a 5-minute end-of-day shutdown (work log, open loops parked, tomorrow's first step).",
+    description="Five-minute daily start and end rituals for a busy professional, ADHD-aware. Use when the user says good morning or wants to start or plan their day, pastes today's calendar, says their day got hijacked and asks what now, wants an end-of-day shutdown or EOD log, needs to capture what they got done or wins for their brag document, or asks for a standup update (yesterday/today/blockers).",
+    fixes=[("hand off to the Weekly Reset when the user needs re-prioritization.", "hand off to the `weekly-reset-planner` skill when the user needs re-prioritization.")],
+    drop=["## Test Inputs"],
+),
+dict(
+    src="inbox_message_triage_reply_prompt.md", name="inbox-triage", category="daily", variant="coach",
+    title="Inbox & Message Triage Assistant",
+    role="Executive assistant and communications triage specialist who turns a pile of emails, chat messages, and notifications into a short ranked action list with send-ready reply drafts. Drafts only; never implies anything was sent.",
+    description="Email, Teams, and Slack triage with reply drafts. Use when the user pastes a batch of emails or messages and asks what needs them today, wants a long thread boiled down to their action items, needs help prioritizing an overflowing inbox, wants a short reply or a polite no drafted, or asks whether a message looks like phishing or a gift-card or payment scam.",
+    drop=["## Test Inputs"],
+),
+dict(
+    src="meeting_notes_action_extractor_prompt.md", name="meeting-notes", category="daily", variant="coach",
+    title="Meeting Notes, Decisions & Action Item Extractor",
+    role="Program coordinator and meeting scribe who turns raw transcripts and messy notes into decisions, owned and dated action items, risks, and open questions, plus a send-ready follow-up message. Separates what was decided from what was merely discussed.",
+    description="Turn meeting transcripts or rough notes into decisions, action items with owners and due dates, open questions, and a follow-up email. Use when the user pastes a Teams or Zoom transcript, typed or voice-to-text meeting notes, or notes from a CAB, incident bridge, design review, vendor call, 1:1, or school/family meeting and wants a summary, to-do list, or recap message.",
+    drop=["## Test Inputs"],
+),
+dict(
+    src="everyday_decision_coach_prompt.md", name="decision-coach", category="daily", variant="coach",
+    title="Everyday Decision Coach & Decision-Fatigue Breaker",
+    role="ADHD-aware decision strategist who sizes each decision (two-way door, medium, one-way door), applies the lightest tool that works, and always ends with a recommendation and one next action.",
+    description="Help making a decision quickly and confidently. Use when the user is stuck choosing between options, asks which task to do first, should I do X or Y, repair vs replace, which product, plan, contractor, or certification to pick, says they keep researching and can't decide, or feels decision fatigue. Frames money, legal, and medical choices without giving licensed professional advice.",
+    drop=["## Test Inputs"],
+),
+dict(
+    src="rapid_research_briefing_analyst_prompt.md", name="research-briefing", category="daily", variant="coach",
+    title="Rapid Research & Briefing Analyst",
+    role="Research analyst and former infrastructure engineer who turns long, dense material into a 2-minute briefing: what it says, what changed, whether it affects the user, and what to do next, with every statement labeled fact, claim, or inference.",
+    description="Summarize and assess long or technical reading. Use when the user pastes or links release notes, a KB article, a security advisory or CVE, an RFC, whitepaper, news article, policy, or school/HOA document and asks for a summary, TL;DR, or whether it affects them; wants two sources or products compared; asks to explain a concept plainly; or needs a research plan for an open question.",
+    drop=["## Test Inputs"],
 ),
 ]
 
@@ -288,6 +329,18 @@ dict(src="culinary_logistics_meal_planner_prompt.md", name="meal-planner", categ
 dict(src="personal_finance_management_prompt.md", name="personal-finance", category="personal",
      title="Personal Finance Planner",
      description="Personal budgeting, cash flow, debt payoff, and savings-goal planning (educational, not licensed investment advice). Use when the user wants to build or fix a budget, categorize spending, compare debt snowball vs avalanche, calculate payoff dates and interest, size an emergency fund, plan for a big expense, or track financial goals."),
+dict(src="everyday_computer_help_desk_prompt.md", name="everyday-computer-help-desk", category="personal",
+     title="Everyday Computer Help Desk Technician",
+     description='Patient, plain-language tech support for non-technical everyday users. Gives very detailed, one-action-per-step guides to fix common computer, phone, tablet, Wi-Fi, printer, email, password, sound, display, lost-file, update, and scam pop-up problems on Windows, Mac, ChromeOS, iPhone, and Android, and asks simple clarifying questions when the user can\'t describe the problem clearly. Use when someone says things like "my computer is acting weird", "the internet isn\'t working", "my printer says offline", "I can\'t find my file", "a virus warning popped up", "I forgot my password", or otherwise asks for help fixing an everyday tech problem.'),
 ]
 
+# Hand-written skills maintained as files: tools/handwritten/<name>/SKILL_BODY.md (+ optional references/*.md)
+_HW_DIR = Path(__file__).parent / "handwritten"
+HANDWRITTEN_FILES = {d.name: d for d in _HW_DIR.iterdir() if (d / "SKILL_BODY.md").is_file()}
+
 HANDWRITTEN = {"meal-planner": MEAL_PLANNER, "personal-finance": PERSONAL_FINANCE}
+HANDWRITTEN.update({name: (d / "SKILL_BODY.md").read_text(encoding="utf-8") for name, d in HANDWRITTEN_FILES.items()})
+HANDWRITTEN_REFS = {
+    name: {f.name: f.read_text(encoding="utf-8") for f in sorted((d / "references").glob("*.md"))}
+    for name, d in HANDWRITTEN_FILES.items() if (d / "references").is_dir()
+}
