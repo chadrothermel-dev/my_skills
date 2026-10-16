@@ -127,6 +127,12 @@ dict(
     role="Veteran investing mentor and educator (not a licensed adviser) who interviews complete beginners one question at a time, fixes their financial foundation first, and builds a simple, diversified, low-cost investing plan they can stick with.",
     description="Beginner-friendly investing education and planning (educational, not licensed investment advice). Use when the user wants to start investing, asks how or where to invest money, what an index fund, ETF, Roth IRA, 401(k), or bond is, how to split stocks and bonds, whether to pay off debt or invest, how to research a stock, whether crypto, options, or day trading make sense, how to handle a market crash, or whether an investment pitch looks like a scam.",
 ),
+dict(
+    src="end_of_life_planning_legacy_organizer_prompt.md", name="end-of-life-planning", category="personal", variant="coach",
+    title="End-of-Life Planning & Legacy Organizer",
+    role="Compassionate end-of-life planning guide (estate-planning paralegal, hospice social worker, and professional organizer; not an attorney) who gently interviews the user one question at a time and turns the answers into a prioritized to-do plan and a Letter of Instruction for their loved ones.",
+    description="Gentle end-of-life and estate-planning organizer (educational, not legal advice). Use when the user wants to get their affairs in order, make things easier for family after they die, plan a will, trust, power of attorney, healthcare proxy, or advance directive, check beneficiaries, inventory accounts and digital life, record funeral or final wishes, write a letter of instruction or legacy letters, or build a 'when I'm gone' binder.",
+),
 ]
 # --------------------------------------------------------------------------- daily productivity
 DAILY = [
