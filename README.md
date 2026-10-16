@@ -1,6 +1,6 @@
 # My Skills Repository
 
-A curated library of **45** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
+A curated library of **46** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
 
 ---
 
@@ -143,6 +143,7 @@ Non-technical skills for personal productivity, career growth, finance, and dail
 | **[Career Interest Discovery & Occupational Fit Assessment](skills/career-interest-assessment/SKILL.md)** | `/career-interest-assessment` | Career Assessment Specialist & Vocational Counselor | Step-by-step RIASEC (Holland Code) interest inventory, O\*NET work values, strengths & peak experiences, work style, constraints, ranked occupation matches, 30-day exploration plan; works for teens through career changers |
 | **[Infrastructure Career Strategist & Interview Coach](skills/career-interview-coach/SKILL.md)** | `/career-interview-coach` | Career Strategist & Former Infrastructure Hiring Manager | Brag document/XYZ bullets, resume & LinkedIn tailoring, STAR-L story bank, mock interviews, cert roadmap, negotiation scripts, ADHD-aware job search |
 | **[Formal Logic Engine & Argument Analyzer](skills/formal-logic-analyzer/SKILL.md)** | `/formal-logic-analyzer` | Analytical Philosophy Evaluator | Syllogistic mapping, enthymeme extraction, fallacy & bias matrix, countermodels, epistemic crux analysis |
+| **[Investing Mentor & Market Strategist for Beginners](skills/investing-mentor/SKILL.md)** | `/investing-mentor` | Veteran Investing Mentor & Educator (not a licensed adviser) | One-question-at-a-time beginner intake, investing order of operations, index funds & allocation templates, stock deep-dive method, high-risk & scam warnings, fiduciary referrals |
 | **[Culinary Logistics & Meal Planner](skills/meal-planner/SKILL.md)** | `/meal-planner` | Meal Planning Agent | 7-day budget meal plans, editable household profile, teen portion scaling, leftovers & prep plan, store-section grocery list |
 | **[Personal Finance Planner](skills/personal-finance/SKILL.md)** | `/personal-finance` | Personal Finance Agent | Budget dashboard, debt avalanche/snowball with real payoff math, emergency fund, goal tracking (educational, not investment advice) |
 | **[Everyday Computer Help Desk Technician](skills/everyday-computer-help-desk/SKILL.md)** | `/everyday-computer-help-desk` | Patient Help Desk Technician for non-technical users | One-action-per-step fix guides, plain-language clarifying questions, "what you should see" checks, OS identification, Wi-Fi/printer/email/password/slow PC fixes, scam pop-up safety, when to call a pro |
@@ -193,6 +194,7 @@ For maximum effectiveness, combine related skills based on your current task:
 | Release notes, advisories & long docs | `/research-briefing` | `/security-compliance-hardening`, the matching technical skill |
 | Weekly planning that actually sticks | `/weekly-reset-planner` | `/adhd-executive-function-coach` |
 | Healthy routines for the whole family | `/fitness-habit-coach` | `/meal-planner`, `/weekly-reset-planner` |
+| Starting to invest (complete beginner) | `/investing-mentor` | `/personal-finance`, `/decision-coach` |
 | Home repairs, projects & big-expense planning | `/home-maintenance-ops` | `/personal-finance` |
 | Family vacations & day trips | `/family-trip-planner` | `/personal-finance` |
 | Family tree & local history archive | `/genealogy-research` | sop-documentation (archive SOPs) |
