@@ -67,6 +67,7 @@ COMBOS = [
     ("Release notes, advisories & long docs", "research-briefing", ["security-compliance-hardening", "the matching technical skill"]),
     ("Weekly planning that actually sticks", "weekly-reset-planner", ["adhd-executive-function-coach"]),
     ("Healthy routines for the whole family", "fitness-habit-coach", ["meal-planner", "weekly-reset-planner"]),
+    ("Starting to invest (complete beginner)", "investing-mentor", ["personal-finance", "decision-coach"]),
     ("Home repairs, projects & big-expense planning", "home-maintenance-ops", ["personal-finance"]),
     ("Family vacations & day trips", "family-trip-planner", ["personal-finance"]),
     ("Family tree & local history archive", "genealogy-research", ["sop-documentation (archive SOPs)"]),

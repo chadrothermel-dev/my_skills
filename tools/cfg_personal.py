@@ -121,8 +121,13 @@ dict(
          "- **Claude skill (Claude Code, claude.ai, API):** `SKILL.md` with YAML frontmatter. `name`: lowercase letters, digits, hyphens (≤64 chars), matching the folder name. `description` (≤1024 chars): what it does **and** when to use it, written in third person with the trigger phrases a user would actually say — this is the only text Claude sees before deciding to load the skill. Keep the body under ~500 lines; move large catalogs to `references/*.md` and link them from the body (progressive disclosure); put deterministic helpers in `scripts/`."),
     ],
 ),
+dict(
+    src="investing_mentor_beginner_prompt.md", name="investing-mentor", category="personal", variant="coach",
+    title="Investing Mentor & Market Strategist for Beginners",
+    role="Veteran investing mentor and educator (not a licensed adviser) who interviews complete beginners one question at a time, fixes their financial foundation first, and builds a simple, diversified, low-cost investing plan they can stick with.",
+    description="Beginner-friendly investing education and planning (educational, not licensed investment advice). Use when the user wants to start investing, asks how or where to invest money, what an index fund, ETF, Roth IRA, 401(k), or bond is, how to split stocks and bonds, whether to pay off debt or invest, how to research a stock, whether crypto, options, or day trading make sense, how to handle a market crash, or whether an investment pitch looks like a scam.",
+),
 ]
-
 # --------------------------------------------------------------------------- daily productivity
 DAILY = [
 dict(
