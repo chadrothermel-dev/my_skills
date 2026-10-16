@@ -10,10 +10,9 @@
 | Function | Purpose | Use Instead Of Code When... |
 | :--- | :--- | :--- |
 | **Drop** | Remove events matching a filter expression | You need to discard entire events (noise, health checks, debug logs) |
-| **Sampling** | Pass only 1-in-N events | You need statistical volume reduction on homogeneous data |
+| **Sampling** / **Dynamic Sampling** | Pass only 1-in-N events (Dynamic Sampling adjusts the rate by volume) | You need statistical volume reduction on homogeneous data |
 | **Suppress** | Deduplicate/throttle events by key over a time window | You need to limit repetitive events (alert storms, duplicate syslog) |
-| **Rate Limit** [verify — may not exist] | Hard-cap events per second | You need to protect downstream destinations from burst traffic |
-| **Eval → Keep fields** | Retain only named fields (wildcards supported), dropping all others | You need aggressive field reduction |
+| **Eval** (Keep fields / Remove fields) | Retain only named fields, or remove wildcard-matched fields | You need aggressive field reduction (there is no standalone "Keep" function) |
 
 #### Stage 2: Parse & Extract
 | Function | Purpose | Use Instead Of Code When... |
@@ -23,10 +22,10 @@
 | **Regex Extract** | Extract fields using named capture groups | You need to parse semi-structured or unstructured log text |
 | **Grok** | Parse unstructured logs using predefined Grok patterns | You need common log parsing (Apache, Syslog, Cisco) without writing regex |
 | **JSON Unroll** | Split a JSON array into individual events | You need to explode batched/bundled JSON payloads |
-| **XML** [verify — use Parser / XML Unroll] | Parse XML payloads into JSON fields | You need to handle Windows Event Log XML or API XML responses |
-| **CSV** [verify — use Parser] | Parse or format CSV-structured data | You need to handle CSV log formats or produce CSV output |
-| **Syslog** [verify — syslog headers are parsed by the Syslog source] | Parse RFC 3164/5424 syslog headers | You need to extract facility, severity, hostname, app, PID from syslog |
-| **Event Breaker** | Re-apply event breaking rules mid-pipeline | You need to re-segment combined/compressed payloads |
+| **XML Unroll** | Split XML arrays into individual events | You need to explode batched XML payloads (parse single XML docs with Parser/Eval) |
+| **Event Breaker** | Re-apply event breaking rules mid-pipeline | You need to re-segment combined payloads |
+
+> CSV parsing is a Parser type; RFC 3164/5424 syslog headers are parsed by the Syslog Source (or a Pack) — there are no standalone "CSV" or "Syslog" functions.
 
 #### Stage 3: Enrich & Transform
 | Function | Purpose | Use Instead Of Code When... |
@@ -39,26 +38,24 @@
 | **Redis** | Query Redis for real-time enrichment | You need dynamic external context (session state, threat feeds, CMDB) |
 | **Flatten** | Convert nested JSON to top-level dot-notation fields | Target destination does not support nested objects |
 | **Numerify** | Convert string fields to numeric types | Downstream aggregations or metrics require numeric types |
-| **Trim** [verify] | Remove leading/trailing whitespace from field values | Fields contain padding whitespace that causes match failures |
-| **Schema Validation** [verify] | Validate events against a JSON schema | You need to ensure structural compliance before routing to Elastic/Sentinel |
+| **Fold Keys** | Convert dot-notation fields back into nested objects | Destination expects nested JSON (e.g., ECS objects) |
 
 #### Stage 4: Secure & Comply
 | Function | Purpose | Use Instead Of Code When... |
 | :--- | :--- | :--- |
 | **Mask** | Obfuscate PII via hash, pattern replacement, or redaction | You need GDPR/HIPAA/PCI compliance (SSNs, credit cards, emails, passwords) |
-| **Compress** [verify] | Compress/decompress field payloads (gzip, zlib) | You need to handle compressed payloads mid-pipeline |
 
 #### Stage 5: Aggregate & Convert
 | Function | Purpose | Use Instead Of Code When... |
 | :--- | :--- | :--- |
 | **Aggregations** | Statistical rollups (count, sum, avg, min, max, percentile) over time windows | You need logs-to-metrics conversion or volume summarization |
 | **Publish Metrics** | Convert events to time-series metrics format | You need to emit metrics to Prometheus, Datadog, Graphite, InfluxDB |
-| **Prometheus Publisher** | Format metrics for Prometheus scraping | You have a Prometheus-native monitoring stack |
+| **Rollup Metrics** | Roll metrics up to a coarser time granularity | You need to cut metric volume |
 | **OTLP Metrics** | Process OpenTelemetry metric formats | You are working with OTel-instrumented applications |
 
 #### Stage 6: Route & Output
 | Function | Purpose | Use Instead Of Code When... |
 | :--- | :--- | :--- |
 | **Chain** | Execute another pipeline as a sub-routine | You need modular reusable processing (e.g., chain to a Pack pipeline) |
-| **Clone** | Fork events for parallel routing to multiple destinations | You need to send one copy to Elastic and a different copy to Sentinel |
+| **Clone** | Duplicate events within the pipeline (optionally adding fields) | You need a tagged copy; to reach two destinations, pair with an Output Router or use non-final Routes |
 | **Serialize** | Convert events to a specific string format (JSON, CSV, KV) | You need to control the exact output serialization |

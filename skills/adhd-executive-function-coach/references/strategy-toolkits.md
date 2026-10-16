@@ -4,7 +4,7 @@
 
 ### 5. Task Initiation & Procrastination Strategies
 
-**Why it happens (brief):** The ADHD prefrontal cortex requires higher dopamine thresholds to activate the "go" signal for low-interest tasks. The brain isn't choosing to avoid — it literally cannot generate sufficient activation without external scaffolding or artificial urgency.
+**Why it happens (brief):** ADHD is associated with differences in reward and motivation processing, so low-interest tasks often fail to generate the "go" signal. The brain isn't simply choosing to avoid; starting is genuinely harder without external scaffolding, interest, or urgency.
 
 **Strategy Toolkit:**
 
@@ -22,7 +22,7 @@
 
 ### 6. Time Blindness & Time Management
 
-**Why it happens (brief):** ADHD impairs the brain's internal clock — time feels elastic. Five minutes and fifty minutes can feel identical. This isn't carelessness; the neural circuits responsible for temporal processing are genuinely under-activated.
+**Why it happens (brief):** Research consistently finds time-perception and time-management differences in ADHD: time feels elastic, and five minutes and fifty minutes can feel alike. This isn't carelessness; it is a well-documented feature of ADHD.
 
 **Strategy Toolkit:**
 
@@ -53,15 +53,15 @@
 
 ### 8. Emotional Regulation & Rejection Sensitive Dysphoria (RSD)
 
-**Why it happens (brief):** ADHD affects the amygdala's ability to modulate emotional intensity. Emotions arrive faster, hit harder, and take longer to resolve. Rejection Sensitive Dysphoria (RSD) is an intense, physical-pain-level reaction to perceived criticism or rejection — even when none was intended. This is neurological, not "being too sensitive."
+**Why it happens (brief):** Emotional dysregulation is common in adult ADHD (it is not part of the formal DSM-5 criteria, but is widely recognized clinically): emotions can arrive faster, hit harder, and take longer to resolve. **Rejection Sensitive Dysphoria (RSD)** is a term coined by Dr. William Dodson for intense, sometimes physically painful reactions to perceived criticism or rejection. It is **not a formal diagnosis** and research on it is still limited; use it as a helpful description, not a clinical label. Either way, this is not "being too sensitive."
 
 **Strategy Toolkit:**
 
 #### Immediate Regulation (The "Pause")
-1. **Name It to Tame It:** When you feel the emotional wave: *"This is my RSD reacting. The email wasn't an attack — my brain is amplifying it."* Labeling the emotion engages the prefrontal cortex and begins to reduce amygdala activation.
+1. **Name It to Tame It:** When you feel the emotional wave: *"This is my RSD reacting. The email wasn't an attack — my brain is amplifying it."* Research on "affect labeling" suggests naming an emotion can reduce its intensity.
 2. **5-4-3-2-1 Grounding:** Identify 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste. This anchors you in the present and interrupts the emotional spiral.
 3. **The 24-Hour Response Rule:** When triggered by an email, Slack message, or comment — do NOT respond immediately. Draft a response if you need to, but save it. Revisit it after the initial sting fades (minimum 1 hour, ideally overnight).
-4. **Physiological Reset:** Splash cold water on your face, hold ice cubes, or do 30 seconds of intense physical activity (pushups, jumping jacks). These activate the parasympathetic nervous system and break the fight-or-flight loop.
+4. **Physiological Reset:** Splash cold water on your face or hold ice cubes (cold on the face triggers the dive reflex, which slows heart rate), or do 30 seconds of intense physical activity to burn off the stress surge. Skip the cold-water and intense-exercise options if you have a heart condition or other medical concern.
 
 #### Long-Term Resilience
 - **Cognitive Reframing Practice:** When you catch a catastrophic thought (*"My boss hates my work"*), run it through three filters:
@@ -69,13 +69,13 @@
   2. *"Is there an alternative explanation that is less personal?"*
   3. *"If my best friend told me this happened to them, what would I say?"*
 - **Self-Compassion Anchor Phrase:** Develop a personal phrase you repeat during shame spirals: *"My brain processes emotions differently. This feeling is temporary and does not define my value."*
-- **Trigger Journal:** Keep a brief log of RSD episodes (trigger → thought → feeling → what actually happened). Over time, patterns emerge and the intensity naturally decreases as your brain learns to predict and prepare.
+- **Trigger Journal:** Keep a brief log of RSD episodes (trigger → thought → feeling → what actually happened). Over time, patterns emerge and many people find the intensity becomes easier to predict and manage.
 
 ---
 
 ### 9. Decision Paralysis & Overwhelm
 
-**Why it happens (brief):** ADHD brains struggle to rank competing priorities because the prefrontal cortex has difficulty assigning relative importance. Every task feels equally urgent (or equally impossible), causing a freeze state where nothing gets done.
+**Why it happens (brief):** Planning and prioritization are executive-function skills that ADHD often makes harder. Every task feels equally urgent (or equally impossible), causing a freeze state where nothing gets done.
 
 **Strategy Toolkit:**
 
@@ -84,7 +84,7 @@
 - **Eisenhower Matrix (Simplified for ADHD):**
   - **Do Now:** Urgent + Important (server down, deadline today)
   - **Schedule:** Important + Not Urgent (project planning, documentation)
-  - **Delegate:** Urgent + Not Important (routine requests, low-complexity tickets)
+  - **Delegate (or batch/minimize):** Urgent + Not Important (routine requests, low-complexity tickets)
   - **Delete:** Not Urgent + Not Important (most "nice-to-have" tasks that create noise)
 - **5-Minute Decision Timer:** Set a timer for 5 minutes. When it goes off, you must commit to a choice. Constraints create clarity for the ADHD brain.
 - **Pre-Decide Recurring Choices:** Eliminate daily decision fatigue by automating repeating decisions: same lunch on weekdays, same morning routine order, same workout schedule, same "uniform" for work.
@@ -93,7 +93,7 @@
 
 ### 10. Hyperfocus Management
 
-**Why it happens (brief):** Hyperfocus is the flip side of ADHD attention dysregulation. When the brain locks onto something with high dopamine reward (an interesting problem, a new project, a video game), it can't disengage because the reward signal drowns out the brain's "time to stop" mechanism. Hyperfocus is a superpower *when directed* and a liability when uncontrolled.
+**Why it happens (brief):** Hyperfocus is widely reported by adults with ADHD (formal research is still limited) and reflects attention *dysregulation*, not a lack of attention. When the brain locks onto something highly rewarding (an interesting problem, a new project, a video game), disengaging becomes very hard. Hyperfocus is a superpower *when directed* and a liability when uncontrolled.
 
 **Strategy Toolkit:**
 
@@ -106,19 +106,19 @@
 
 ### 11. Sleep & Circadian Rhythm
 
-**Why it happens (brief):** Studies find delayed circadian timing in a large majority of adults with ADHD (estimates as high as ~75–80%) — your internal clock often runs 60–90 minutes later than the standard cycle. Melatonin releases later, your brain is most alert at night, and "just go to bed earlier" is neurologically ineffective without additional intervention.
+**Why it happens (brief):** Sleep problems and a delayed body clock are common in adults with ADHD. Studies report a delayed sleep phase (later melatonin onset) in a large share of adults with ADHD; one frequently cited study found it in about 78%, but estimates vary by sample. When the body clock is delayed, the brain is most alert at night, and "just go to bed earlier" rarely works without other changes. Persistent insomnia or a suspected sleep disorder warrants a doctor or sleep specialist.
 
 **Strategy Toolkit:**
 
 | Strategy | How It Works |
 |:---|:---|
 | **Fixed Wake Time (Non-Negotiable)** | Wake at the same time every day — including weekends. This is the single most powerful circadian anchor. |
-| **Morning Bright Light (30 min)** | Expose yourself to bright light (sunlight or a 10,000 lux therapy lamp) within 15 minutes of waking. This shifts your circadian clock earlier. |
-| **Low-Dose Melatonin (Chronotherapy)** | 0.5–3 mg taken 3 hours before your *desired* sleep time (not bedtime — desired sleep onset). Consult your provider for dosing. |
+| **Morning Bright Light (20–30 min)** | Get bright light (outdoor daylight, or a 10,000 lux light box) soon after waking. This shifts your circadian clock earlier. Check with a doctor first if you have bipolar disorder, an eye condition, or take light-sensitizing medication. |
+| **Low-Dose Melatonin (Chronotherapy)** | Low-dose melatonin taken several hours *before* desired sleep time (not at bedtime) is used to shift a delayed clock. Timing and dose must be set with a clinician; rules vary by country (prescription-only in some, a supplement with variable actual content in the US). |
 | **Screen Curfew (-90 min)** | Dim lights and stop screens 90 minutes before target sleep time. Blue light suppresses melatonin production. Use Night Shift / f.lux if screens are unavoidable. |
-| **Brain Dump Before Bed** | Racing thoughts are the #1 ADHD sleep killer. Keep a notebook on your nightstand and dump every thought, worry, and to-do before lying down. |
+| **Brain Dump Before Bed** | Racing thoughts are a common ADHD sleep obstacle. Keep a notebook on your nightstand and dump every thought, worry, and to-do before lying down. |
 | **"Tired but Wired" Protocol** | If you can't fall asleep after 20 minutes, get up. Go to a dimly lit room, do something non-stimulating (reading a physical book — not your phone), and return when drowsy. |
-| **Sensory Optimization** | Cool room (65–68°F), blackout curtains, white noise or brown noise machine, weighted blanket (some ADHD adults find the deep pressure calming). |
+| **Sensory Optimization** | Cool room (roughly 60–68°F / 16–20°C), blackout curtains, white noise or brown noise machine, weighted blanket (some ADHD adults find the deep pressure calming). |
 
 > **Warning:** If you take ADHD medication, discuss timing with your prescriber. Long-acting stimulants taken too late in the day are a common and fixable cause of sleep-onset insomnia.
 
@@ -126,21 +126,20 @@
 
 ### 12. Exercise & Physical Activity (Dopamine Regulation)
 
-**Why it matters (brief):** Exercise is one of the most powerful non-pharmacological ADHD interventions. A single 30-minute aerobic session increases dopamine and norepinephrine — the same neurotransmitters targeted by ADHD medications — producing a measurable "cognitive bump" in attention, impulse control, and mood for 2–4 hours afterward.
+**Why it matters (brief):** Exercise is one of the better-supported non-medication strategies for ADHD. Studies show even a single bout of aerobic exercise can produce short-term improvements in attention, executive function, and mood, plausibly via dopamine/norepinephrine (the same systems ADHD medications target). Effects are modest and vary; it complements, not replaces, treatment.
 
 **Recommendations:**
 
 | Parameter | Recommendation |
 |:---|:---|
-| **Frequency** | 4–5 days per week minimum |
-| **Duration** | 30–40 minutes per session |
+| **Frequency & Duration** | Aim for general health guidelines (roughly 150+ minutes/week of moderate activity, e.g., 30 min × 5 days); any amount helps. Check with a doctor before starting vigorous exercise if you have health conditions. |
 | **Type (Best)** | Aerobic + complex movement: running, cycling, swimming, martial arts, rock climbing, team sports |
 | **Type (Good)** | Walking, resistance training, yoga, dancing |
-| **Timing** | Morning exercise sets up the best neurochemical foundation for the workday. Finish at least 2 hours before bedtime. |
+| **Timing** | Morning or midday exercise can help focus for the workday. Avoid vigorous exercise in the last hour or so before bed if it disrupts your sleep. |
 | **Novelty** | Rotate activities to prevent boredom. The ADHD brain craves novelty — use this to your advantage. |
 
 **Practical Tips:**
-- **Use exercise as a transition tool:** A 10-minute brisk walk between a frustrating task and the next one resets your neurochemistry.
+- **Use exercise as a transition tool:** A 10-minute brisk walk between a frustrating task and the next one helps reset mood and focus.
 - **Lower the bar to start:** "Put on your shoes and walk to the end of the driveway" is a better goal than "run 3 miles." Momentum handles the rest.
 - **Pair with dopamine:** Listen to music, podcasts, or audiobooks *only* during exercise to create a temptation bundle.
 
@@ -148,15 +147,15 @@
 
 ### 13. Nutrition & Brain Fuel
 
-**Why it matters (brief):** Blood sugar crashes from skipped meals or refined carbohydrates directly worsen ADHD symptoms — inattention, irritability, and brain fog spike when glucose is unstable. The amino acid tyrosine (found in protein) is a precursor to dopamine production.
+**Why it matters (brief):** Diet does not cause or cure ADHD, but skipped meals and hunger reliably worsen focus, irritability, and brain fog for many people, and ADHD (and stimulant appetite suppression) makes forgetting to eat more likely. Steady, regular meals are the main lever.
 
 **Key Principles:**
-- **Protein at every meal, especially breakfast.** Eggs, Greek yogurt, nuts, lean meats. Protein provides sustained energy and supports dopamine synthesis.
+- **Protein at every meal, especially breakfast.** Eggs, Greek yogurt, nuts, lean meats. Protein helps with satiety and steadier energy.
 - **Complex carbohydrates over simple sugars.** Whole grains, legumes, vegetables — these provide steady glucose without the spike-crash cycle.
-- **Omega-3 fatty acids.** Fatty fish (salmon, sardines), walnuts, or a quality supplement (aim for high-EPA formulation, 1000–2000mg/day). Modest but real evidence for ADHD symptom improvement.
+- **Omega-3 fatty acids.** Fatty fish (salmon, sardines), walnuts. Evidence for supplements is mixed, with at most small effects (mostly studied in children); discuss any supplement and dose with a clinician, especially if you take blood thinners or other medication.
 - **Stay hydrated.** Dehydration impairs concentration and mood. Keep a water bottle visible at your desk.
 - **Don't skip meals.** Set alarms if necessary — ADHD adults frequently forget to eat, especially during hyperfocus.
-- **Limit caffeine after 2 PM** to protect sleep architecture. If you rely on caffeine, be aware it can mask genuine fatigue.
+- **Limit caffeine in the afternoon** (it stays in your system for hours; a common rule is none after early afternoon) to protect sleep. If you rely on caffeine, be aware it can mask genuine fatigue.
 
 > **Note:** Nutrition is a *complement* to treatment, not a replacement. Consult your healthcare provider or a registered dietitian for personalized guidance, especially if you take medication.
 
@@ -164,7 +163,7 @@
 
 ### 14. ADHD-Adapted Mindfulness & Grounding
 
-**Why it helps (brief):** Meta-analyses show that adapted mindfulness practices improve sustained attention, self-monitoring, and emotional regulation in adults with ADHD. The key word is *adapted* — standard 30-minute silent meditation often backfires for ADHD brains. Shorter, more active practices work better.
+**Why it helps (brief):** Meta-analyses suggest adapted mindfulness practices can improve attention and emotional regulation in adults with ADHD, though study quality is mixed and effects are modest. The key word is *adapted* — standard 30-minute silent meditation often backfires for ADHD brains. Shorter, more active practices work better.
 
 **ADHD-Friendly Practices:**
 
@@ -173,7 +172,7 @@
 | **Focused Breathing** | 2–5 min | Inhale for 4 counts, hold for 4, exhale for 6. Count on your fingers to keep your mind anchored. |
 | **Body Scan (Active)** | 3–5 min | Squeeze and release each muscle group from feet to head. The physical action keeps the ADHD brain engaged. |
 | **Mindful Walking** | 5–10 min | Walk slowly and deliberately, noticing each foot's contact with the ground. Movement-based mindfulness is often more sustainable than sitting still. |
-| **"Notice & Return"** | Ongoing | When your mind wanders (it will — this is normal, not failure), simply notice it and gently return attention. Each "return" is a rep that strengthens your attention muscle. |
+| **"Notice & Return"** | Ongoing | When your mind wanders (it will — this is normal, not failure), simply notice it and gently return attention. Each "return" is a rep that trains attention. |
 | **Grounding (5-4-3-2-1)** | 1–2 min | 5 things you see, 4 you touch, 3 you hear, 2 you smell, 1 you taste. Use during emotional flooding or anxiety. |
 
 > **Mindset:** Mindfulness for ADHD is not about "clearing your mind." It is about *noticing* when your mind has wandered and practicing the act of redirecting it. That act of noticing IS the exercise.
@@ -185,7 +184,7 @@
 **Strategies for IT/engineering professionals with ADHD:**
 
 - **Deep Work Blocks:** Block 2–3 hour chunks on your calendar labeled "Focus Block — No Meetings." Set Teams/Slack to Do Not Disturb. Use noise-canceling headphones as a visible "I'm in deep work" signal.
-- **Ticket/Task Batching:** Group similar tasks (monitoring checks, patch reviews, documentation) into dedicated time blocks rather than context-switching all day. Each context switch costs 10–25 minutes of refocus time.
+- **Ticket/Task Batching:** Group similar tasks (monitoring checks, patch reviews, documentation) into dedicated time blocks rather than context-switching all day. Interruption research suggests getting back into a complex task can take many minutes, so fewer switches means more real work.
 - **Automate the Boring:** Use your engineering skills as an ADHD accommodation. Repetitive, low-dopamine tasks (log reviews, compliance checks, report generation) are perfect automation candidates — PowerShell scripts, Ansible playbooks, Terraform modules. Automating them removes them from your executive function load entirely.
 - **"Parking Lot" Notebook:** During meetings, keep a separate section for ideas/tangents that pop into your head. Write them down to release working memory, then return to the meeting topic. Review the parking lot afterward.
 - **Written Follow-Ups:** After verbal conversations, immediately send a summary email/message: *"To confirm — I'll update the firewall rules on PAN-01 by Thursday. You'll handle the change request."* This compensates for working memory gaps and creates accountability.
@@ -227,7 +226,7 @@
 
 ### 18. Habit Formation & Routine Building
 
-**Why habits are harder with ADHD (brief):** Neurotypical habit formation relies on consistent repetition until a behavior becomes automatic. ADHD brains have weaker automation circuits — habits take longer to solidify and break more easily. The strategy isn't willpower; it's environmental engineering.
+**Why habits are harder with ADHD (brief):** Habits form through consistent repetition in a stable context until a behavior becomes automatic. ADHD makes that consistency harder (forgetting, inconsistent routines, low reward), so habits often take longer to stick and slip more easily. The strategy isn't willpower; it's environmental engineering.
 
 **Strategy Toolkit:**
 
@@ -239,4 +238,4 @@
   - **High-effort (specials):** Deep hobby work, social outing, learning something new
   - Use the menu to consciously choose healthy dopamine *before* your brain defaults to doomscrolling or impulsive behaviors.
 - **No "All-or-Nothing" Thinking:** Missing one day does NOT mean the habit is broken. The ADHD shame spiral (*"I missed Monday so the whole week is ruined"*) is the real habit-killer. Pick up where you left off without guilt.
-- **Celebrate Micro-Wins:** Your brain needs immediate reward signals. Acknowledge small completions — check items off a physical list (the tactile satisfaction matters), give yourself a verbal *"done,"* or track streaks visually.
+- **Celebrate Micro-Wins:** Immediate rewards help ADHD motivation. Acknowledge small completions — check items off a physical list (the tactile satisfaction matters), give yourself a verbal *"done,"* or track streaks visually.

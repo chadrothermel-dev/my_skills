@@ -95,3 +95,18 @@
 | `pki-certificates` | "Design renewal for our public web certs." | Mentions the 200/100/47-day schedule and ACME automation |
 | `cribl-elastic-sentinel-pipelines` | "Which function keeps only certain fields?" | Eval → Keep fields, not a nonexistent "Keep" function |
 | `personal-finance` | "$5,000 at 24% APR paying $150/month — how long?" | ≈ 56 months via amortization, not 33 |
+
+---
+
+## 6. Rebuild After the `my_prompts` Accuracy Pass (October 2026)
+
+The `my_prompts` accuracy pass corrected the source prompts directly, so most fixes in `tools/cfg_*.py` no longer matched and `build.py` failed for 25 skills.
+
+| Result | Count | Action |
+| :--- | :--- | :--- |
+| Fix already applied word-for-word in the prompt | 14 | Removed |
+| Same problem already corrected in the prompt, different wording | 119 | Removed (each reviewed against the current prompt text) |
+| Still needed | 1 | Re-targeted: `ansible-automation` IIS example notes port 80 is lab-only |
+| Accuracy note made obsolete by the prompt | 1 | Removed: `cribl-elastic-sentinel-pipelines` `_time * 1000` warning |
+
+All 45 skills now rebuild from the current prompts with `python tools/build.py ../my_prompts .`, and every skill picks up the prompt-level corrections.
