@@ -1,6 +1,6 @@
 # My Skills Repository
 
-A curated library of **39** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
+A curated library of **40** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
 
 ---
 
@@ -119,7 +119,7 @@ Non-technical skills for personal productivity, career growth, finance, and dail
 
 | Skill | Invoke | Persona | Key Focus Areas |
 | :--- | :--- | :--- | :--- |
-| **[Adult ADHD Executive Function Coach & Behavioral Analyst](skills/adhd-executive-function-coach/SKILL.md)** | `/adhd-executive-function-coach` | ADHD Life Strategist & Behavioral Analyst | Behavioral decoding (ABC model), 10 ADHD behavioral archetypes (Waiting Mode, Restraint Collapse, Urgency Addiction), 7 executive functions, task initiation, time blindness, working memory, RSD, workplace strategies for IT pros, parenting, habit formation |
+| **[Adult ADHD Executive Function Coach & Behavioral Analyst](skills/adhd-executive-function-coach/SKILL.md)** | `/adhd-executive-function-coach` | ADHD Life Strategist & Executive Function Coach (not a clinician) | Behavioral decoding (ABC model), 10 ADHD behavioral archetypes (Waiting Mode, Restraint Collapse, Urgency Addiction), 7 executive functions, task initiation, time blindness, working memory, RSD, workplace strategies for IT pros, parenting, habit formation |
 | **[Weekly Reset & Life Operating System Coach](skills/weekly-reset-planner/SKILL.md)** | `/weekly-reset-planner` | Personal Operations Coach (GTD + ADHD scaffolding) | 20–30 min weekly reset, brain dump → sort buckets, Big 3 priorities, time-blindness padding, daily/monthly check-ins |
 | **[Health, Fitness & Sustainable Habit Coach](skills/fitness-habit-coach/SKILL.md)** | `/fitness-habit-coach` | Personal Trainer & Habit Coach (non-medical) | Minimum-effective-dose strength plans, "Floor" plans for bad weeks, sleep & energy, desk-worker correctives, habit stacking |
 | **[Home Maintenance & Household Operations Manager](skills/home-maintenance-ops/SKILL.md)** | `/home-maintenance-ops` | Household Ops Manager ("Home as Infrastructure") | Home asset inventory, seasonal PM schedules, DIY vs. pro decisions, contractor vetting, chore matrix, capital replacement forecast |
@@ -131,6 +131,7 @@ Non-technical skills for personal productivity, career growth, finance, and dail
 | **[Formal Logic Engine & Argument Analyzer](skills/formal-logic-analyzer/SKILL.md)** | `/formal-logic-analyzer` | Analytical Philosophy Evaluator | Syllogistic mapping, enthymeme extraction, fallacy & bias matrix, countermodels, epistemic crux analysis |
 | **[Culinary Logistics & Meal Planner](skills/meal-planner/SKILL.md)** | `/meal-planner` | Meal Planning Agent | 7-day budget meal plans, editable household profile, teen portion scaling, leftovers & prep plan, store-section grocery list |
 | **[Personal Finance Planner](skills/personal-finance/SKILL.md)** | `/personal-finance` | Personal Finance Agent | Budget dashboard, debt avalanche/snowball with real payoff math, emergency fund, goal tracking (educational, not investment advice) |
+| **[Everyday Computer Help Desk Technician](skills/everyday-computer-help-desk/SKILL.md)** | `/everyday-computer-help-desk` | Patient Help Desk Technician for non-technical users | One-action-per-step fix guides, plain-language clarifying questions, "what you should see" checks, OS identification, Wi-Fi/printer/email/password/slow PC fixes, scam pop-up safety, when to call a pro |
 
 ---
 

@@ -1,4 +1,5 @@
 # Per-skill configuration for personal, communication, and meta skills.
+from pathlib import Path
 
 PERSONAL = [
 dict(
@@ -288,6 +289,18 @@ dict(src="culinary_logistics_meal_planner_prompt.md", name="meal-planner", categ
 dict(src="personal_finance_management_prompt.md", name="personal-finance", category="personal",
      title="Personal Finance Planner",
      description="Personal budgeting, cash flow, debt payoff, and savings-goal planning (educational, not licensed investment advice). Use when the user wants to build or fix a budget, categorize spending, compare debt snowball vs avalanche, calculate payoff dates and interest, size an emergency fund, plan for a big expense, or track financial goals."),
+dict(src="everyday_computer_help_desk_prompt.md", name="everyday-computer-help-desk", category="personal",
+     title="Everyday Computer Help Desk Technician",
+     description='Patient, plain-language tech support for non-technical everyday users. Gives very detailed, one-action-per-step guides to fix common computer, phone, tablet, Wi-Fi, printer, email, password, sound, display, lost-file, update, and scam pop-up problems on Windows, Mac, ChromeOS, iPhone, and Android, and asks simple clarifying questions when the user can\'t describe the problem clearly. Use when someone says things like "my computer is acting weird", "the internet isn\'t working", "my printer says offline", "I can\'t find my file", "a virus warning popped up", "I forgot my password", or otherwise asks for help fixing an everyday tech problem.'),
 ]
 
+# Hand-written skills maintained as files: tools/handwritten/<name>/SKILL_BODY.md (+ optional references/*.md)
+_HW_DIR = Path(__file__).parent / "handwritten"
+HANDWRITTEN_FILES = {d.name: d for d in _HW_DIR.iterdir() if (d / "SKILL_BODY.md").is_file()}
+
 HANDWRITTEN = {"meal-planner": MEAL_PLANNER, "personal-finance": PERSONAL_FINANCE}
+HANDWRITTEN.update({name: (d / "SKILL_BODY.md").read_text(encoding="utf-8") for name, d in HANDWRITTEN_FILES.items()})
+HANDWRITTEN_REFS = {
+    name: {f.name: f.read_text(encoding="utf-8") for f in sorted((d / "references").glob("*.md"))}
+    for name, d in HANDWRITTEN_FILES.items() if (d / "references").is_dir()
+}

@@ -6,7 +6,7 @@ import re
 import sys
 from pathlib import Path
 
-from skills_config import SKILLS, HANDWRITTEN
+from skills_config import SKILLS, HANDWRITTEN, HANDWRITTEN_REFS
 
 REVIEWED = "2026-10"
 
@@ -149,7 +149,7 @@ def build_skill(cfg, prompts_dir, out_dir):
     name = cfg["name"]
     if name in HANDWRITTEN:
         body = HANDWRITTEN[name]
-        refs = {}
+        refs = HANDWRITTEN_REFS.get(name, {})
     else:
         src = (prompts_dir / cfg["src"]).read_text(encoding="utf-8")
         text = apply_fixes(src, cfg.get("fixes", []), name)
