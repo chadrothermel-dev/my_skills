@@ -8,7 +8,7 @@ You command complete architectural and operational mastery of **Rubrik Security 
 
 ### Architectural Framework
 - **Zero-Trust Architecture:** Data written to Rubrik is stored on an immutable, proprietary append-only file system (**Atlas**). No client or protocol (SMB, NFS) has direct access to raw storage blocks. Storage cannot be modified, encrypted, or deleted by external network commands.
-- **Rubrik Cluster (Brik / Cloud Cluster):** Clustered nodes utilizing shared-nothing distributed architecture. Nodes communicate via encrypted Raft consensus. Available as physical appliances, software-defined nodes, or native Cloud Clusters in AWS, Azure, and GCP.
+- **Rubrik Cluster (Brik / Cloud Cluster):** Clustered nodes utilizing shared-nothing distributed architecture with a distributed metadata store. Available as physical appliances, software-defined nodes, or native Cloud Clusters in AWS, Azure, and GCP.
 - **Rubrik Backup Service (RBS):** Lightweight client agent installed on Windows/Linux hosts providing application consistency (VSS integration), incremental changed block tracking, and log truncation (SQL Server, Oracle RAC).
 - **Control Plane:** SaaS-managed **Rubrik Security Cloud (RSC)** management console providing centralized policy orchestration, global search, and telemetry across all on-prem clusters and cloud subscriptions.
 
@@ -20,21 +20,16 @@ Rubrik eliminates legacy backup job management in favor of declarative **SLA Dom
 
 ### Live Mount & Instant Recovery Mechanics
 - **Live Mount for VMs & Databases:** Instantly exposes a point-in-time snapshot as an active NFS datastore to VMware vSphere, or mounts a SQL Server/Oracle database directly to the host without data movement.
-- **Zero RTO Impact:** Production reads/writes execute directly against the Rubrik SSD tier while Storage vMotion migrates data to tier-1 production SAN in the background.
+- **Near-Zero RTO:** Production reads/writes execute directly against the Rubrik cluster (performance is lower than primary storage) while Storage vMotion migrates data to tier-1 production SAN in the background.
 
 ### Threat Intelligence, Anomaly Detection & Cyber Resilience
-- **Anomalous Activity Detection (Radar):** Machine learning models inspect filesystem metadata and block entropy changes across successive snapshots to detect mass file modifications, unexpected encryption, or bulk deletions indicative of ransomware.
+- **Anomaly Detection (formerly Radar; RSC module names change — verify current naming):** Machine learning models inspect filesystem metadata and block entropy changes across successive snapshots to detect mass file modifications, unexpected encryption, or bulk deletions indicative of ransomware.
 - **Threat Monitoring & Hunting:** Compares snapshots against threat intelligence feeds, known file hashes, and custom **YARA rules** to determine exact blast radius, initial infection date, and patient zero.
-- **Sensitive Data Posture (Sonar):** Discovers and classifies sensitive data (PII, PCI, HIPAA, credentials) across backups to assess exfiltration risk and regulatory liability without production workload impact.
+- **Data Security Posture / Sensitive Data Discovery (formerly Sonar):** Discovers and classifies sensitive data (PII, PCI, HIPAA, credentials) across backups to assess exfiltration risk and regulatory liability without production workload impact.
 - **Orchestrated Recovery & Quarantine:** Quarantines infected snapshots to prevent accidental restoration of malware, and orchestrates clean-state recovery sequences.
 
 ### Rubrik PowerShell SDK & REST API Reference
-Two different PowerShell modules exist — don't mix them:
-- **Rubrik Security Cloud (RSC):** `RubrikSecurityCloud` module, `Connect-Rsc` with a service account; operations are GraphQL-backed. Verify cmdlets with `Get-Command -Module RubrikSecurityCloud`.
-- **Rubrik CDM cluster (legacy SDK):** `Rubrik` module. Illustrative example [verify each cmdlet with `Get-Help` before use]:
-
 ```powershell
-Connect-Rubrik -Server "rubrik-cdm01.corp.local" -Credential (Get-Credential)
 
 ---
 
@@ -43,8 +38,8 @@ Connect-Rubrik -Server "rubrik-cdm01.corp.local" -Credential (Get-Credential)
 You command deep expertise in **Zerto** for low-RPO/low-RTO enterprise replication and disaster recovery.
 
 ### Architecture & Data Path
-- **Zerto Virtual Manager (ZVM):** Central management appliance communicating with vCenter, Hyper-V, and cloud APIs.
-- **Virtual Replication Appliance (VRA):** Lightweight virtual appliance deployed on every ESXi/Hyper-V host that inspects hypervisor I/O streams using kernel-level split-write drivers (VAIO in vSphere).
+- **Zerto Virtual Manager (ZVM):** Central management appliance communicating with vCenter, Hyper-V, and cloud APIs (Zerto 10+ uses the Linux-based ZVM appliance; Windows ZVM is legacy — confirm Hyper-V support for the customer's Zerto version).
+- **Virtual Replication Appliance (VRA):** Lightweight virtual appliance deployed on every protected host that captures writes via a hypervisor-level I/O filter/driver (mechanism varies by Zerto and vSphere version — verify).
 - **Hypervisor-Based Continuous Replication:** Intercepts write I/O before it reaches storage and streams changes asynchronously over WAN to target VRAs with zero reliance on hypervisor snapshots.
 
 ### The Continuous Journal & Granular Point-in-Time Recovery
@@ -84,15 +79,15 @@ You understand the **Cohesity** hyperconverged secondary data architecture.
   - *Direct Storage Access (SAN):* Direct read over FC/iSCSI fabric, zero ESXi host CPU/network overhead.
   - *Virtual Appliance (HotAdd):* Proxy VM mounts target VMDKs directly to its SCSI controller.
   - *Network Mode (NBD/NBDSSL):* Management network fallback.
-- **Scale-Out Backup Repository (SOBR):** Multi-tier storage architecture combining local Performance Tier (NVMe/XFS/ReFS), Cloud Capacity Tier (S3/Blob with Object Lock), and Deep Archive Tier (Glacier/Azure Archive).
+- **Scale-Out Backup Repository (SOBR):** Multi-tier storage architecture combining local Performance Tier (NVMe/XFS/ReFS), Capacity Tier (S3/Blob with Object Lock/immutability), and Archive Tier (S3 Glacier/Azure Archive).
 
 ### Hardened Linux Repository (HLR) Engineering
 - **Architecture:** Physical server running Ubuntu LTS or RHEL with XFS filesystem formatted with `-m reflink=1`.
-- **Immutability Enforcement:** Utilizes Linux file attributes (`chattr +i`) set via a dedicated non-root service (`veeamtransport`) using single-use credentials during deployment. SSH daemon disabled post-deployment.
+- **Immutability Enforcement:** The Veeam Data Mover runs as a dedicated non-root account (added with single-use credentials), while a separate root-level Veeam immutability service sets the Linux immutable attribute (`chattr +i`) until the lock expires. SSH disabled post-deployment. (v13 also offers a pre-hardened Veeam appliance/ISO — verify options for the customer's version.)
 - **Attack Resistance:** Even a compromised Domain Admin or compromised Veeam Backup Server cannot delete, truncate, or overwrite backup files on the HLR before the retention lock expires.
 
 ### Continuous Data Protection (CDP) & SureBackup
-- **Veeam CDP:** Uses vSphere VAIO filters to stream block changes to replica VMs, delivering RPOs under 15 seconds without storage snapshots.
+- **Veeam CDP:** Uses a vSphere VAIO I/O filter to stream block changes to replica VMs, delivering seconds-level RPOs without VM snapshots (vSphere-only; confirm VAIO support for the target vSphere/VCF version).
 - **SureBackup Automated Verification:** Spins up VMs in an isolated Virtual Lab using Instant VM Recovery, verifies OS boot (heartbeat), tests networking (ping), and executes application scripts (e.g., verifying SQL database integrity via DBCC CHECKDB or testing LDAP queries against a domain controller).
 
 ---
@@ -118,7 +113,7 @@ When sub-second RTO and zero RPO are mandatory, software-based backup must be pa
 ## 7. Cloud-Native Disaster Recovery: Azure Site Recovery & AWS DRS
 
 ### Azure Site Recovery (ASR)
-- **Continuous Block Replication:** Mobility Service agent intercepts disk I/O and streams changes to cache storage accounts in Azure.
+- **Continuous Block Replication:** Azure-to-Azure uses the Mobility service extension with a cache storage account in the source region; VMware/physical uses the modernized ASR replication appliance (the classic configuration-server architecture retired on March 30, 2026 — migrate any remaining classic replications).
 - **Automated Recovery Plans:** Defines multi-VM startup order, injects PowerShell runbooks for network peering and DNS registration, and configures post-failover NSG rules.
 - **Test Failover:** Spins up isolated test VNets for validation without impacting live replication.
 

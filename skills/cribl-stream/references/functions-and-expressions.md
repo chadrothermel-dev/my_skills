@@ -4,7 +4,7 @@
 
 ## Complete Pipeline Function Reference
 
-This is a **partial** reference. Cribl also ships Auto Timestamp, Code, Grok, DNS Lookup, Rollup Metrics, Drop Dimensions, Unroll, Fold Keys, Window, Trim Timestamp, OTLP Logs/Traces, and others — check the Functions docs for the user's version before naming parameters.
+This is a **partial** reference. Cribl also ships Auto Timestamp, Code, Grok, DNS Lookup, Rollup Metrics, Drop Dimensions, Unroll, Fold Keys, Window, Trim Timestamp, OTLP Logs/Traces, and others — check the Functions docs for the user's version before naming parameters. The tables below are the most-used subset; other current functions include Auto Timestamp, Grok, Code, Aggregate Metrics, Rollup Metrics, Drop Dimensions, Fold Keys, Unroll, Guard, and OTLP Logs/Traces. **Deprecated (do not recommend for new builds):** Reverse DNS (use DNS Lookup), Prometheus Publisher, Tee, Trim Timestamp. Parameter names below are summaries — confirm exact field labels against docs.cribl.io for the user's version.
 
 ### Filtering & Volume Reduction Functions
 
@@ -33,7 +33,7 @@ This is a **partial** reference. Cribl also ships Auto Timestamp, Code, Grok, DN
 | :--- | :--- | :--- | :--- |
 | **Lookup** | Enrich events by matching a field against an external lookup table and appending mapped fields | Add context (user department, asset criticality, threat intel, CMDB data) | Lookup file/source, Match mode (Exact/Regex/CIDR), Match field(s), Output fields |
 | **GeoIP** | Enrich IP addresses with geographical location data (city, country, lat/lon, ASN) | Network analytics, threat detection, compliance-based geo-routing | Source IP field, GeoIP database (MaxMind MMDB), Output field prefix |
-| **DNS Lookup** | Forward (hostname→IP) or reverse (IP→hostname) resolution (supersedes the deprecated Reverse DNS function) | Network context enrichment, asset identification | Lookup fields, DNS servers, cache TTL |
+| **DNS Lookup** | Forward and reverse DNS resolution (replaces deprecated Reverse DNS) | Network context enrichment, asset identification | Lookup fields (forward/reverse), output fields, cache settings |
 | **Redis** | Enrich events by querying a Redis cache in real-time | Real-time external context, session correlation, dynamic threat lists | Redis connection URL, Command (GET/HGETALL/SMEMBERS), Key expression, Output field |
 
 ### Extraction & Parsing Functions
@@ -57,7 +57,6 @@ This is a **partial** reference. Cribl also ships Auto Timestamp, Code, Grok, DN
 | :--- | :--- | :--- | :--- |
 | **Aggregations** | Perform statistical calculations (count, sum, avg, min, max, percentile) over tumbling time windows | Convert high-volume logs to summary metrics (e.g., VPC flow logs → connection counts per minute) | Time window (seconds), Aggregate functions, Group-by fields, Metric name template |
 | **Publish Metrics** | Convert log events into standard metrics format for time-series databases | Feed metrics destinations (Prometheus, Datadog, Graphite, InfluxDB, SignalFx) | Metric name expression, Value expression, Dimensions/tags |
-| **Prometheus Publisher** | Format metrics specifically for Prometheus scraping endpoints | Prometheus-native environments | Metric name, Labels, Value expression |
 | **OTLP Metrics** | Process and format metrics for OpenTelemetry compliance | OpenTelemetry-instrumented environments | OTel resource attributes, Metric type, Temporality |
 
 ### Routing & Pipeline Control Functions
@@ -65,7 +64,7 @@ This is a **partial** reference. Cribl also ships Auto Timestamp, Code, Grok, DN
 | Function | Purpose | When to Use | Key Parameters |
 | :--- | :--- | :--- | :--- |
 | **Chain** | Pass events to another pipeline or Pack for further processing | Modular pipeline design, reusable processing logic, Pack-based architecture | Target pipeline ID or Pack name |
-| **Clone** | Create copies of events inside the pipeline | Fork data so a copy can be modified differently (often paired with a filter or the Output Router) | Clones (fields to add/override on each copy), Filter expression |
+| **Clone** | Create copies of events within the pipeline, optionally adding fields to each clone | Tag copies for an Output Router; for multi-destination delivery prefer non-final Routes | Clones (fields to add per copy), Filter expression |
 
 ### Serialization & Format-Specific Functions
 
@@ -79,13 +78,12 @@ This is a **partial** reference. Cribl also ships Auto Timestamp, Code, Grok, DN
 | Function | Purpose | When to Use | Key Parameters |
 | :--- | :--- | :--- | :--- |
 | **Comment** | Add documentation notes directly into the pipeline UI | Document pipeline logic, annotate design decisions; does not alter data flow | Comment text |
-| **Tee** | Pipe a copy of events to a command's stdin | Debugging or niche integrations in non-production environments | Command, arguments, environment [verify] |
 
 ---
 
 ## Internal Fields Reference
 
-Fields prefixed with a double underscore (`__`) are **internal**: they are not serialized to destinations. The first six rows (`_raw`, `_time`, `index`, `source`, `sourcetype`, `host`) are standard event fields, *not* internal fields — they are sent downstream.
+You must understand and correctly reference Cribl's core and internal fields. Only fields with a double-underscore prefix (`__`) are internal: they are **not serialized to external destinations** (only to Cribl internal destinations such as Cribl TCP/HTTP). `_raw`, `_time`, `index`, `source`, `sourcetype`, and `host` are regular fields that *are* sent downstream.
 
 | Field | Purpose | Notes |
 | :--- | :--- | :--- |
@@ -96,9 +94,8 @@ Fields prefixed with a double underscore (`__`) are **internal**: they are not s
 | `sourcetype` | Event source type classification | Used heavily in route filter expressions |
 | `host` | Originating host | Hostname of the data source |
 | `__inputId` | Source (input) that delivered the event | Read-only; set by the Source; used in route filters (e.g., `__inputId.startsWith('syslog')`) |
-| `__outputId` | Destination (output) for the event | Set by route/pipeline; determines where the event is sent |
 | `__srcIpPort` | Originating IP:Port of the sender | Common with Syslog and TCP/UDP sources |
-| `__criblMetric` | Metric type flag for metric-aware destinations | Directs metric serialization behavior |
+| `__criblMetric` | Carries metric metadata (set by metrics Sources and Publish Metrics/Aggregations) so the event serializes correctly to any metrics output | Natively consumed by Splunk, Splunk HEC, InfluxDB, StatsD, StatsD Extended, and Graphite Destinations; inspect its structure in Data Preview for the user's version |
 | `__e['field']` | Bracket notation for fields with special characters | Required when field names contain dots, hyphens, or spaces |
 
 ---
@@ -120,10 +117,10 @@ Cribl expressions are evaluated as standard **JavaScript (ECMAScript)** with acc
 | `C.Text` | `C.Text.parseXml(str)` | XML parsing within expressions |
 | `C.Time` | Time manipulation and formatting | Timestamp normalization and conversion |
 | `C.Schema` | Schema validation utilities [verify] | Validate event structure against defined schemas |
-| `C.Metric` | Metric helpers [verify — may not exist] | Build metric events programmatically |
-| `C.Math` | [verify — may not exist; use JavaScript `Math.*`] | Statistical and numerical operations |
-| `C.OS` | `C.os.hostname()` | System-level information |
+| `C.Secret` | Secret retrieval | Reference stored secrets in expressions |
+| `C.Misc` | Miscellaneous helpers | Utility operations (check docs for current methods) |
+| `C.os` | `C.os.hostname()` | System-level information |
 | `C.env` | `C.env['VAR_NAME']` | Access environment variables |
 | `C.vars` | `C.vars['global_var']` | Access global variables defined in Worker Group settings |
 | `C.systemVars` | System-level variable access | Read-only system configuration values |
-| `C.version()` | Returns current Cribl version string | Version-conditional logic |
+| `C.version` | Current Cribl version string | Version-conditional logic |

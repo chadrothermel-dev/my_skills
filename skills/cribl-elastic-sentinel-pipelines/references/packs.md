@@ -6,16 +6,18 @@
 
 Before building any custom pipeline, you **MUST** check the Cribl Pack Dispensary for pre-built, community-validated Packs. Packs accelerate deployment, reduce custom code, and are maintained by Cribl and the community.
 
+> Pack IDs below are illustrative and change over time — tell the user to confirm the exact Pack name, publisher, version, and maintenance status in the Dispensary before installing. Never present an unverified Pack ID as fact.
+
 > ⚠️ Pack IDs below are illustrative and unverified. Search the Dispensary by vendor/product and confirm the exact Pack ID and maintainer before recommending one.
 
 ### Destination-Specific Packs
 
 | Pack Name | Purpose | Use When |
 | :--- | :--- | :--- |
-| **`cribl-microsoft-sentinel`** | Converts vendor logs to CommonSecurityLog format for Sentinel | Routing firewall, IDS/IPS, or network appliance logs to Sentinel's `CommonSecurityLog` table |
-| **`cribl-microsoft-sentinel-syslog-dest`** | Formats data for Sentinel's `Syslog` table | Routing standard syslog data to Sentinel's built-in `Syslog` table |
-| **`cribl-azure-sentinel-csl-dest`** | Post-processing for CommonSecurityLog destination | Ensuring CEF field mappings are correct for Sentinel ingestion |
-| **`cribl-elastic-output`** | Routing post-processor for Elastic Data Streams | Dynamically setting `_index` to the correct data stream name based on log type |
+| **Microsoft Sentinel Pack** (search "Microsoft Sentinel"; confirm ID) | Converts vendor logs (Palo Alto, syslog, Windows events, Fortinet, CEF) to Sentinel table formats | Routing firewall, IDS/IPS, or network appliance logs to Sentinel's `CommonSecurityLog` table |
+| **Sentinel `Syslog`-table formatting** (no dedicated Pack ID confirmed; check the Microsoft Sentinel Pack or search the Dispensary) | Formats data for Sentinel's `Syslog` table | Routing standard syslog data to Sentinel's built-in `Syslog` table |
+| **`cribl-azure-sentinel-csl-dest`** (Microsoft Sentinel Common Security Log) | Post-processing for CommonSecurityLog destination | Ensuring CEF field mappings are correct for Sentinel ingestion |
+| **Elastic data-stream routing** (no dedicated Pack ID confirmed; search the Dispensary for "Elastic" or build a post-processing Pipeline) | Routing post-processor for Elastic Data Streams | Dynamically setting `_index` to the correct data stream name based on log type |
 
 ### Source-Specific Packs
 
@@ -26,10 +28,10 @@ Before building any custom pipeline, you **MUST** check the Cribl Pack Dispensar
 | **`cribl-crowdstrike-rest`** | CrowdStrike REST API events | Handles event stream and detection data from Falcon API |
 | **`cribl-windows-events`** | Windows Event Logs (via Cribl Edge) | Parses Windows Security/System/Application event XML; extracts EventID, account, logon type |
 | **`cribl-edge-for-windows`** | Windows endpoint collection | Comprehensive Windows log collection and normalization for Edge agents |
-| **`cribl-cef-source`** | CEF-formatted syslog | Parses ArcSight Common Event Format into structured fields |
+| **`cribl-common-event-format`** (CEF/LEEF) | CEF- or LEEF-formatted syslog | Pre-processor that parses ArcSight Common Event Format (and LEEF) into structured fields |
 | **`cribl-cisco-asa`** | Cisco ASA/Firepower | Parses ASA syslog messages; extracts ACL actions, NAT translations, VPN events |
 | **`cribl-fortinet`** | Fortinet FortiGate (FortiOS) | Parses FortiGate key-value logs; extracts policy actions, UTM events |
-| **`cribl-office365`** | Microsoft 365 Management Activity API | Processes O365 audit logs (Exchange, SharePoint, Azure AD, DLP) |
+| **`cribl-office365`** | Microsoft 365 Management Activity API | Processes O365 audit logs (Exchange, SharePoint, Entra ID, DLP) |
 | **`cribl-aws-vpc-flow`** | AWS VPC Flow Logs | Parses VPC flow log fields; enriches with action (ACCEPT/REJECT) and protocol names |
 
 ### Pack Evaluation & Modification Protocol

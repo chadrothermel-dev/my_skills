@@ -8,11 +8,11 @@ ECS compliance is **mandatory** for Elastic Security detection rules, Observabil
 
 | ECS Field | Type | Required For | How to Set in Cribl |
 | :--- | :--- | :--- | :--- |
-| `@timestamp` | `date` (ISO 8601) | Everything — sorting, dashboards, alerts, ML | Eval: `@timestamp = C.Time.strftime(_time * 1000, '%Y-%m-%dT%H:%M:%S.%LZ')` or use Auto Timestamp |
+| `@timestamp` | `date` (ISO 8601) | Everything — sorting, dashboards, alerts, ML | Normalize `_time` with Auto Timestamp; the Cribl Elasticsearch destination renames `_time` to `@timestamp` at delivery (millisecond precision). If set explicitly: `C.Time.strftime(_time, '%Y-%m-%dT%H:%M:%S.%LZ')` (`_time` is epoch **seconds**) |
 | `message` | `text` | Discover, full-text search, fallback display | Eval: `message = _raw` (preserve original event) |
-| `ecs.version` | `keyword` | Schema version identification | Eval: `ecs.version = C.vars['ecs_version']` (set the global to the ECS version your stack expects) |
-| `event.kind` | `keyword` | Event classification | `event`, `alert`, `enrichment`, `metric`, `state`, `pipeline_error`, `signal` |
-| `event.category` | `keyword` (array) | SIEM rule matching | `authentication`, `configuration`, `database`, `driver`, `email`, `file`, `host`, `iam`, `intrusion_detection`, `malware`, `network`, `package`, `process`, `registry`, `session`, `threat`, `vulnerability`, `web` |
+| `ecs.version` | `keyword` | Schema version identification | Eval: `ecs.version = '<ECS version your target integration/mappings use>'` (verify; do not hardcode an arbitrary version) |
+| `event.kind` | `keyword` | Event classification (ECS allowed values; `signal` is reserved for Elastic solutions, `asset` is beta) | `event`, `alert`, `asset`, `enrichment`, `metric`, `state`, `pipeline_error`, `signal` |
+| `event.category` | `keyword` (array) | SIEM rule matching | `api`, `authentication`, `configuration`, `database`, `driver`, `email`, `file`, `host`, `iam`, `intrusion_detection`, `library`, `malware`, `network`, `package`, `process`, `registry`, `session`, `threat`, `vulnerability`, `web` |
 | `event.type` | `keyword` (array) | SIEM rule sub-classification | `access`, `admin`, `allowed`, `change`, `connection`, `creation`, `deletion`, `denied`, `end`, `error`, `group`, `indicator`, `info`, `installation`, `protocol`, `start`, `user` |
 | `event.outcome` | `keyword` | Auth/access result | `success`, `failure`, `unknown` |
 | `event.action` | `keyword` | Specific action taken | Vendor-specific (e.g., `logged-in`, `firewall-rule-matched`) |
@@ -39,7 +39,7 @@ ASIM is Sentinel's normalization framework — equivalent to ECS in Elastic. Key
 | **Web Session** | `Url`, `HttpRequestMethod`, `HttpStatusCode`, `SrcIpAddr`, `DstIpAddr` | Proxy logs, WAF, web server access logs |
 | **Process Event** | `ActingProcessName`, `TargetProcessName`, `TargetProcessCommandLine`, `ActorUsername` | Sysmon, CrowdStrike, Defender |
 | **File Activity** | `TargetFileName`, `TargetFilePath`, `ActorUsername`, `EventType` (Created/Modified/Deleted) | File integrity monitoring, Sysmon |
-| **Audit** | `EventType`, `Object`, `ActorUsername`, `SrcIpAddr` | Azure AD audit, config changes |
+| **Audit** | `EventType`, `Object`, `ActorUsername`, `SrcIpAddr` | Entra ID audit, config changes |
 
 ---
 

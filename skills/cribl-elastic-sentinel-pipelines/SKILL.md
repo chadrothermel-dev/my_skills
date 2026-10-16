@@ -39,9 +39,9 @@ You must understand and enforce these Elastic Serverless Cloud requirements in e
 
 #### Authentication & Connectivity
 - **Authentication:** API Keys only — Basic Authentication (username/password) is **not supported** in Elastic Serverless. Use the `Authorization: ApiKey ${API_KEY}` header.
-- **Endpoint URL:** Unique per Serverless project: `https://<project-id>.<region>.<provider>.elastic-cloud.com:443`
+- **Endpoint URL:** Unique per Serverless project, typically `https://<project-alias>.es.<region>.<provider>.elastic.cloud:443` — always copy the exact Elasticsearch endpoint from the project's connection details rather than constructing it.
 - **API Format:** The `_bulk` API requires **NDJSON** (Newline Delimited JSON) — each operation is an action/metadata line followed by a document line.
-- **Managed Ingestion Endpoint:** Elastic also offers a `/_es` managed endpoint with durable buffering, back-pressure handling, and automatic retries for high-volume ingestion.
+- **Ingestion features & limits:** Serverless ingestion behavior (managed endpoints, buffering, request-size limits) changes frequently — confirm against current Elastic Serverless docs before relying on a specific feature.
 
 #### Data Streams (Mandatory for Time-Series Data)
 All time-series log data in Elastic Serverless **must** use Data Streams, not traditional indices.
@@ -64,10 +64,10 @@ Or set the per-event index override field documented for the Elastic destination
 ### B. Microsoft Sentinel Ingestion Requirements
 
 #### Authentication & Connectivity
-- **API:** Azure Monitor Logs Ingestion API (replaced the legacy HTTP Data Collector API, retired 14 September 2026 — migrate any remaining Data Collector integrations).
-- **Authentication:** Microsoft Entra ID OAuth2 via App Registration — Tenant ID, Client ID, and a client secret or certificate (prefer certificate where the destination supports it; keep secrets in Cribl's secret store and rotate them) [verify].
+- **API:** Azure Monitor Logs Ingestion API. The legacy HTTP Data Collector API was retired on September 14, 2026 — never recommend it or the old Cribl "Azure Sentinel (Data Collector)" style config.
+- **Authentication:** Microsoft Entra ID OAuth2 via App Registration — requires Tenant ID, Client ID, and Client Secret (or certificate); the app needs the *Monitoring Metrics Publisher* role on the DCR.
 - **Format:** JSON array payload — fields must exactly match the schema defined in the DCR (Data Collection Rule).
-- **Limits:** Max payload 1 MB per request, max field value 64 KB, rate limit 2 GB/minute per DCR.
+- **Limits (as of 2026; verify in Azure Monitor service-limits docs):** 1 MB max per API call (compressed or uncompressed), 64 KB max field value, 2 GB/minute and 12,000 requests/minute per DCR (HTTP 429 + `Retry-After` when exceeded).
 - **Cribl Destination Type:** "Microsoft Sentinel" destination — configure with DCR Immutable ID, DCE (Data Collection Endpoint) URL, Stream Name, and Entra credentials.
 
 #### Data Collection Rule (DCR) & Data Collection Endpoint (DCE) Model
@@ -90,8 +90,10 @@ Each DCR defines:
 | :--- | :--- | :--- | :--- | :--- |
 | **Built-in (Analytics)** | `CommonSecurityLog`, `Syslog`, `SecurityEvent`, `AzureActivity` | Standard Analytics | ✅ Full alerting, KQL, workbooks | Security-relevant logs, SIEM detection |
 | **Custom (Analytics)** | `PaloAlto_CL`, `CrowdStrike_CL` | Standard Analytics | ✅ Full alerting | Custom schemas, vendor-specific data |
-| **Basic Tier** | Any table set to Basic | Much cheaper ingestion [verify current pricing] | ❌ No real-time alerts, charged per query GB | High-volume, low-security-value logs |
-| **Auxiliary Tier** | Any table set to Auxiliary | Cheapest | ❌ Very limited querying | Verbose debug/audit logs, compliance archive |
+| **Basic Tier** | Supported Azure tables or DCR-based custom tables set to Basic | Lower ingestion price than Analytics | ⚠️ Full KQL but charged per GB queried; no Sentinel analytics rules (only Azure Monitor simple log alerts) | High-volume, low-security-value logs |
+| **Auxiliary / Sentinel data lake** | Tables set to Auxiliary or the data lake tier | Cheapest | ❌ No standard analytics rules; limited querying | Verbose debug/audit logs, compliance archive |
+
+> Tier names, pricing, and alerting capabilities have changed repeatedly (incl. the Microsoft Sentinel data lake). State the assumption and tell the user to confirm on the current Azure Monitor / Sentinel pricing page — never quote a fixed discount percentage.
 
 **Cost Optimization Strategy for Cribl → Sentinel:**
 - Route **security-critical events** (authentication failures, malware detections, firewall denies, privilege escalations) to **Analytics tier** tables.
@@ -160,7 +162,7 @@ The most common deployment pattern sends the same log data to both Elastic and S
 
 **Alternative Pattern: Output Router**
 
-Instead of Clone, use an **Output Router** at the route level to send all events to both destinations simultaneously, with destination-specific post-processing pipelines applied at the output.
+Instead of Clone, use two Routes on the same filter with **Final** disabled on the first (each Route sends to its own destination), or an **Output Router** destination; attach the destination-specific transforms as **post-processing pipelines** on each Destination.
 
 ### Shared Pipeline Best Practices
 
@@ -182,8 +184,8 @@ This pipeline transforms the shared output into ECS-compliant format for Elastic
 ```
  1. Comment: "ECS mapping for Elastic Serverless Cloud"
  2. Eval:
-    - @timestamp = C.Time.strftime(_time * 1000, '%Y-%m-%dT%H:%M:%S.%LZ')
-    - ecs.version = C.vars['ecs_version']
+    - @timestamp = C.Time.strftime(_time, '%Y-%m-%dT%H:%M:%S.%LZ')   // _time is epoch seconds
+    - ecs.version = '<ECS version of target mappings>'
     - message = _raw
     - data_stream.type = 'logs'
     - data_stream.dataset = __inputId.replace(/^.+:/, '').replace(/[^a-z0-9._]/g, '_')
@@ -218,7 +220,7 @@ This pipeline transforms the shared output into the schema expected by the targe
 ```
  1. Comment: "Schema mapping for Microsoft Sentinel (CommonSecurityLog / Custom Table)"
  2. Eval:
-    - TimeGenerated = C.Time.strftime(_time * 1000, '%Y-%m-%dT%H:%M:%S.%LZ')
+    - TimeGenerated = C.Time.strftime(_time, '%Y-%m-%dT%H:%M:%S.%LZ')   // _time is epoch seconds
     - DeviceVendor = '<vendor name>'
     - DeviceProduct = '<product name>'
     - DeviceVersion = '<version>'
@@ -257,14 +259,18 @@ Before generating any pipeline configuration, execute this audit:
 
 2. **Pack Dispensary Check:**
    - Search for an existing Pack for this log source (e.g., `cribl-palo-alto-networks`, `cribl-crowdstrike-fdr`).
-   - Search for destination-specific Packs (e.g., `cribl-microsoft-sentinel`, `cribl-elastic-output`).
+   - Search for destination-specific Packs (e.g., search "Microsoft Sentinel", "Elastic").
    - If a Pack exists, evaluate its pipelines against the ECS and ASIM/CEF requirements.
    - Note any gaps in the Pack that require custom post-processing.
 
 3. **Schema Compliance Audit:**
    - For Elastic: Will the output fields satisfy ECS requirements for the target Elastic project type (Observability vs Security)?
    - For Sentinel: Will the output fields match the DCR schema for the target table (`CommonSecurityLog`, `Syslog`, or custom `_CL`)?
-   - Are `@timestamp` / `TimeGenerated` formats correct (ISO 8601)?
+   - Are `@timestamp` / `TimeGenerated` formats correct (ISO 8601, `_time` treated as seconds)?
+
+3b. **Accuracy Check:**
+   - Does every function, C.* method, setting, and Pack name exist in the stated Cribl version? No deprecated functions (Prometheus Publisher, Tee, Reverse DNS, Trim Timestamp) or retired APIs (HTTP Data Collector)?
+   - Are limits, tiers, and costs flagged "verify" rather than stated as fixed? Are reduction estimates labeled as estimates with assumptions listed?
 
 4. **Code Function Necessity Check:**
    - Can every transformation be achieved with native functions (Drop, Eval, Rename, Lookup, Parser, Regex Extract, Grok, etc.)?
@@ -305,14 +311,15 @@ Deliver a **Pipeline Engineering Blueprint** with:
 
 1. **Pack-First Design:** Always check the Cribl Pack Dispensary before building custom pipelines. If a Pack covers 80%+ of the requirement, use it and Chain to a custom post-processing pipeline for the remaining 20%.
 2. **No-Code-First Design:** Never use the Code (JavaScript) function when a native function exists. Eval with `C.*` methods covers 95%+ of transformation needs. If Code is unavoidable, add a Comment function directly above it explaining why.
-3. **Filter First, Transform Second:** Drop, Sampling, and Suppress should appear at the TOP of every pipeline before any enrichment or transformation. Never process data you intend to discard.
+3. **Filter First, Transform Second:** Drop, Sampling, and Suppress must appear at the TOP of every pipeline before any enrichment or transformation. Never process data you intend to discard.
 4. **Schema Compliance is Non-Negotiable:** Every event sent to Elastic must include ECS core fields (`@timestamp`, `ecs.version`, `event.*`, `data_stream.*`). Every event sent to Sentinel must match the target DCR schema exactly.
 5. **Maintainability Over Cleverness:** Prefer multiple simple Eval functions with descriptive labels over a single complex expression. Use Comment functions to document pipeline logic. Name pipelines and routes descriptively (e.g., `paloalto_traffic_to_elastic_ecs` not `pipeline_7`).
 6. **Document the Clone Strategy:** When splitting events for dual-destination routing, clearly document which pipeline handles Elastic formatting and which handles Sentinel formatting.
 7. **Zero Hallucination on Functions:** Never invent pipeline function names, parameters, C.* methods, or Pack names that do not exist. If uncertain about a function's capabilities, state it.
 8. **Cost-Aware Routing:** Always consider that Elastic costs scale with VCU consumption (more data = more compute cost) and Sentinel costs scale with GB ingested per tier (Analytics vs Basic). Design pipelines to minimize both.
 9. **Test with Data Preview:** Always recommend validating pipeline logic using Cribl's built-in Data Preview (Capture or Passthrough mode) with sample events before deploying to production.
-10. **Version-Aware Recommendations:** Acknowledge that Cribl function availability can vary by version. If recommending a newer function (e.g., Grok, Schema Validation), note the minimum Cribl Stream version required.
+10. **Version-Aware Recommendations:** State the assumed Cribl Stream version and Elastic/Azure configuration. If a function or setting may be version-specific or changed after your training data, say so and point to docs.cribl.io / Elastic / Microsoft Learn release notes.
+11. **Fact vs. Estimate:** Label data-reduction percentages, VCU/GB cost impacts, and limits as estimates or "verify" items with stated confidence; say "I don't know" rather than guess a DCR schema, field name, or limit.
 
 ---
 
@@ -320,5 +327,4 @@ Deliver a **Pipeline Engineering Blueprint** with:
 
 These corrections override anything above that conflicts with them.
 
-- `C.Time.strftime(_time * 1000, ...)` in the examples assumes a millisecond argument, but Cribl's `_time` is epoch **seconds** — confirm the function's expected unit in the Cribl docs before using it [verify].
 - Elastic Stack 9.x and current ECS releases supersede the 8.x references; Serverless is versionless. Confirm the ECS version the target stack expects.

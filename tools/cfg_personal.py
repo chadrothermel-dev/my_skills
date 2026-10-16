@@ -9,9 +9,7 @@ dict(
     description="Adult ADHD executive-function coaching and behavioral decoding. Use when the user asks why they did (or couldn't do) something — freezing before a task, waiting mode before an appointment, procrastinating with busywork, snapping at home after a calm workday, abandoning projects at 90%, hyperfocus, impulse spending — or needs help starting a task, managing time blindness, overwhelm, rejection sensitivity (RSD), routines, sleep, parenting, or workplace strategies with ADHD.",
     fixes=[
         ("use automated templates (like the Systems Procedure Documentation prompt)", "use automated templates (like the `sop-documentation` skill)"),
-        ("**Why it happens (brief):** Up to 78% of adults with ADHD have Delayed Sleep Phase Syndrome (DSPS) — your internal clock runs 60–90 minutes later than the standard cycle.",
-         "**Why it happens (brief):** Studies find delayed circadian timing in a large majority of adults with ADHD (estimates as high as ~75–80%) — your internal clock often runs 60–90 minutes later than the standard cycle."),
-    ],
+        ],
     splits=[
         dict(file="behavior-patterns.md", title="ADHD Behavioral Pattern Encyclopedia",
              headings=["### 4. The Master ADHD Behavioral Pattern Encyclopedia"],
@@ -117,9 +115,7 @@ dict(
          "Your objective is to **create new system prompts and skills and improve existing ones** for the user's libraries (`my_prompts` for raw prompts, `my_skills` for Claude skills)."),
         ("**File naming:** `snake_case_descriptive_name_prompt.md`.",
          "**File naming:** prompts → `snake_case_descriptive_name_prompt.md`; skills → `skills/kebab-case-name/SKILL.md` (+ optional `references/`)."),
-        ("10. **Accuracy over completeness:** Never include version numbers, product names, limits, or dates you cannot verify. Flag uncertain items for the user to confirm.",
-         "10. **Accuracy over completeness:** Never include version numbers, product names, limits, or dates you cannot verify. Flag uncertain items **[verify]** and date-stamp fast-moving facts (\"reviewed YYYY-MM\").\n11. **Silent self-checks.** Verification checklists run internally; never instruct the model to print `<verification>` blocks or status flags.\n12. **Scale the output.** Rigid multi-part formats are for design/build requests; quick questions get direct answers.\n13. **Reserve ALL-CAPS absolutes for safety.** Modern Claude models follow instructions literally; overusing MUST/NEVER causes over-application.\n14. **Don't hard-code facts the model will repeat as truth.** Every example name, cmdlet, SKU, or Pack ID in a prompt gets copied into answers — verify them or mark them illustrative."),
-        ("| House-style conformance | Inconsistent | Matches `my_prompts` skeleton |",
+                ("| House-style conformance | Inconsistent | Matches `my_prompts` skeleton |",
          "| Currency hygiene | Stale versions/names stated as fact | Dated, [verify]-tagged, tool-verification instructed |\n| Response scaling | One rigid format for everything | Depth matches the request |\n| House-style conformance | Inconsistent | Matches `my_prompts` / `my_skills` skeleton |"),
         ("- **Claude Code skill:** `SKILL.md` with YAML frontmatter (`name`, `description`). The description must say *when* to trigger. Keep the body focused; move large references to separate files.",
          "- **Claude skill (Claude Code, claude.ai, API):** `SKILL.md` with YAML frontmatter. `name`: lowercase letters, digits, hyphens (≤64 chars), matching the folder name. `description` (≤1024 chars): what it does **and** when to use it, written in third person with the trigger phrases a user would actually say — this is the only text Claude sees before deciding to load the skill. Keep the body under ~500 lines; move large catalogs to `references/*.md` and link them from the body (progressive disclosure); put deterministic helpers in `scripts/`."),
