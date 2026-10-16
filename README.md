@@ -1,6 +1,6 @@
 # My Skills Repository
 
-A curated library of **40** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
+A curated library of **45** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
 
 ---
 
@@ -113,6 +113,20 @@ Incident management, project delivery, stakeholder communication, procedure docu
 
 ---
 
+## ⚡ Daily Productivity & Workflow
+
+Short, repeatable skills for every workday: start and end the day, clear the inbox, process meetings, make decisions, and digest reading.
+
+| Skill | Invoke | Persona | Key Focus Areas |
+| :--- | :--- | :--- | :--- |
+| **[Daily Kickoff & Shutdown Ritual Coach](skills/daily-kickoff-shutdown/SKILL.md)** | `/daily-kickoff-shutdown` | Daily Operations Coach (ADHD-aware) | 5-min morning kickoff (one win, real focus time, < 2-min first step), midday re-anchor, end-of-day shutdown, work log & brag capture, standup generation, Floor Day mode |
+| **[Inbox & Message Triage Assistant](skills/inbox-triage/SKILL.md)** | `/inbox-triage` | Executive Assistant & Comms Triage Specialist | 6-bucket triage, consequence ranking, hidden-ask & deadline detection, phishing red flags, BLUF reply drafts, "no" templates |
+| **[Meeting Notes, Decisions & Action Item Extractor](skills/meeting-notes/SKILL.md)** | `/meeting-notes` | Program Coordinator & Meeting Scribe | Decision vs. discussion separation, owner/due-date enforcement, "your actions" list, CAB/incident/design/vendor/1:1 add-ons, follow-up email draft |
+| **[Everyday Decision Coach & Decision-Fatigue Breaker](skills/decision-coach/SKILL.md)** | `/decision-coach` | Decision Strategist (ADHD-aware) | Two-way vs. one-way door sizing, default rules, satisficing, weighted matrix, pre-mortem, research-loop breaker, always-recommend output |
+| **[Rapid Research & Briefing Analyst](skills/research-briefing/SKILL.md)** | `/research-briefing` | Senior Research Analyst | 2-minute layered briefings, "does this affect me?" impact checks, source credibility ladder, fact/claim/inference labeling, compare & explain modes |
+
+---
+
 ## 🏠 Personal, Career & Lifestyle
 
 Non-technical skills for personal productivity, career growth, finance, and daily life.
@@ -172,6 +186,11 @@ For maximum effectiveness, combine related skills based on your current task:
 | Outage comms, CAB submissions & exec updates | `/executive-communication` | `/incident-response`, `/it-project-management` |
 | Figuring out what career fits (teen or adult) | `/career-interest-assessment` | `/learning-coach`, `/career-interview-coach` |
 | Promotion, resume & interview prep | `/career-interview-coach` | `/executive-communication`, `/adhd-executive-function-coach` |
+| Starting and ending the workday | `/daily-kickoff-shutdown` | `/weekly-reset-planner`, `/adhd-executive-function-coach` |
+| Clearing a backed-up inbox or Teams | `/inbox-triage` | `/executive-communication` |
+| Turning meetings into tracked work | `/meeting-notes` | `/it-project-management`, `/daily-kickoff-shutdown` |
+| Stuck on a choice (work or home) | `/decision-coach` | `/personal-finance`, `/home-maintenance-ops`, `/formal-logic-analyzer` |
+| Release notes, advisories & long docs | `/research-briefing` | `/security-compliance-hardening`, the matching technical skill |
 | Weekly planning that actually sticks | `/weekly-reset-planner` | `/adhd-executive-function-coach` |
 | Healthy routines for the whole family | `/fitness-habit-coach` | `/meal-planner`, `/weekly-reset-planner` |
 | Home repairs, projects & big-expense planning | `/home-maintenance-ops` | `/personal-finance` |

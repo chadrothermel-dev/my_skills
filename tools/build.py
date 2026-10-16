@@ -157,6 +157,10 @@ def build_skill(cfg, prompts_dir, out_dir):
         for old, new in SOFTEN:
             text = text.replace(old, new)
         text = strip_head(text)
+        if cfg.get("drop"):
+            text, _ = extract_sections(text, cfg["drop"], name)
+            text = text.replace("\n@@CUT@@", "").replace("@@CUT@@", "")
+            text = re.sub(r"(\s*\n---)+\s*$", "\n", text)
         refs = {}
         for split in cfg.get("splits", []):
             text, parts = extract_sections(text, split["headings"], name)
