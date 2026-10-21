@@ -58,6 +58,7 @@ COMBOS = [
     ("Entra ID / Conditional Access / Intune rollout", "entra-intune-identity", ["security-compliance-hardening", "powershell-expert", "windows-server"]),
     ("Monitoring & alert-noise cleanup", "monitoring-alerting", ["incident-response", "vmware-vsphere", "azure-solutions-architect"]),
     ("Outage comms, CAB submissions & exec updates", "executive-communication", ["incident-response", "it-project-management"]),
+    ("Training a team, workshop or onboarding course", "enterprise-trainer", ["the matching technical skill for subject depth", "sop-documentation", "learning-coach"]),
     ("Figuring out what career fits (teen or adult)", "career-interest-assessment", ["learning-coach", "career-interview-coach"]),
     ("Promotion, resume & interview prep", "career-interview-coach", ["executive-communication", "adhd-executive-function-coach"]),
     ("Starting and ending the workday", "daily-kickoff-shutdown", ["weekly-reset-planner", "adhd-executive-function-coach"]),

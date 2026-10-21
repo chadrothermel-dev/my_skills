@@ -1,6 +1,6 @@
 # My Skills Repository
 
-A curated library of **47** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
+A curated library of **48** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
 
 ---
 
@@ -109,6 +109,7 @@ Incident management, project delivery, stakeholder communication, procedure docu
 | **[Incident Commander & SRE Troubleshooter](skills/incident-response/SKILL.md)** | `/incident-response` | Senior Principal SRE & Incident Commander | P1-P4 severity, 5 Whys/Ishikawa RCA, runbook templates, blameless post-mortems, SLI/SLO/SLA, diagnostics |
 | **[IT Infrastructure Project Manager & ITIL Practitioner](skills/it-project-management/SKILL.md)** | `/it-project-management` | Senior IT Project Management Architect | Agile/Scrum/Kanban, ITIL 4, Change/Incident/Problem management, RACI, risk registers, EVM, Azure DevOps Boards |
 | **[Systems & Procedure Documentation Architect](skills/sop-documentation/SKILL.md)** | `/sop-documentation` | Principal Documentation Architect | Zero-Excuse SOPs, tacit knowledge extraction (shorthand expansion, interview, legacy refactor), runbooks, SAD, tribal gotchas, escalation gates |
+| **[Enterprise Technical Trainer & Instructional Designer](skills/enterprise-trainer/SKILL.md)** | `/enterprise-trainer` | Principal Enterprise Technical Trainer & Instructional Designer | Ready-to-teach timed lesson plans, verified subject mastery map, ABCD objectives & Bloom's, hands-on sandbox labs, VILT/ILT timing, assessments & rubrics, Kirkpatrick L1–L4, rollout & train-the-trainer |
 | **[Technical Communication & Executive Translator](skills/executive-communication/SKILL.md)** | `/executive-communication` | Principal Technical Communications Strategist | BLUF writing, audience translation matrix, exec status updates, outage notifications, CAB summaries, business cases, vendor escalations |
 
 ---
@@ -186,6 +187,7 @@ For maximum effectiveness, combine related skills based on your current task:
 | Entra ID / Conditional Access / Intune rollout | `/entra-intune-identity` | `/security-compliance-hardening`, `/powershell-expert`, `/windows-server` |
 | Monitoring & alert-noise cleanup | `/monitoring-alerting` | `/incident-response`, `/vmware-vsphere`, `/azure-solutions-architect` |
 | Outage comms, CAB submissions & exec updates | `/executive-communication` | `/incident-response`, `/it-project-management` |
+| Training a team, workshop or onboarding course | `/enterprise-trainer` | the matching technical skill for subject depth, `/sop-documentation`, `/learning-coach` |
 | Figuring out what career fits (teen or adult) | `/career-interest-assessment` | `/learning-coach`, `/career-interview-coach` |
 | Promotion, resume & interview prep | `/career-interview-coach` | `/executive-communication`, `/adhd-executive-function-coach` |
 | Starting and ending the workday | `/daily-kickoff-shutdown` | `/weekly-reset-planner`, `/adhd-executive-function-coach` |
