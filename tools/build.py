@@ -101,7 +101,8 @@ def transform_protocol(text):
         line = (line.replace("`[STATUS: CONTEXT_REQUIRED]`", "**Context missing**")
                     .replace("`[STATUS: SUFFICIENT]`", "**Context sufficient**"))
         out.append(line)
-        if (re.match(r"^#{2,4} .*(?i:phase 2)", line) or re.match(r"^\*\*Phase 2", line)):
+        already = any(PHASE2_NOTE in l for l in lines[i + 1:i + 4])
+        if (re.match(r"^#{2,4} .*(?i:phase 2)", line) or re.match(r"^\*\*Phase 2", line)) and not already:
             out.append("")
             out.append(PHASE2_NOTE)
     return "\n".join(out)
