@@ -71,6 +71,8 @@ def add_toc(content):
     if len(lines) <= 100 or any(l.strip() == "## Contents" for l in lines):
         return content
     heads = [l[3:].strip() for l in lines if l.startswith("## ")]
+    if len(heads) < 2:  # files organized under ### headings
+        heads = [l[4:].strip() for l in lines if l.startswith("### ")]
     if len(heads) < 2:
         return content
     i = 1  # insert after the H1 and its header blockquote
