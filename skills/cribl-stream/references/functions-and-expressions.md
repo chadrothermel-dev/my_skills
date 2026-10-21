@@ -2,6 +2,12 @@
 
 > Reference file for the `cribl-stream` skill. Reviewed 2026-10. Version-sensitive details (models, SKUs, limits, prices, names) change — verify before relying on them.
 
+## Contents
+
+- Complete Pipeline Function Reference
+- Internal Fields Reference
+- Cribl Expression Language & C.* Methods Reference
+
 ## Complete Pipeline Function Reference
 
 This is a **partial** reference. Cribl also ships Auto Timestamp, Code, Grok, DNS Lookup, Rollup Metrics, Drop Dimensions, Unroll, Fold Keys, Window, Trim Timestamp, OTLP Logs/Traces, and others — check the Functions docs for the user's version before naming parameters. The tables below are the most-used subset; other current functions include Auto Timestamp, Grok, Code, Aggregate Metrics, Rollup Metrics, Drop Dimensions, Fold Keys, Unroll, Guard, and OTLP Logs/Traces. **Deprecated (do not recommend for new builds):** Reverse DNS (use DNS Lookup), Prometheus Publisher, Tee, Trim Timestamp. Parameter names below are summaries — confirm exact field labels against docs.cribl.io for the user's version.

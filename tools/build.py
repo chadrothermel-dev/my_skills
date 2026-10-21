@@ -58,6 +58,61 @@ def fail(msg):
     sys.exit(1)
 
 
+# Anthropic skill authoring rules (platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices)
+PORTABLE_KEYS = {"name", "description", "license", "compatibility", "metadata", "allowed-tools"}
+RESERVED = ("anthropic", "claude")
+XML_TAG = re.compile(r"</?[A-Za-z][\w-]*(\s[^>]*)?>")
+MD_LINK = re.compile(r"\]\(([^)\s]+)\)")
+
+
+def add_toc(content):
+    """Give reference files over 100 lines a Contents list so partial reads still see their scope."""
+    lines = content.split("\n")
+    if len(lines) <= 100 or any(l.strip() == "## Contents" for l in lines):
+        return content
+    heads = [l[3:].strip() for l in lines if l.startswith("## ")]
+    if len(heads) < 2:
+        return content
+    i = 1  # insert after the H1 and its header blockquote
+    while i < len(lines) and (lines[i].strip() == "" or lines[i].startswith(">")):
+        i += 1
+    toc = ["## Contents", ""] + [f"- {h}" for h in heads] + [""]
+    return "\n".join(lines[:i] + toc + lines[i:])
+
+
+def lint_skill(name, front, body, refs):
+    """Fail the build on anything that breaks the skill authoring rules."""
+    errs = []
+    keys = set(re.findall(r"^([A-Za-z][\w-]*):", front, re.M))
+    if not front.startswith("---\n"):
+        errs.append("frontmatter must start on line 1")
+    if keys - PORTABLE_KEYS:
+        errs.append(f"non-portable frontmatter keys {sorted(keys - PORTABLE_KEYS)} (claude.ai uploads reject them)")
+    if any(w in name for w in RESERVED):
+        errs.append("name contains a reserved word (anthropic/claude)")
+    desc = re.search(r"^description: (.*)$", front, re.M).group(1)
+    if XML_TAG.search(desc):
+        errs.append("description contains an XML tag")
+    if re.match(r"(?i)(i|you|we|my)\b", desc):
+        errs.append("description must be written in third person")
+    if "use when" not in desc.lower():
+        errs.append("description must say when to use the skill ('Use when ...')")
+    n = body.count("\n")
+    if n >= 500:
+        errs.append(f"SKILL.md body is {n} lines (keep under 500; split into references/)")
+    for target in MD_LINK.findall(body):
+        if "\\" in target:
+            errs.append(f"backslash path in link: {target}")
+        if target.startswith("references/") and target[len("references/"):] not in refs:
+            errs.append(f"broken reference link: {target}")
+    for fname, content in refs.items():
+        for target in MD_LINK.findall(content):
+            if target.endswith(".md") and not target.startswith(("http", "#")):
+                errs.append(f"references/{fname} links to {target} (keep references one level deep)")
+    if errs:
+        fail(f"[{name}] lint: " + "; ".join(errs))
+
+
 def apply_fixes(text, fixes, name):
     for fix in fixes:
         old, new = fix[0], fix[1]
@@ -201,6 +256,8 @@ def build_skill(cfg, prompts_dir, out_dir):
     if not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", name) or len(name) > 64:
         fail(f"[{name}] invalid skill name")
     front = f"---\nname: {name}\ndescription: {desc}\n---\n\n"
+    refs = {f: add_toc(c) for f, c in refs.items()}
+    lint_skill(name, front, body, refs)
     skill_dir = out_dir / "skills" / name
     (skill_dir / "references").mkdir(parents=True, exist_ok=True)
     (skill_dir / "SKILL.md").write_text(front + body, encoding="utf-8", newline="\n")
