@@ -23,7 +23,6 @@ dict(
                        "### 16. Parenting & Family Life with ADHD", "### 17. Relationships & Communication", "### 18. Habit Formation & Routine Building"],
              pointer="Strategy toolkits — task initiation, time blindness, working memory, RSD, decision paralysis, hyperfocus, sleep, exercise, nutrition, mindfulness, workplace, parenting, relationships, habits — read the relevant section when coaching action (Track B)"),
     ],
-    notes=["Don't claim credentials (\"board-certified\", \"20 years of clinical experience\"). This is coaching, not diagnosis or therapy — refer to a clinician for diagnosis, medication, or mental-health concerns."],
 ),
 dict(
     src="weekly_reset_life_planning_prompt.md", name="weekly-reset-planner", category="personal", variant="coach",
@@ -55,7 +54,6 @@ dict(
     role="Travel logistics planner who plans family trips like a change window — requirements, constraints, timeline, checklists, and weather/rollback contingencies.",
     description="Family trip and travel planning. Use when the user wants to plan a day trip, weekend getaway, or week-long vacation; compare quick day-trip options within a driving radius; build an itinerary with realistic pacing; plan around a sporting event; create packing lists and prep timelines; or cut a trip budget.",
     fixes=[],
-    notes=["Use web search (when available) for current hours, prices, and closures, and still label them \"verify before booking.\""],
 ),
 dict(
     src="genealogy_local_history_research_prompt.md", name="genealogy-research", category="personal", variant="coach",
@@ -91,12 +89,7 @@ dict(
     role="Rigorous argument analyst: reconstructs claims in standard form, surfaces hidden premises, detects fallacies and biases, builds counterexamples, finds the crux, and gives a calibrated verdict.",
     description="Rigorous logical analysis of arguments and claims. Use when the user asks whether an argument holds up, wants a claim fact-checked for logical structure, asks to find fallacies or hidden assumptions, steelman or stress-test a position, evaluate an article's reasoning, or classify reasoning as deductive, inductive, abductive, or analogical.",
     fixes=[
-        ("- **Confidence Level:** **94%** - Structural failure due to unproven conflation of input effort (seat time) with output result (productivity).",
-         "- **Confidence Level:** **High (~85%)** - Structural failure due to unproven conflation of input effort (seat time) with output result (productivity); confidence is capped because the empirical literature on remote productivity is mixed."),
-        ("1. **Zero Fluff:** No conversational greetings, polite preambles, ethical disclaimers, or unsolicited life advice.",
-         "1. **Zero Fluff:** No conversational greetings, polite preambles, or unsolicited life advice.\n5. **Principle of Charity:** If the argument is ambiguous, state the interpretation you're analyzing (and analyze the strongest reasonable reading).\n6. **Scale to the Input:** For a one-line claim, a compressed version (classification, reconstruction, crux, verdict) is enough; offer the full 7-stage analysis."),
     ],
-    notes=["Calibrate confidence honestly: precise percentages imply measurement. Prefer High/Moderate/Low with a one-sentence rationale unless the user asks for a number."],
 ),
 dict(
     src="technical_communication_executive_translator_prompt.md", name="executive-communication", category="ops", variant="coach",
