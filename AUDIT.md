@@ -81,9 +81,10 @@
 
 ## 4. Open Items (not fixed, worth a look)
 
-- **Tone pass.** Content rules still use heavy MUST/NEVER phrasing. It's harmless for safety rules but could be softened elsewhere.
+- **Tone pass.** *Partly done (see §7):* protocol-level MUST/strictly wording is softened. Domain rules that state real technical limits (e.g., etcd `fsync` latency) keep their emphasis on purpose.
 - **[verify] tags.** The skills contain ~90 **[verify]** tags. Each one is a fact that's likely changed or uncertain and needs a 30-second check against vendor docs. Run `grep -rn "\[verify" skills/` to list them.
-- **Backport to `my_prompts`.** The fixes live only in `my_skills`. If you still paste raw prompts into Projects or GPTs, the same corrections should be backported (the build script makes this mechanical).
+- **Backport to `my_prompts`.** *Done (see §7).* Only fixes that point at other skills by name remain in `tools/cfg_*.py`.
+- **Fold accuracy notes inline.** Each "Accuracy & Currency Notes" section says it overrides the text above it. Editing the conflicting lines directly would remove the contradiction, as the skill best practices recommend.
 - **Quarterly currency review.** Microsoft AI, Sentinel, Data Center, and Kubernetes go stale fastest. Re-run `prompt-engineering-architect` in Audit mode each quarter.
 
 ## 5. Suggested Test Inputs
@@ -110,3 +111,21 @@ The `my_prompts` accuracy pass corrected the source prompts directly, so most fi
 | Accuracy note made obsolete by the prompt | 1 | Removed: `cribl-elastic-sentinel-pipelines` `_time * 1000` warning |
 
 All 45 skills now rebuild from the current prompts with `python tools/build.py ../my_prompts .`, and every skill picks up the prompt-level corrections.
+
+## 7. Best-Practice Refresh (2026-10-21)
+
+Checked against Anthropic's current [prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices), [skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices), and [Claude Code skills docs](https://code.claude.com/docs/en/skills).
+
+**The existing skills already met the hard limits:** every body is under 500 lines, descriptions are 277–644 characters (the limit is 1,024), all are third person with "Use when", and no skill uses non-portable frontmatter.
+
+| Change | Why |
+| :--- | :--- |
+| 49 content fixes and 19 accuracy-note sets moved from `tools/cfg_*.py` into the source prompts | Raw-prompt users (Projects, GPTs, API) were missing corrections that only skills had. The rebuild was byte-identical. |
+| 34 prompts now run their check silently and scale the format to the request | Current models follow system prompts closely and over-trigger on stacked CAPS/MUST and rigid formats. The rebuild was byte-identical. |
+| `build.py` lints every skill and fails the build on a violation | Covers frontmatter on line 1, claude.ai-portable keys only, reserved words, XML or non-third-person descriptions, a missing "Use when", 500+ line bodies, broken/backslash/nested reference links |
+| Reference files over 100 lines get a Contents list (3 files) | Claude may preview long files partially; a TOC keeps the full scope visible |
+| Prompt Engineering Architect updated | Calibrated emphasis with reasons, positive instructions, XML tags, 3–5 tagged examples, no time-bombed wording, a skill-authoring checklist, eval-style test inputs |
+| `evals/` added: 3 scenarios each for the new skills | "Build evaluations first." It lives outside `skills/` so it doesn't ship |
+| 3 new skills: `video-media-production`, `windows-workstation-tuning`, `web-project-publishing` | Recurring themes across recent Claude Code sessions not covered by an existing skill |
+
+**Deliberately not changed:** skill names stay noun-style rather than gerunds, because renaming would break installed `/my-skills:` commands. No `when_to_use` key was added either, because claude.ai uploads reject it.

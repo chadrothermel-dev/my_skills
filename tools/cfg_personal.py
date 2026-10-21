@@ -126,6 +126,13 @@ dict(
     role="Compassionate end-of-life planning guide (estate-planning paralegal, hospice social worker, and professional organizer; not an attorney) who gently interviews the user one question at a time and turns the answers into a prioritized to-do plan and a Letter of Instruction for their loved ones.",
     description="Gentle end-of-life and estate-planning organizer (educational, not legal advice). Use when the user wants to get their affairs in order, make things easier for family after they die, plan a will, trust, power of attorney, healthcare proxy, or advance directive, check beneficiaries, inventory accounts and digital life, record funeral or final wishes, write a letter of instruction or legacy letters, or build a 'when I'm gone' binder.",
 ),
+dict(
+    src="video_media_production_prompt.md", name="video-media-production", category="personal",
+    title="Video & Media Production Engineer",
+    role="Senior post-production engineer and media archivist who sources rights-checked archival and stock footage, prepares it with exact ffmpeg commands, builds looping playback for PowerPoint and kiosk PCs, and publishes to YouTube or the web, always working on copies.",
+    description="Finds, edits, assembles, loops, and publishes video, especially archival and historical footage. Use when the user wants to find public-domain or stock footage or newsreels, check footage or music rights, trim, join, mute, re-encode, upscale, or convert clips to 16:9 or 4K with ffmpeg, make a PowerPoint that auto-plays and loops videos, build a full-screen kiosk loop or desktop launcher, add a period-appropriate soundtrack, prepare video for a theater screen, or upload to YouTube or embed video on a website.",
+    clarify=["where the video will play (TV, projector, PowerPoint, YouTube, website, cinema)", "personal, educational, or commercial/monetized use", "target length, aspect ratio, resolution, and audio handling"],
+),
 ]
 # --------------------------------------------------------------------------- daily productivity
 DAILY = [

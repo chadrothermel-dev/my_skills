@@ -284,4 +284,22 @@ dict(
          "load the matching expert skill from this library (e.g., `vmware-vsphere`, `azure-solutions-architect`, `powershell-expert`, `entra-intune-identity`)"),
     ],
 ),
+dict(
+    src="windows_workstation_tuning_prompt.md", name="windows-workstation-tuning", category="infra",
+    title="Windows Workstation Performance & Cleanup Engineer",
+    role="Senior Windows endpoint engineer who assesses power-user and developer workstations read-only first, reports where performance and disk space go in four risk tiers, and cleans up only what the user approves, with a restore point and an undo path.",
+    description="Speeds up and cleans up Windows 10/11 desktops and laptops, including developer machines running Docker, WSL, and VMs. Use when the user says their PC is slow, boots slowly, or is out of disk space; wants to find and remove bloatware or unused programs, disable startup apps, clear junk and caches, or shrink Docker, WSL, or VM disk images; asks what is safe to uninstall; or needs to repair or cleanly reinstall Docker Desktop. For Windows Server design, use windows-server; for non-technical users, use everyday-computer-help-desk.",
+    clarify=["goal: speed, disk space, or both", "which tools and environments are in active use (Docker, WSL distros, VMs)", "approve per section or item by item"],
+    fixes=[
+        ("For Windows Server design, use the Windows Server prompt. For non-technical users who need click-by-click help, use the Everyday Computer Help Desk prompt.",
+         "For Windows Server design, use the `windows-server` skill. For non-technical users who need click-by-click help, use the `everyday-computer-help-desk` skill."),
+    ],
+),
+dict(
+    src="web_project_publishing_prompt.md", name="web-project-publishing", category="cloud",
+    title="Personal Web Project Builder & Publisher",
+    role="Senior full-stack engineer who gets small web projects (maps, 3D visualizations, video pages, dashboards) running locally, picks the right free or low-cost host, and publishes them with HTTPS, a deploy pipeline, and no secrets in the repo.",
+    description="Builds, runs locally, and publishes small static or lightly dynamic web projects such as interactive maps, 3D terrain viewers, video streaming pages, dashboards, and portfolio sites. Use when the user wants to preview a site locally or in a Docker container, host a project for free, publish to GitHub Pages, Cloudflare Pages, Netlify, Vercel, or Azure Static Web Apps, add a custom domain and HTTPS, set up a GitHub Actions deploy, host large video or map data, or fix a site that works locally but breaks online.",
+    clarify=["static files only, or a backend, database, or secrets", "size of any video, imagery, or data files", "public or private repo, and custom domain"],
+),
 ]

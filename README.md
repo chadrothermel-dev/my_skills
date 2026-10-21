@@ -1,6 +1,6 @@
 # My Skills Repository
 
-A curated library of **48** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
+A curated library of **51** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
 
 ---
 
@@ -45,6 +45,7 @@ Core datacenter, virtualization, compute, networking, and operating system skill
 | **[Enterprise Network Architect](skills/enterprise-networking/SKILL.md)** | `/enterprise-networking` | Senior Principal Network Architect | VLANs/STP/LACP, OSPF/BGP routing, Palo Alto/Fortinet firewalls, IPSec/SSL VPN, F5, SD-WAN, 802.1X NAC |
 | **[Data Center Hardware Architect](skills/datacenter-hardware/SKILL.md)** | `/datacenter-hardware` | Hardware Architect | Lenovo/HPE/Dell/Cisco server portfolios, storage arrays, CPU/RAM/NIC selection matrices, workload blueprints |
 | **[Kubernetes & Container Platform Architect](skills/kubernetes-platform/SKILL.md)** | `/kubernetes-platform` | Senior Principal Kubernetes Architect (CKA/CKS) | Control plane HA, etcd/etcdutl, Cilium/Calico CNI, vSphere CSI, MetalLB, Gateway API, ArgoCD/Flux GitOps, Helm, Kyverno |
+| **[Windows Workstation Performance & Cleanup Engineer](skills/windows-workstation-tuning/SKILL.md)** | `/windows-workstation-tuning` | Senior Windows Endpoint Engineer | Read-only assessment first, 4-tier findings report (startup / bloatware / review / junk), restore point + reversible changes, Docker/WSL/VM disk reclaim, never-remove list, Docker Desktop repair |
 
 ---
 
@@ -61,6 +62,7 @@ Azure cloud services, infrastructure as code, configuration management, and scri
 | **[Infrastructure CI/CD & GitOps Pipeline Engineer](skills/cicd-gitops-pipelines/SKILL.md)** | `/cicd-gitops-pipelines` | Senior Principal DevSecOps Architect | Azure DevOps YAML, GitHub Actions OIDC, quality gates (tflint/Trivy/checkov/Pester), plan-artifact promotion, Atlantis, drift detection |
 | **[Cloud FinOps & Cost Optimization Architect](skills/cloud-finops/SKILL.md)** | `/cloud-finops` | Principal Cloud FinOps Architect | Reservations vs. Savings Plans, Azure Hybrid Benefit, storage tiering math, waste hunting scripts, tagging |
 | **[Microsoft Enterprise AI Architect & Mentor](skills/microsoft-ai-architect/SKILL.md)** | `/microsoft-ai-architect` | Enterprise AI Architect | M365 Copilot agents, Copilot Studio, Microsoft Foundry, Agent Framework / Semantic Kernel, Azure AI Search RAG, MCP, Purview DSPM for AI |
+| **[Personal Web Project Builder & Publisher](skills/web-project-publishing/SKILL.md)** | `/web-project-publishing` | Senior Full-Stack Engineer | Local HTTP/Docker run, hosting matrix (GitHub Pages, Cloudflare, Netlify, Azure SWA), large-media strategy, web-safe video, maps & 3D libraries, Pages Actions deploy, works-locally-broken-online fixes |
 
 ---
 
@@ -146,6 +148,7 @@ Non-technical skills for personal productivity, career growth, finance, and dail
 | **[Formal Logic Engine & Argument Analyzer](skills/formal-logic-analyzer/SKILL.md)** | `/formal-logic-analyzer` | Analytical Philosophy Evaluator | Syllogistic mapping, enthymeme extraction, fallacy & bias matrix, countermodels, epistemic crux analysis |
 | **[Investing Mentor & Market Strategist for Beginners](skills/investing-mentor/SKILL.md)** | `/investing-mentor` | Veteran Investing Mentor & Educator (not a licensed adviser) | One-question-at-a-time beginner intake, investing order of operations, index funds & allocation templates, stock deep-dive method, high-risk & scam warnings, fiduciary referrals |
 | **[End-of-Life Planning & Legacy Organizer](skills/end-of-life-planning/SKILL.md)** | `/end-of-life-planning` | Compassionate Planning Guide (estate paralegal + hospice social worker + organizer; not an attorney) | Gentle module-by-module interview, will/trust/POA/advance directive, beneficiary checks, asset & digital-life inventory (no secrets in chat), final wishes, prioritized to-do plan, Letter of Instruction |
+| **[Video & Media Production Engineer](skills/video-media-production/SKILL.md)** | `/video-media-production` | Senior Post-Production Engineer & Media Archivist | Archival/stock footage sourcing with rights notes, 4:3-to-16:9 options, FFmpeg trim/join/encode recipes, PowerPoint & VLC kiosk loops, soundtrack rights, YouTube & web publishing |
 | **[Culinary Logistics & Meal Planner](skills/meal-planner/SKILL.md)** | `/meal-planner` | Meal Planning Agent | 7-day budget meal plans, editable household profile, teen portion scaling, leftovers & prep plan, store-section grocery list |
 | **[Personal Finance Planner](skills/personal-finance/SKILL.md)** | `/personal-finance` | Personal Finance Agent | Budget dashboard, debt avalanche/snowball with real payoff math, emergency fund, goal tracking (educational, not investment advice) |
 | **[Everyday Computer Help Desk Technician](skills/everyday-computer-help-desk/SKILL.md)** | `/everyday-computer-help-desk` | Patient Help Desk Technician for non-technical users | One-action-per-step fix guides, plain-language clarifying questions, "what you should see" checks, OS identification, Wi-Fi/printer/email/password/slow PC fixes, scam pop-up safety, when to call a pro |
@@ -188,6 +191,9 @@ For maximum effectiveness, combine related skills based on your current task:
 | Monitoring & alert-noise cleanup | `/monitoring-alerting` | `/incident-response`, `/vmware-vsphere`, `/azure-solutions-architect` |
 | Outage comms, CAB submissions & exec updates | `/executive-communication` | `/incident-response`, `/it-project-management` |
 | Training a team, workshop or onboarding course | `/enterprise-trainer` | the matching technical skill for subject depth, `/sop-documentation`, `/learning-coach` |
+| Archival video loop or event slideshow | `/video-media-production` | `/web-project-publishing`, `/windows-workstation-tuning` |
+| Publishing a map, 3D model or video site | `/web-project-publishing` | `/video-media-production`, `/cicd-gitops-pipelines` |
+| Slow PC or full disk on a dev workstation | `/windows-workstation-tuning` | `/powershell-expert`, `/kubernetes-platform` |
 | Figuring out what career fits (teen or adult) | `/career-interest-assessment` | `/learning-coach`, `/career-interview-coach` |
 | Promotion, resume & interview prep | `/career-interview-coach` | `/executive-communication`, `/adhd-executive-function-coach` |
 | Starting and ending the workday | `/daily-kickoff-shutdown` | `/weekly-reset-planner`, `/adhd-executive-function-coach` |

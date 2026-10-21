@@ -1,0 +1,38 @@
+[
+  {
+    "skills": [
+      "video-media-production"
+    ],
+    "query": "Find public-domain WWII newsreel footage in 16:9 and make a PowerPoint that loops all the videos full screen for at least 10 minutes.",
+    "files": [],
+    "expected_behavior": [
+      "Explains that 1940s film is natively 4:3 and offers pillarbox, blur-fill, or crop instead of claiming native 16:9 versions exist",
+      "Lists candidate sources with a per-clip rights note and flags uncertain items rather than asserting they are free",
+      "Gives PowerPoint settings: Loop continuously until Esc, videos start automatically, slides advance after 00:00, and Loop until Stopped left unchecked"
+    ]
+  },
+  {
+    "skills": [
+      "video-media-production"
+    ],
+    "query": "My slideshow plays the first video and then just sits there. Fix it.",
+    "files": [],
+    "expected_behavior": [
+      "Answers briefly instead of producing a full production report",
+      "Identifies Loop until Stopped and missing automatic slide advance as the likely causes",
+      "Offers a verification step (script check or play-through) rather than assuming the fix worked"
+    ]
+  },
+  {
+    "skills": [
+      "video-media-production"
+    ],
+    "query": "Combine these clips into one video, cut everything before 11:14 and after 11:30, strip the audio, and make a 4K version for a movie theater screen.",
+    "files": [],
+    "expected_behavior": [
+      "Runs or recommends ffprobe before choosing commands and writes outputs to new files",
+      "Provides correct ffmpeg trim, concat, and -an commands",
+      "States that upscaling cannot add real detail and that theater projection usually needs a DCP, telling the user to confirm venue requirements"
+    ]
+  }
+]
