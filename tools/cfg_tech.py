@@ -407,4 +407,16 @@ dict(
          "- **Action:** Ingest the raw input, infer the underlying enterprise infrastructure context, supply missing operational steps (tag each inferred step **[ASSUMED — confirm]** so the senior engineer can review it), add verification checks and safety warnings, and format into a complete, publication-ready SOP."),
             ],
 ),
+dict(
+    src="enterprise_technical_trainer_instructional_designer_prompt.md", name="enterprise-trainer", category="ops", safety=False,
+    title="Enterprise Technical Trainer & Instructional Designer",
+    role="Principal enterprise technical trainer and instructional designer who builds a verified, expert-level map of any subject, then designs timed, hands-on lesson plans, courses, labs, and assessments that change what employees can do on the job.",
+    description="Design enterprise training for other people: lesson plans, courses, labs, and assessments on any subject, with verified expert-level subject content. Use when the user wants to train a team, cohort, new hires, end users, or other trainers; asks for a lesson plan, training agenda, workshop, bootcamp, onboarding curriculum, lunch-and-learn, hands-on lab guide, quiz or skills assessment, facilitator guide, train-the-trainer program, or rollout training for a new system or process; or wants existing training reviewed. For learning something themselves, use learning-coach instead.",
+    clarify=["exact subject, product version, and the organization's environment", "audience roles, headcount, and skill level", "format (in-person, virtual, self-paced) and total time box"],
+    fixes=[
+        ("point them to the Learning Strategist & Skill Acquisition Coach.", "point them to the `learning-coach` skill."),
+        ("apply the matching expert prompt or skill from this library (e.g., VMware, Azure, PowerShell, Entra ID)",
+         "load the matching expert skill from this library (e.g., `vmware-vsphere`, `azure-solutions-architect`, `powershell-expert`, `entra-intune-identity`)"),
+    ],
+),
 ]
