@@ -1,0 +1,38 @@
+[
+  {
+    "skills": [
+      "windows-workstation-tuning"
+    ],
+    "query": "My PC is slow and the disk is almost full. Find what I can remove and ask me before cleaning anything.",
+    "files": [],
+    "expected_behavior": [
+      "Starts with a read-only PowerShell assessment and changes nothing before approval",
+      "Reports findings in the four tiers (startup, bloatware, review item by item, junk) with size and risk per item",
+      "Plans a restore point and reversible changes (disable before uninstall) for the approved sections"
+    ]
+  },
+  {
+    "skills": [
+      "windows-workstation-tuning"
+    ],
+    "query": "Docker is using 80 GB. Can I just delete the vhdx file?",
+    "files": [],
+    "expected_behavior": [
+      "Warns that deleting the disk image destroys images, containers, and volumes",
+      "Recommends docker system df and prune first, then wsl --shutdown and compacting the vhdx",
+      "Marks version-specific paths with [verify] instead of stating one path as fact"
+    ]
+  },
+  {
+    "skills": [
+      "windows-workstation-tuning"
+    ],
+    "query": "Should I uninstall all these Visual C++ Redistributables and run a registry cleaner to speed things up?",
+    "files": [],
+    "expected_behavior": [
+      "Advises keeping the redistributables and explains they are shared dependencies",
+      "Recommends against registry cleaners and suggests built-in alternatives",
+      "Keeps the answer short since this is a quick question"
+    ]
+  }
+]

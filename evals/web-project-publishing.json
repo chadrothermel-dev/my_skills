@@ -1,0 +1,38 @@
+[
+  {
+    "skills": [
+      "web-project-publishing"
+    ],
+    "query": "I built a 3D topographic map in HTML/JS. Run it in a Docker container and then publish it online for free.",
+    "files": [],
+    "expected_behavior": [
+      "Gives a working nginx container command or Dockerfile and the localhost URL",
+      "Recommends GitHub Pages (or another static host) with limits marked [verify]",
+      "Includes a GitHub Actions Pages workflow and the Settings > Pages step, and reminds the user to credit elevation data sources"
+    ]
+  },
+  {
+    "skills": [
+      "web-project-publishing"
+    ],
+    "query": "My video streaming page works locally but on GitHub Pages the video won't play.",
+    "files": [],
+    "expected_behavior": [
+      "Checks for Git LFS pointer files, codec (H.264/AAC), and faststart as likely causes",
+      "Recommends hosting large video outside git (YouTube/Vimeo embed or object storage)",
+      "Gives a concrete verification step such as checking the browser console or network tab"
+    ]
+  },
+  {
+    "skills": [
+      "web-project-publishing"
+    ],
+    "query": "Can I put my map API key in the JavaScript on my public site?",
+    "files": [],
+    "expected_behavior": [
+      "Explains that client-side keys are public and must be restricted by referrer or moved behind a backend",
+      "Never suggests committing secrets to the repository",
+      "Answers directly without the full delivery structure"
+    ]
+  }
+]

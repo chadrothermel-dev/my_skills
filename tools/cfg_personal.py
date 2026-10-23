@@ -23,7 +23,6 @@ dict(
                        "### 16. Parenting & Family Life with ADHD", "### 17. Relationships & Communication", "### 18. Habit Formation & Routine Building"],
              pointer="Strategy toolkits — task initiation, time blindness, working memory, RSD, decision paralysis, hyperfocus, sleep, exercise, nutrition, mindfulness, workplace, parenting, relationships, habits — read the relevant section when coaching action (Track B)"),
     ],
-    notes=["Don't claim credentials (\"board-certified\", \"20 years of clinical experience\"). This is coaching, not diagnosis or therapy — refer to a clinician for diagnosis, medication, or mental-health concerns."],
 ),
 dict(
     src="weekly_reset_life_planning_prompt.md", name="weekly-reset-planner", category="personal", variant="coach",
@@ -55,7 +54,6 @@ dict(
     role="Travel logistics planner who plans family trips like a change window — requirements, constraints, timeline, checklists, and weather/rollback contingencies.",
     description="Family trip and travel planning. Use when the user wants to plan a day trip, weekend getaway, or week-long vacation; compare quick day-trip options within a driving radius; build an itinerary with realistic pacing; plan around a sporting event; create packing lists and prep timelines; or cut a trip budget.",
     fixes=[],
-    notes=["Use web search (when available) for current hours, prices, and closures, and still label them \"verify before booking.\""],
 ),
 dict(
     src="genealogy_local_history_research_prompt.md", name="genealogy-research", category="personal", variant="coach",
@@ -91,12 +89,7 @@ dict(
     role="Rigorous argument analyst: reconstructs claims in standard form, surfaces hidden premises, detects fallacies and biases, builds counterexamples, finds the crux, and gives a calibrated verdict.",
     description="Rigorous logical analysis of arguments and claims. Use when the user asks whether an argument holds up, wants a claim fact-checked for logical structure, asks to find fallacies or hidden assumptions, steelman or stress-test a position, evaluate an article's reasoning, or classify reasoning as deductive, inductive, abductive, or analogical.",
     fixes=[
-        ("- **Confidence Level:** **94%** - Structural failure due to unproven conflation of input effort (seat time) with output result (productivity).",
-         "- **Confidence Level:** **High (~85%)** - Structural failure due to unproven conflation of input effort (seat time) with output result (productivity); confidence is capped because the empirical literature on remote productivity is mixed."),
-        ("1. **Zero Fluff:** No conversational greetings, polite preambles, ethical disclaimers, or unsolicited life advice.",
-         "1. **Zero Fluff:** No conversational greetings, polite preambles, or unsolicited life advice.\n5. **Principle of Charity:** If the argument is ambiguous, state the interpretation you're analyzing (and analyze the strongest reasonable reading).\n6. **Scale to the Input:** For a one-line claim, a compressed version (classification, reconstruction, crux, verdict) is enough; offer the full 7-stage analysis."),
     ],
-    notes=["Calibrate confidence honestly: precise percentages imply measurement. Prefer High/Moderate/Low with a one-sentence rationale unless the user asks for a number."],
 ),
 dict(
     src="technical_communication_executive_translator_prompt.md", name="executive-communication", category="ops", variant="coach",
@@ -132,6 +125,13 @@ dict(
     title="End-of-Life Planning & Legacy Organizer",
     role="Compassionate end-of-life planning guide (estate-planning paralegal, hospice social worker, and professional organizer; not an attorney) who gently interviews the user one question at a time and turns the answers into a prioritized to-do plan and a Letter of Instruction for their loved ones.",
     description="Gentle end-of-life and estate-planning organizer (educational, not legal advice). Use when the user wants to get their affairs in order, make things easier for family after they die, plan a will, trust, power of attorney, healthcare proxy, or advance directive, check beneficiaries, inventory accounts and digital life, record funeral or final wishes, write a letter of instruction or legacy letters, or build a 'when I'm gone' binder.",
+),
+dict(
+    src="video_media_production_prompt.md", name="video-media-production", category="personal",
+    title="Video & Media Production Engineer",
+    role="Senior post-production engineer and media archivist who sources rights-checked archival and stock footage, prepares it with exact ffmpeg commands, builds looping playback for PowerPoint and kiosk PCs, and publishes to YouTube or the web, always working on copies.",
+    description="Finds, edits, assembles, loops, and publishes video, especially archival and historical footage. Use when the user wants to find public-domain or stock footage or newsreels, check footage or music rights, trim, join, mute, re-encode, upscale, or convert clips to 16:9 or 4K with ffmpeg, make a PowerPoint that auto-plays and loops videos, build a full-screen kiosk loop or desktop launcher, add a period-appropriate soundtrack, prepare video for a theater screen, or upload to YouTube or embed video on a website.",
+    clarify=["where the video will play (TV, projector, PowerPoint, YouTube, website, cinema)", "personal, educational, or commercial/monetized use", "target length, aspect ratio, resolution, and audio handling"],
 ),
 dict(
     src="tire_evaluation_buying_research_prompt.md", name="tire-research", category="personal", variant="coach",

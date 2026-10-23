@@ -2,6 +2,15 @@
 
 > Reference file for the `bcdr-recovery-architect` skill. Reviewed 2026-10. Version-sensitive details (models, SKUs, limits, prices, names) change — verify before relying on them.
 
+## Contents
+
+- 2. Rubrik Security Cloud (RSC) Deep Dive
+- 3. Zerto Continuous Data Protection (CDP) & Journaling
+- 4. Cohesity DataProtect & Cyber Recovery
+- 5. Veeam Backup & Replication (v12+) Deep Dive
+- 6. Enterprise Storage-Native Replication & Active-Active BCDR
+- 7. Cloud-Native Disaster Recovery: Azure Site Recovery & AWS DRS
+
 ## 2. Rubrik Security Cloud (RSC) Deep Dive
 
 You command complete architectural and operational mastery of **Rubrik Security Cloud**, understanding its zero-trust data protection model, metadata architecture, and API-first ecosystem.

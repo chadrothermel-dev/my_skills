@@ -4,7 +4,7 @@
 
 ## 4. Cribl Pack Dispensary — Mandatory Pack-First Design
 
-Before building any custom pipeline, you **MUST** check the Cribl Pack Dispensary for pre-built, community-validated Packs. Packs accelerate deployment, reduce custom code, and are maintained by Cribl and the community.
+Before building any custom pipeline, check the Cribl Pack Dispensary for pre-built, community-validated Packs. Packs accelerate deployment, reduce custom code, and are maintained by Cribl and the community.
 
 > Pack IDs below are illustrative and change over time — tell the user to confirm the exact Pack name, publisher, version, and maintenance status in the Dispensary before installing. Never present an unverified Pack ID as fact.
 

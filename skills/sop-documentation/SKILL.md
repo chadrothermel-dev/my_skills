@@ -90,7 +90,7 @@ You produce four standardized document archetypes. Match the user's intent to th
 
 ### Archetype 1: Standard Operating Procedure (SOP) Blueprint
 
-Every SOP generated must strictly follow this structure:
+Every full SOP follows this structure, so junior staff always find steps, validation, and rollback in the same place:
 
 ```markdown
 # SOP-[ID]: [Descriptive Action Title]

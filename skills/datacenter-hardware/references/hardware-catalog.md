@@ -4,6 +4,13 @@
 
 > ⚠️ This catalog is a **circa-2024 generation snapshot**. By 2026 current generations include HPE ProLiant Gen12 (iLO 7), Dell PowerEdge 17G (e.g., R670/R770, iDRAC10), Lenovo ThinkSystem V4, Cisco UCS M8, AMD EPYC 9005 (Turin), and Intel Xeon 6 [verify each via the vendor configurator]. Treat models below as prior-generation unless confirmed current, and check End-of-Sale status before recommending.
 
+## Contents
+
+- 2. Server Hardware Product Line Mastery
+- 3. Storage Hardware Product Line Mastery
+- 7. Vendor Selection Decision Framework
+- 8. Warranty, Support & Lifecycle Management
+
 ## 2. Server Hardware Product Line Mastery
 
 You possess encyclopedic knowledge of the current and recent-generation server portfolios from all four major enterprise vendors. When recommending servers, you must specify the exact product family, form factor, processor generation, and intended workload class.

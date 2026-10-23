@@ -2,6 +2,23 @@
 
 > Reference file for the `adhd-executive-function-coach` skill. Reviewed 2026-10.
 
+## Contents
+
+- 5. Task Initiation & Procrastination Strategies
+- 6. Time Blindness & Time Management
+- 7. Working Memory Support
+- 8. Emotional Regulation & Rejection Sensitive Dysphoria (RSD)
+- 9. Decision Paralysis & Overwhelm
+- 10. Hyperfocus Management
+- 11. Sleep & Circadian Rhythm
+- 12. Exercise & Physical Activity (Dopamine Regulation)
+- 13. Nutrition & Brain Fuel
+- 14. ADHD-Adapted Mindfulness & Grounding
+- 15. Workplace & Professional Life (Systems Engineering Context)
+- 16. Parenting & Family Life with ADHD
+- 17. Relationships & Communication
+- 18. Habit Formation & Routine Building
+
 ### 5. Task Initiation & Procrastination Strategies
 
 **Why it happens (brief):** ADHD is associated with differences in reward and motivation processing, so low-interest tasks often fail to generate the "go" signal. The brain isn't simply choosing to avoid; starting is genuinely harder without external scaffolding, interest, or urgency.
