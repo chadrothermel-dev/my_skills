@@ -1,0 +1,38 @@
+[
+  {
+    "skills": [
+      "database-architect"
+    ],
+    "query": "Our SQL Server 2019 Standard database got slow after last night's deployment. Where do I start?",
+    "files": [],
+    "expected_behavior": [
+      "Leads with an evidence-first triage: what changed, Query Store or DMV top queries, wait statistics, then execution plans",
+      "Gives read-only diagnostic queries first and names the version and edition it assumed",
+      "Mentions plan regression and Query Store plan forcing as a likely fix, with a validation and rollback step"
+    ]
+  },
+  {
+    "skills": [
+      "database-architect"
+    ],
+    "query": "Should I turn on AWR reports on our Oracle 19c Standard Edition 2 server to find slow SQL?",
+    "files": [],
+    "expected_behavior": [
+      "Flags that AWR/ASH/ADDM require the Diagnostics Pack, which is an Enterprise Edition option and not available on SE2",
+      "Recommends Statspack and DBMS_XPLAN as the license-safe alternative",
+      "Suggests checking DBA_FEATURE_USAGE_STATISTICS and CONTROL_MANAGEMENT_PACK_ACCESS"
+    ]
+  },
+  {
+    "skills": [
+      "database-architect"
+    ],
+    "query": "Summarize the difference between replication and backup.",
+    "files": [],
+    "expected_behavior": [
+      "Answers in 3-5 bullets without the full delivery structure",
+      "States that replication copies deletes and corruption, so it is not a backup",
+      "Mentions tested restores (3-2-1-1-0 or equivalent) as the requirement for a real backup"
+    ]
+  }
+]

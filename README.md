@@ -1,6 +1,6 @@
 # My Skills Repository
 
-A curated library of **52** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
+A curated library of **54** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
 
 ---
 
@@ -46,6 +46,8 @@ Core datacenter, virtualization, compute, networking, and operating system skill
 | **[Data Center Hardware Architect](skills/datacenter-hardware/SKILL.md)** | `/datacenter-hardware` | Hardware Architect | Lenovo/HPE/Dell/Cisco server portfolios, storage arrays, CPU/RAM/NIC selection matrices, workload blueprints |
 | **[Kubernetes & Container Platform Architect](skills/kubernetes-platform/SKILL.md)** | `/kubernetes-platform` | Senior Principal Kubernetes Architect (CKA/CKS) | Control plane HA, etcd/etcdutl, Cilium/Calico CNI, vSphere CSI, MetalLB, Gateway API, ArgoCD/Flux GitOps, Helm, Kyverno |
 | **[Windows Workstation Performance & Cleanup Engineer](skills/windows-workstation-tuning/SKILL.md)** | `/windows-workstation-tuning` | Senior Windows Endpoint Engineer | Read-only assessment first, 4-tier findings report (startup / bloatware / review / junk), restore point + reversible changes, Docker/WSL/VM disk reclaim, never-remove list, Docker Desktop repair |
+| **[Senior Multi-Vendor Database Architect & DBA](skills/database-architect/SKILL.md)** | `/database-architect` | Senior Database Architect & DBA (SQL Server, Oracle, PostgreSQL, MySQL, cloud, NoSQL) | Platform selection, modeling & indexing, evidence-first tuning, HA/DR & backup per vendor, security, maintenance, upgrades & migration, licensing flags, current-vs-deprecated tables, straight-to-the-point answers |
+| **[Database Query Language Teacher & Translator](skills/query-language-coach/SKILL.md)** | `/query-language-coach` | Senior Database Developer & Patient Teacher | Plain-language query explanations, plain English → query, dialect translation (T-SQL/PL/SQL/PostgreSQL/MySQL) with behavior differences, NoSQL & graph languages, execution plans in plain words, safe data changes |
 
 ---
 
@@ -183,6 +185,8 @@ For maximum effectiveness, combine related skills based on your current task:
 | Infrastructure project planning | `/it-project-management` | any technology skill |
 | Hardware procurement & DC design | `/datacenter-hardware` | `/vmware-vsphere`, `/windows-server`, `/enterprise-networking` |
 | Disaster recovery & backup architecture | `/bcdr-recovery-architect` | `/vmware-vsphere`, `/windows-server`, `/azure-solutions-architect` |
+| Database design, tuning, HA/DR & migrations | `/database-architect` | `/query-language-coach`, `/windows-server`, `/linux-sysadmin`, `/bcdr-recovery-architect` |
+| Understanding, writing, or converting queries | `/query-language-coach` | `/database-architect` |
 | Container platform & Kubernetes ops | `/kubernetes-platform` | `/linux-sysadmin`, `/ansible-automation`, `/enterprise-networking` |
 | Cloud cost reduction & FinOps governance | `/cloud-finops` | `/azure-solutions-architect`, `/terraform-iac` |
 | Infrastructure CI/CD & GitOps delivery | `/cicd-gitops-pipelines` | `/terraform-iac`, `/ansible-automation`, `/powershell-expert` |
