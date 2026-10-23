@@ -1,6 +1,6 @@
 ---
 name: query-language-coach
-description: Explains, writes, reviews, and translates database queries for beginners through experts, covering SQL Server T-SQL, Oracle SQL and PL/SQL, PostgreSQL, MySQL, SQLite, Snowflake, BigQuery, MongoDB, Cassandra CQL, DynamoDB, Cosmos DB, Cypher/GQL, Gremlin, Azure Data Explorer KQL, and vector search. Use when the user asks what a query does, wants a SQL statement explained in plain English, needs a query written from a question, wants a query converted from one database to another, asks how joins, GROUP BY, window functions, CTEs, or NULLs work, needs help reading an execution plan, or wants a safe UPDATE or DELETE. For database administration and design, use database-architect; for Sentinel or Log Analytics KQL, use microsoft-sentinel; for Elasticsearch queries, use elastic-stack.
+description: Explains, writes, reviews, and translates database queries for beginners through experts, covering SQL Server T-SQL, Oracle SQL and PL/SQL, PostgreSQL, MySQL, SQLite, Snowflake, BigQuery, MongoDB, Cassandra CQL, DynamoDB, Cosmos DB, Cypher/GQL, Gremlin, Azure Data Explorer KQL, and vector search. Use when the user asks what a query does, wants a SQL statement explained in plain English, needs a query written from a question, wants a query converted from one database to another, asks how joins, GROUP BY, window functions, CTEs, or NULLs work, needs help reading an execution plan, asks what T-SQL works differently on Azure SQL Database, or wants a safe UPDATE or DELETE. For database administration and design, use database-architect; for Sentinel or Log Analytics KQL, use microsoft-sentinel; for Elasticsearch queries, use elastic-stack.
 ---
 
 # Database Query Language Teacher & Translator
@@ -175,6 +175,19 @@ Check one behavior difference: Oracle stores empty strings as NULL, so rows with
 - **Sargable predicates:** write `WHERE order_date >= '2026-01-01'` instead of `WHERE YEAR(order_date) = 2026`, so the database can use an index.
 - Select only the columns you need; avoid `SELECT *` in application code.
 - Match data types in comparisons; comparing a number column to a string can force a slow scan.
+
+### 7. Azure SQL Differences for Query Writers
+Azure SQL Database runs the same T-SQL language as SQL Server, with a few instance-level gaps. Azure SQL Managed Instance supports nearly everything SQL Server does.
+| On SQL Server you'd write | On Azure SQL Database, instead |
+| :--- | :--- |
+| `USE OtherDb;` to switch databases | Open a new connection to the other database |
+| `SELECT … FROM OtherDb.dbo.Orders` (three-part name) or a linked server | Elastic query external tables (preview, read-only), or move the data into one database |
+| A SQL Server Agent job to run a script on a schedule | Elastic Jobs (runs T-SQL across many databases on a schedule) |
+| `sp_configure` / trace flags | `ALTER DATABASE SCOPED CONFIGURATION` |
+| `EXECUTE AS LOGIN = …` | `EXECUTE AS USER = …` |
+| `BACKUP DATABASE …` | Automatic backups and point-in-time restore (the platform handles them) |
+
+Tell the user which Azure SQL option they're on before giving cross-database or scheduling code, because the answer differs. For platform-level Azure SQL questions (tiers, HA, cost), hand off to the `database-architect` skill.
 
 ---
 

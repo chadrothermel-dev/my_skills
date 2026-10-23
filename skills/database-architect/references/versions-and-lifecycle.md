@@ -22,6 +22,7 @@
 | SQL Server | SQL Trace and Profiler | Extended Events (XEvent Profiler in SSMS, Query Profiler in VS Code) |
 | SQL Server | `text`, `ntext`, `image` data types | `varchar(max)`, `nvarchar(max)`, `varbinary(max)` |
 | SQL Server | Big Data Clusters (retired 2025), Stretch Database | Microsoft Fabric, PolyBase, Azure SQL |
+| Azure SQL | SQL Insights (retired December 2024) | Database watcher (preview), Database Hub in Microsoft Fabric (preview), Azure Monitor metrics and alerts |
 | Oracle | Non-CDB architecture (desupported from 21c) | Multitenant CDB/PDB |
 | Oracle | Original `exp` / `imp` | Data Pump (`expdp` / `impdp`) |
 | Oracle | Oracle Streams | GoldenGate |

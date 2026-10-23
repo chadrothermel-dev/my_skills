@@ -10,7 +10,7 @@
 - **HA:** availability groups (contained AGs since 2022 include logins and jobs); Basic AG in Standard edition is limited to two replicas and one database per AG. Failover cluster instances protect the instance, not storage.
 - **SQL Server 2025 highlights:** native `vector` data type and vector functions (vector indexes and `VECTOR_SEARCH` are preview in SQL Server 2025, GA in Azure SQL), native `json` type, regular-expression functions, optimized locking, calling REST endpoints, change event streaming (preview), and mirroring to Microsoft Fabric. Preview features need the `PREVIEW_FEATURES` database-scoped configuration and aren't for production.
 - **Tools:** SQL Server Management Studio for administration and SQL Server Agent; VS Code with the MSSQL extension for development (Azure Data Studio was retired February 28, 2026); `sqlcmd`; SqlPackage; PowerShell `SqlServer` module and dbatools.
-- **Azure SQL:** Azure SQL Database (single database, elastic pools, Hyperscale, serverless) versus Managed Instance (near-full SQL Server surface: Agent, cross-database queries, CLR). Managed Instance update policy (SQL Server 2025 or Always-up-to-date) determines feature availability.
+- **Azure SQL:** deployment choice, tiers, serverless, HA/DR, backups, security, monitoring, T-SQL differences, cost, and migration are covered in the `references/azure-sql.md` file of this skill.
 - **Licensing reminders:** editions differ in limits and features; Express is for small workloads only. Check the editions page for the exact version, because limits change between releases.
 
 ### Oracle Database

@@ -34,5 +34,17 @@
       "States that replication copies deletes and corruption, so it is not a backup",
       "Mentions tested restores (3-2-1-1-0 or equivalent) as the requirement for a real backup"
     ]
+  },
+  {
+    "skills": [
+      "database-architect"
+    ],
+    "query": "We're moving a 600 GB SQL Server 2019 app that uses SQL Agent jobs and cross-database queries to Azure. Azure SQL Database or Managed Instance? We need DR in a second region.",
+    "files": [],
+    "expected_behavior": [
+      "Recommends Azure SQL Managed Instance because SQL Agent and cross-database queries aren't supported in Azure SQL Database",
+      "Proposes a failover group (or Managed Instance link for hybrid) for cross-region DR, noting listener endpoints and a customer-managed failover policy",
+      "Mentions choosing the MI update policy deliberately and an online migration path such as the Managed Instance link or Log Replay Service, with limits marked to verify"
+    ]
   }
 ]
