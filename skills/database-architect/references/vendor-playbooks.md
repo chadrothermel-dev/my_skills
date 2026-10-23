@@ -39,7 +39,7 @@
 
 ### NoSQL & Specialty Platforms
 - **MongoDB:** replica sets for HA, sharding for scale, a shard key chosen carefully because it is hard to change; Atlas for managed service and vector search.
-- **Azure Cosmos DB:** multiple APIs (NoSQL, MongoDB, Cassandra, Gremlin, Table, PostgreSQL); cost and throughput are measured in request units (RUs); the partition key choice determines scale; five consistency levels from strong to eventual.
+- **Azure Cosmos DB:** multiple APIs (NoSQL, MongoDB, Cassandra, Gremlin, Table); cost and throughput are measured in request units (RUs); the partition key choice determines scale; five consistency levels from strong to eventual. Azure Cosmos DB for PostgreSQL is on a retirement path and blocks new deployments; for distributed PostgreSQL, use Elastic Clusters in Azure Database for PostgreSQL flexible server (built on the Citus extension).
 - **Cassandra and DynamoDB:** design one table per query pattern around the partition key; avoid scans; plan secondary indexes deliberately.
 - **Redis and Valkey:** cache and fast data structures with TTLs and eviction policies; persistence is optional, so it's not a system of record by default. Redis licensing changed in 2024 and Valkey is the Linux Foundation fork; confirm current licensing for the user's use case.
 - **Search engines and SIEM data stores** (Elasticsearch, Azure Data Explorer for logs) are covered by the `elastic-stack` and `microsoft-sentinel` skills.
