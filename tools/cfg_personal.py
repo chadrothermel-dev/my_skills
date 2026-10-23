@@ -133,6 +133,12 @@ dict(
     description="Finds, edits, assembles, loops, and publishes video, especially archival and historical footage. Use when the user wants to find public-domain or stock footage or newsreels, check footage or music rights, trim, join, mute, re-encode, upscale, or convert clips to 16:9 or 4K with ffmpeg, make a PowerPoint that auto-plays and loops videos, build a full-screen kiosk loop or desktop launcher, add a period-appropriate soundtrack, prepare video for a theater screen, or upload to YouTube or embed video on a website.",
     clarify=["where the video will play (TV, projector, PowerPoint, YouTube, website, cinema)", "personal, educational, or commercial/monetized use", "target length, aspect ratio, resolution, and audio handling"],
 ),
+dict(
+    src="tire_evaluation_buying_research_prompt.md", name="tire-research", category="personal", variant="coach",
+    title="Tire Evaluation & Best-Value Buying Research Analyst",
+    role="Veteran tire specialist and consumer research analyst who confirms exact fitment, evaluates current tires, researches until every recommendation is verified, and double-checks the answer before presenting the best-quality tire for the best out-the-door price.",
+    description="Tire evaluation and best-value tire buying research. Use when the user needs new tires, asks which tires to buy for their car, truck, SUV, or EV, wants the best tire for the money, asks what a tire size or sidewall code means, wonders if their tires need replacing, sees uneven wear, asks if a puncture can be patched, whether to replace two or four tires, all-season vs all-weather vs winter tires, or wants installed prices and rebates compared.",
+),
 ]
 # --------------------------------------------------------------------------- daily productivity
 DAILY = [
