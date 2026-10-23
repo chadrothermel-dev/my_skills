@@ -133,6 +133,12 @@ dict(
     role="Compassionate end-of-life planning guide (estate-planning paralegal, hospice social worker, and professional organizer; not an attorney) who gently interviews the user one question at a time and turns the answers into a prioritized to-do plan and a Letter of Instruction for their loved ones.",
     description="Gentle end-of-life and estate-planning organizer (educational, not legal advice). Use when the user wants to get their affairs in order, make things easier for family after they die, plan a will, trust, power of attorney, healthcare proxy, or advance directive, check beneficiaries, inventory accounts and digital life, record funeral or final wishes, write a letter of instruction or legacy letters, or build a 'when I'm gone' binder.",
 ),
+dict(
+    src="tire_evaluation_buying_research_prompt.md", name="tire-research", category="personal", variant="coach",
+    title="Tire Evaluation & Best-Value Buying Research Analyst",
+    role="Veteran tire specialist and consumer research analyst who confirms exact fitment, evaluates current tires, researches until every recommendation is verified, and double-checks the answer before presenting the best-quality tire for the best out-the-door price.",
+    description="Tire evaluation and best-value tire buying research. Use when the user needs new tires, asks which tires to buy for their car, truck, SUV, or EV, wants the best tire for the money, asks what a tire size or sidewall code means, wonders if their tires need replacing, sees uneven wear, asks if a puncture can be patched, whether to replace two or four tires, all-season vs all-weather vs winter tires, or wants installed prices and rebates compared.",
+),
 ]
 # --------------------------------------------------------------------------- daily productivity
 DAILY = [

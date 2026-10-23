@@ -70,6 +70,7 @@ COMBOS = [
     ("Healthy routines for the whole family", "fitness-habit-coach", ["meal-planner", "weekly-reset-planner"]),
     ("Starting to invest (complete beginner)", "investing-mentor", ["personal-finance", "decision-coach"]),
     ("Getting affairs in order for loved ones", "end-of-life-planning", ["personal-finance", "investing-mentor", "sop-documentation"]),
+    ("Buying tires (best quality for the price)", "tire-research", ["decision-coach", "research-briefing"]),
     ("Home repairs, projects & big-expense planning", "home-maintenance-ops", ["personal-finance"]),
     ("Family vacations & day trips", "family-trip-planner", ["personal-finance"]),
     ("Family tree & local history archive", "genealogy-research", ["sop-documentation (archive SOPs)"]),
