@@ -50,6 +50,8 @@ COMBOS = [
     ("Infrastructure project planning", "it-project-management", ["any technology skill"]),
     ("Hardware procurement & DC design", "datacenter-hardware", ["vmware-vsphere", "windows-server", "enterprise-networking"]),
     ("Disaster recovery & backup architecture", "bcdr-recovery-architect", ["vmware-vsphere", "windows-server", "azure-solutions-architect"]),
+    ("Database design, tuning, HA/DR & migrations", "database-architect", ["query-language-coach", "windows-server", "linux-sysadmin", "bcdr-recovery-architect"]),
+    ("Understanding, writing, or converting queries", "query-language-coach", ["database-architect"]),
     ("Container platform & Kubernetes ops", "kubernetes-platform", ["linux-sysadmin", "ansible-automation", "enterprise-networking"]),
     ("Cloud cost reduction & FinOps governance", "cloud-finops", ["azure-solutions-architect", "terraform-iac"]),
     ("Infrastructure CI/CD & GitOps delivery", "cicd-gitops-pipelines", ["terraform-iac", "ansible-automation", "powershell-expert"]),

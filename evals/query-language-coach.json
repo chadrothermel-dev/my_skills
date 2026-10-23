@@ -1,0 +1,38 @@
+[
+  {
+    "skills": [
+      "query-language-coach"
+    ],
+    "query": "I'm not technical. What does this do? SELECT department, COUNT(*) FROM employees WHERE hire_date >= '2025-01-01' GROUP BY department HAVING COUNT(*) > 5;",
+    "files": [],
+    "expected_behavior": [
+      "Opens with a one-sentence plain-language summary (departments that hired more than 5 people since January 1, 2025)",
+      "Walks through the clauses in everyday words, using piles or a spreadsheet analogy for GROUP BY and HAVING",
+      "Notes that the query only reads data and is safe to run"
+    ]
+  },
+  {
+    "skills": [
+      "query-language-coach"
+    ],
+    "query": "Convert this Oracle query to PostgreSQL: SELECT NVL(nickname, first_name) || ' ' || last_name AS display_name FROM people WHERE ROWNUM <= 20;",
+    "files": [],
+    "expected_behavior": [
+      "Uses COALESCE and LIMIT 20 (or FETCH FIRST 20 ROWS ONLY) in the PostgreSQL version",
+      "Warns that Oracle treats empty strings as NULL and that || returns NULL in PostgreSQL when a part is NULL",
+      "Notes that ROWNUM without ORDER BY returns an arbitrary 20 rows and suggests adding ORDER BY"
+    ]
+  },
+  {
+    "skills": [
+      "query-language-coach"
+    ],
+    "query": "Write me a query to delete all customers who haven't ordered in 3 years. We use SQL Server.",
+    "files": [],
+    "expected_behavior": [
+      "Runs the same filter as a SELECT first to show the affected row count",
+      "Wraps the DELETE in a transaction that defaults to ROLLBACK and reminds the user to test outside production with a recent backup",
+      "Labels assumed table and column names as placeholders and uses T-SQL date syntax such as DATEADD(year, -3, SYSDATETIME())"
+    ]
+  }
+]
