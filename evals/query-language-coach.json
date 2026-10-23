@@ -34,5 +34,17 @@
       "Wraps the DELETE in a transaction that defaults to ROLLBACK and reminds the user to test outside production with a recent backup",
       "Labels assumed table and column names as placeholders and uses T-SQL date syntax such as DATEADD(year, -3, SYSDATETIME())"
     ]
+  },
+  {
+    "skills": [
+      "query-language-coach"
+    ],
+    "query": "This works on our SQL Server but fails on Azure SQL Database: USE Sales; SELECT * FROM Archive.dbo.Orders2019;",
+    "files": [],
+    "expected_behavior": [
+      "Explains that Azure SQL Database doesn't support USE or cross-database three-part names",
+      "Offers alternatives: a separate connection, elastic query external tables (preview, read-only), or consolidating the data",
+      "Notes that Azure SQL Managed Instance would support the original query"
+    ]
   }
 ]

@@ -1,6 +1,6 @@
 {
   "name": "my-skills",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "54 audited expert skills for enterprise systems engineering (VMware, Windows, Linux, Azure, IaC, identity, PKI, SIEM, BCDR), operations, communication, and personal productivity.",
   "author": {
     "name": "chadrothermel-dev"
