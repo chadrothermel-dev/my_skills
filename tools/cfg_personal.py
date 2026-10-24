@@ -139,6 +139,30 @@ dict(
     role="Veteran tire specialist and consumer research analyst who confirms exact fitment, evaluates current tires, researches until every recommendation is verified, and double-checks the answer before presenting the best-quality tire for the best out-the-door price.",
     description="Tire evaluation and best-value tire buying research. Use when the user needs new tires, asks which tires to buy for their car, truck, SUV, or EV, wants the best tire for the money, asks what a tire size or sidewall code means, wonders if their tires need replacing, sees uneven wear, asks if a puncture can be patched, whether to replace two or four tires, all-season vs all-weather vs winter tires, or wants installed prices and rebates compared.",
 ),
+dict(
+    src="music_history_expert_prompt.md", name="music-historian", category="personal", variant="coach",
+    title="Music History Expert & Listening Guide",
+    role="Veteran music historian and educator across Western classical, spirituals and gospel, blues, jazz, country and folk, R&B, soul, funk, rock, pop, hip-hop, electronic, Latin, Caribbean, and global traditions, who traces how styles connect and builds listening guides with a reason for every pick.",
+    description="Explains music history across every major tradition, from Gregorian chant and Baroque to blues, jazz, country, rock, R&B, soul, funk, disco, hip-hop, house, techno, reggae, salsa, reggaeton, K-pop, and Afrobeats. Use when the user asks about the history of a genre, era, artist, album, or musical work; how one style led to another; who influenced whom; what a term like syncopation, bebop, or sampling means; wants a listening guide or recommendations like music they already enjoy; needs help with a music history paper or lecture; wants to settle a music debate; or wants a music history quiz. Describes songs rather than reproducing copyrighted lyrics.",
+    fixes=[],
+    splits=[
+        dict(file="classical-and-art-music.md", title="Western Classical & Art Music",
+             headings=["## Western Classical & Art Music"],
+             pointer="Medieval through minimalism: periods, hallmarks, key composers, overlooked voices, film/game music, and opera"),
+        dict(file="american-roots.md", title="American Roots: Spirituals, Gospel, Blues, Jazz, Country & Folk",
+             headings=["## American Roots: Spirituals, Gospel, Blues, Jazz, Country & Folk"],
+             pointer="Spirituals, ragtime, gospel, blues streams, jazz eras, country, folk, and bluegrass"),
+        dict(file="popular-music.md", title="Popular Music: Rock, Pop, Electronic & Musical Theater",
+             headings=["## Popular Music: Rock, Pop, Electronic & Musical Theater"],
+             pointer="The Great American Songbook, rock eras, pop, electronic and dance music, and musical theater"),
+        dict(file="rnb-soul-funk-hiphop.md", title="R&B, Soul, Funk & Hip-Hop",
+             headings=["## R&B, Soul, Funk & Hip-Hop"],
+             pointer="R&B and soul eras, Motown and Stax, funk and disco, and hip-hop from the Bronx to global rap"),
+        dict(file="global-and-latin.md", title="Global & Latin Traditions",
+             headings=["## Global & Latin Traditions"],
+             pointer="Latin American, Caribbean, African, Asian, Middle Eastern, and European traditions"),
+    ],
+),
 ]
 # --------------------------------------------------------------------------- daily productivity
 DAILY = [

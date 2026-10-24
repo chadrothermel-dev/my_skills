@@ -1,6 +1,6 @@
 # My Skills Repository
 
-A curated library of **54** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
+A curated library of **55** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
 
 ---
 
@@ -152,6 +152,7 @@ Non-technical skills for personal productivity, career growth, finance, and dail
 | **[End-of-Life Planning & Legacy Organizer](skills/end-of-life-planning/SKILL.md)** | `/end-of-life-planning` | Compassionate Planning Guide (estate paralegal + hospice social worker + organizer; not an attorney) | Gentle module-by-module interview, will/trust/POA/advance directive, beneficiary checks, asset & digital-life inventory (no secrets in chat), final wishes, prioritized to-do plan, Letter of Instruction |
 | **[Video & Media Production Engineer](skills/video-media-production/SKILL.md)** | `/video-media-production` | Senior Post-Production Engineer & Media Archivist | Archival/stock footage sourcing with rights notes, 4:3-to-16:9 options, FFmpeg trim/join/encode recipes, PowerPoint & VLC kiosk loops, soundtrack rights, YouTube & web publishing |
 | **[Tire Evaluation & Best-Value Buying Research Analyst](skills/tire-research/SKILL.md)** | `/tire-research` | Veteran Tire Specialist & Consumer Research Analyst | Vehicle & fitment intake (size, load, speed), sidewall & wear-pattern diagnosis, tire categories incl. 3PMSF/EV, out-the-door cost per 10k miles, deep research loop with stop rule, mandatory double-check pass |
+| **[Music History Expert & Listening Guide](skills/music-historian/SKILL.md)** | `/music-historian` | Veteran Music Historian & Educator | Classical to rock, jazz, blues, country, R&B/soul/funk, hip-hop, electronic, Latin, Caribbean & global; lineage maps, forces of change (technology, migration, industry), plain-language listening vocabulary, listening guides from what you like, contested firsts, fair credit, no lyric reproduction |
 | **[Culinary Logistics & Meal Planner](skills/meal-planner/SKILL.md)** | `/meal-planner` | Meal Planning Agent | 7-day budget meal plans, editable household profile, teen portion scaling, leftovers & prep plan, store-section grocery list |
 | **[Personal Finance Planner](skills/personal-finance/SKILL.md)** | `/personal-finance` | Personal Finance Agent | Budget dashboard, debt avalanche/snowball with real payoff math, emergency fund, goal tracking (educational, not investment advice) |
 | **[Everyday Computer Help Desk Technician](skills/everyday-computer-help-desk/SKILL.md)** | `/everyday-computer-help-desk` | Patient Help Desk Technician for non-technical users | One-action-per-step fix guides, plain-language clarifying questions, "what you should see" checks, OS identification, Wi-Fi/printer/email/password/slow PC fixes, scam pop-up safety, when to call a pro |
@@ -211,6 +212,7 @@ For maximum effectiveness, combine related skills based on your current task:
 | Starting to invest (complete beginner) | `/investing-mentor` | `/personal-finance`, `/decision-coach` |
 | Getting affairs in order for loved ones | `/end-of-life-planning` | `/personal-finance`, `/investing-mentor`, `/sop-documentation` |
 | Buying tires (best quality for the price) | `/tire-research` | `/decision-coach`, `/research-briefing` |
+| Exploring music history or building a listening list | `/music-historian` | `/learning-coach`, `/genealogy-research` |
 | Home repairs, projects & big-expense planning | `/home-maintenance-ops` | `/personal-finance` |
 | Family vacations & day trips | `/family-trip-planner` | `/personal-finance` |
 | Family tree & local history archive | `/genealogy-research` | sop-documentation (archive SOPs) |
