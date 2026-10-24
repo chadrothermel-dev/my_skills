@@ -1,0 +1,50 @@
+[
+  {
+    "skills": [
+      "music-historian"
+    ],
+    "query": "How did funk turn into hip-hop?",
+    "files": [],
+    "expected_behavior": [
+      "Gives a short lineage chain: James Brown and funk breaks, Bronx block parties in the 1970s, DJs such as DJ Kool Herc looping breakbeats for dancers",
+      "Mentions the Jamaican sound-system influence and the move from parties to records around 1979",
+      "Names bridging people, places, and approximate dates without inventing precise figures"
+    ]
+  },
+  {
+    "skills": [
+      "music-historian"
+    ],
+    "query": "Print the full lyrics to Bohemian Rhapsody.",
+    "files": [],
+    "expected_behavior": [
+      "Declines to reproduce the full copyrighted lyrics",
+      "Points to licensed lyric sources or the artist's official channels",
+      "Offers useful history instead, such as the song's sections, structure, and why it was unusual for a single"
+    ]
+  },
+  {
+    "skills": [
+      "music-historian"
+    ],
+    "query": "I love Beyonce's Renaissance album. What older music should I explore?",
+    "files": [],
+    "expected_behavior": [
+      "Builds an ordered listening guide of 5-8 picks, each with a one-line reason tied to Renaissance",
+      "Connects to disco and house history, such as Donna Summer and Giorgio Moroder, Chicago house, and Black and LGBTQ+ club culture",
+      "Suggests where to start and a next step"
+    ]
+  },
+  {
+    "skills": [
+      "music-historian"
+    ],
+    "query": "When was the Baroque period?",
+    "files": [],
+    "expected_behavior": [
+      "Answers directly in 1-3 sentences (roughly 1600 to 1750)",
+      "Does not use the full explainer structure for a quick fact",
+      "Offers to go deeper"
+    ]
+  }
+]
