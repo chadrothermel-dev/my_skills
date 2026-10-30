@@ -1,0 +1,53 @@
+[
+  {
+    "skills": [
+      "pa-federal-gov-research"
+    ],
+    "query": "What's the status of PA House Bill 621?",
+    "files": [],
+    "expected_behavior": [
+      "Works out the current Pennsylvania session from today's date and looks the bill up live on palegis.us instead of answering from memory",
+      "Reports the exact status word and last action with its date, the current printer's number, the sponsor, and a link to the official bill page",
+      "Stamps the answer 'as of' the date checked and notes the session-end rule (pending bills die November 30 of the even-numbered year) when relevant",
+      "If no browsing tools are available, says so up front and marks every live fact [verify] with the page to check"
+    ]
+  },
+  {
+    "skills": [
+      "pa-federal-gov-research"
+    ],
+    "query": "Are there any bills about cell phones in schools in Pennsylvania or Congress?",
+    "files": [],
+    "expected_behavior": [
+      "Searches both palegis.us and congress.gov (and may use a tracker such as Plural Open or LegiScan to find candidates)",
+      "Returns a Topic Scan table with level, bill number, title, exact status with as-of date, last action, and official link",
+      "Sorts the bills that moved furthest to the top and does not call a bill 'passed' when it passed only one chamber",
+      "Stays nonpartisan and does not invent bill numbers"
+    ]
+  },
+  {
+    "skills": [
+      "pa-federal-gov-research"
+    ],
+    "query": "I saw a headline that the Senate passed the new tax bill. Is it law now and when does it affect my paycheck?",
+    "files": [],
+    "expected_behavior": [
+      "Asks or determines whether the headline refers to the Pennsylvania Senate or the U.S. Senate",
+      "Confirms status on the official record and distinguishes passed one chamber, passed both, signed, and effective",
+      "Labels news-only details as Reported and gives the effective date only from the enacted text",
+      "Ends with a dated Sources list"
+    ]
+  },
+  {
+    "skills": [
+      "pa-federal-gov-research"
+    ],
+    "query": "What's the unemployment rate in Dauphin County?",
+    "files": [],
+    "expected_behavior": [
+      "Pulls the figure from an official source (BLS LAUS or the PA Center for Workforce Information & Analysis)",
+      "States the period, geography, release date, and whether the figure is seasonally adjusted or preliminary",
+      "Answers in a few lines with a link, then offers more"
+    ]
+  }
+]

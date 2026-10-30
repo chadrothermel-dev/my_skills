@@ -129,3 +129,18 @@ Checked against Anthropic's current [prompting best practices](https://platform.
 | 3 new skills: `video-media-production`, `windows-workstation-tuning`, `web-project-publishing` | Recurring themes across recent Claude Code sessions not covered by an existing skill |
 
 **Deliberately not changed:** skill names stay noun-style rather than gerunds, because renaming would break installed `/my-skills:` commands. No `when_to_use` key was added either, because claude.ai uploads reject it.
+
+---
+
+## 8. Library Check & Government Research Skills (2026-10-30)
+
+**Library check (55 existing skills):** the full build from `my_prompts` was byte-identical before any change, so no prompt→skill drift. A sweep for retired services (ProPublica Congress API, GovTrack API, old `legis.state.pa.us` links, Bing Search API) found no references. The `everyday-computer-help-desk` copy in `my_prompts` differs from this repo only in a blank line and line endings. No existing skill needed a content fix.
+
+| Change | Why |
+| :--- | :--- |
+| New `pa-federal-gov-research` skill (3 reference files) | Accurate, sourced answers on PA and federal bills, laws, regulations, budgets, votes, and data. Hard-codes no office-holders or session facts: it derives the current Congress and PA session from today's date and fetches every live fact with a link and an as-of date. Enforces an exact status ladder (one chamber ≠ passed; signed ≠ effective) and news-vs-official-record labeling |
+| New `public-records-requests` skill | Fills the gap when records aren't online: PA Right-to-Know Law and federal FOIA routing, specific request drafts, deadline math, and appeals. Drafts only |
+| `research-briefing` hands off live government lookups to `pa-federal-gov-research` | Keeps briefings on pasted material and live lookups in the skill that verifies against official sources |
+| Evals for both new skills | Status precision, topic scans, data provenance, deadline math, and a privacy refusal |
+
+**Sources verified 2026-10-30:** palegis.us bill page structure, Congress.gov API v3 (api.data.gov key), Plural Open (formerly Open States) v3, Federal Register API (no key), Census and BLS API limits, IRRC and PennWATCH sites live, RTKL timelines (5 business days, 30-day extension, 15 business days to appeal), FOIA timelines (20 working days, 10-day extension, 90-day appeal window). The ProPublica Congress API and the GovTrack API are retired.

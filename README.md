@@ -1,6 +1,6 @@
 # My Skills Repository
 
-A curated library of **55** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
+A curated library of **57** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
 
 ---
 
@@ -129,6 +129,8 @@ Short, repeatable skills for every workday: start and end the day, clear the inb
 | **[Meeting Notes, Decisions & Action Item Extractor](skills/meeting-notes/SKILL.md)** | `/meeting-notes` | Program Coordinator & Meeting Scribe | Decision vs. discussion separation, owner/due-date enforcement, "your actions" list, CAB/incident/design/vendor/1:1 add-ons, follow-up email draft |
 | **[Everyday Decision Coach & Decision-Fatigue Breaker](skills/decision-coach/SKILL.md)** | `/decision-coach` | Decision Strategist (ADHD-aware) | Two-way vs. one-way door sizing, default rules, satisficing, weighted matrix, pre-mortem, research-loop breaker, always-recommend output |
 | **[Rapid Research & Briefing Analyst](skills/research-briefing/SKILL.md)** | `/research-briefing` | Senior Research Analyst | 2-minute layered briefings, "does this affect me?" impact checks, source credibility ladder, fact/claim/inference labeling, compare & explain modes |
+| **[Pennsylvania & U.S. Federal Government Research Analyst](skills/pa-federal-gov-research/SKILL.md)** | `/pa-federal-gov-research` | Nonpartisan Government Research Analyst & former legislative staffer | PA General Assembly + Congress bill status with exact status ladder, printer's numbers & text versions, laws/regulations (Federal Register, PA Bulletin, IRRC), budgets & spending (IFO, CBO, USAspending), official data (Census, BLS, data.pa.gov), news vs. official record, as-of dates on every live fact, nonpartisan |
+| **[Public Records Request Assistant (PA Right-to-Know & Federal FOIA)](skills/public-records-requests/SKILL.md)** | `/public-records-requests` | Open-Records Specialist (not an attorney) | Already-public check first, right law & right office, specific send-ready requests, RTKL 5-day/30-day/15-day and FOIA 20-day/90-day deadline math, fee limits & waivers, appeal drafts (OOR, OGIS), drafts only |
 
 ---
 
@@ -207,6 +209,8 @@ For maximum effectiveness, combine related skills based on your current task:
 | Turning meetings into tracked work | `/meeting-notes` | `/it-project-management`, `/daily-kickoff-shutdown` |
 | Stuck on a choice (work or home) | `/decision-coach` | `/personal-finance`, `/home-maintenance-ops`, `/formal-logic-analyzer` |
 | Release notes, advisories & long docs | `/research-briefing` | `/security-compliance-hardening`, the matching technical skill |
+| Bills, laws, budgets & government data (PA + federal) | `/pa-federal-gov-research` | `/public-records-requests`, `/research-briefing` |
+| Getting records that aren't online (Right-to-Know / FOIA) | `/public-records-requests` | `/pa-federal-gov-research`, `/executive-communication` |
 | Weekly planning that actually sticks | `/weekly-reset-planner` | `/adhd-executive-function-coach` |
 | Healthy routines for the whole family | `/fitness-habit-coach` | `/meal-planner`, `/weekly-reset-planner` |
 | Starting to invest (complete beginner) | `/investing-mentor` | `/personal-finance`, `/decision-coach` |
