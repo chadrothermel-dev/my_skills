@@ -71,6 +71,8 @@ COMBOS = [
     ("Turning meetings into tracked work", "meeting-notes", ["it-project-management", "daily-kickoff-shutdown"]),
     ("Stuck on a choice (work or home)", "decision-coach", ["personal-finance", "home-maintenance-ops", "formal-logic-analyzer"]),
     ("Release notes, advisories & long docs", "research-briefing", ["security-compliance-hardening", "the matching technical skill"]),
+    ("Bills, laws, budgets & government data (PA + federal)", "pa-federal-gov-research", ["public-records-requests", "research-briefing"]),
+    ("Getting records that aren't online (Right-to-Know / FOIA)", "public-records-requests", ["pa-federal-gov-research", "executive-communication"]),
     ("Weekly planning that actually sticks", "weekly-reset-planner", ["adhd-executive-function-coach"]),
     ("Healthy routines for the whole family", "fitness-habit-coach", ["meal-planner", "weekly-reset-planner"]),
     ("Starting to invest (complete beginner)", "investing-mentor", ["personal-finance", "decision-coach"]),
