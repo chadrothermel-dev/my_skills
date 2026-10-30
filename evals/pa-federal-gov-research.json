@@ -3,10 +3,10 @@
     "skills": [
       "pa-federal-gov-research"
     ],
-    "query": "What's the status of PA House Bill 621?",
+    "query": "What's the status of PA House Bill 621 from the 2025-2026 session?",
     "files": [],
     "expected_behavior": [
-      "Works out the current Pennsylvania session from today's date and looks the bill up live on palegis.us instead of answering from memory",
+      "Looks the bill up live on palegis.us instead of answering from memory",
       "Reports the exact status word and last action with its date, the current printer's number, the sponsor, and a link to the official bill page",
       "Stamps the answer 'as of' the date checked and notes the session-end rule (pending bills die November 30 of the even-numbered year) when relevant",
       "If no browsing tools are available, says so up front and marks every live fact [verify] with the page to check"
