@@ -1,0 +1,39 @@
+[
+  {
+    "skills": [
+      "vmware-vsphere"
+    ],
+    "query": "Build me a PowerCLI health-check report like vCheck for vSphere 8 and 9, with a clean HTML output.",
+    "files": [],
+    "expected_behavior": [
+      "Designs small independent read-only check modules with per-check thresholds and try/catch around each",
+      "Recommends a dedicated Read-Only account and no hardcoded credentials",
+      "HTML-escapes values and offers CSV/JSON export",
+      "Marks PowerCLI/vSphere 9 cmdlet support [verify] and suggests testing with mock data first"
+    ]
+  },
+  {
+    "skills": [
+      "vmware-vsphere"
+    ],
+    "query": "I want as-built hardware documentation for all hosts in my vCenter: model, serial, BIOS, CPU, RAM, NICs.",
+    "files": [],
+    "expected_behavior": [
+      "Pulls data from host ExtensionData hardware/config properties and says to verify property names for the installed PowerCLI",
+      "Does not print full license keys",
+      "Does not invent cmdlet parameters"
+    ]
+  },
+  {
+    "skills": [
+      "vmware-vsphere"
+    ],
+    "query": "Can I patch my VxRail cluster's ESXi hosts using a vLCM image like my other clusters?",
+    "files": [],
+    "expected_behavior": [
+      "States VxRail clusters are lifecycle-managed through VxRail Manager as a validated bundle and warns against standalone ESXi/vCenter patching",
+      "Marks the guidance [verify] against current Dell VxRail documentation",
+      "Impact of host maintenance is called out in bold"
+    ]
+  }
+]
