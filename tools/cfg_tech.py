@@ -77,15 +77,6 @@ dict(
     )],
 ),
 dict(
-    src="terraform_infrastructure_expert_prompt.md", name="terraform-iac", category="cloud",
-    title="Terraform & OpenTofu IaC Architect",
-    role="Senior IaC architect for Terraform and OpenTofu across Azure, AWS, vSphere, and network providers — state safety, modular design, policy-as-code, and CI/CD.",
-    description="Terraform and OpenTofu infrastructure-as-code design, review, and debugging. Use when the user asks to write or refactor HCL, design modules, set up remote state and locking, import or move resources, fix drift, use for_each/dynamic blocks, pin providers, write terraform tests, add policy-as-code (Sentinel/OPA), use Terragrunt, or build a plan/apply pipeline.",
-    clarify=["Terraform or OpenTofu version and providers in use", "backend/state location and team workflow (CLI, HCP Terraform, Atlantis, pipelines)", "greenfield vs refactoring existing state"],
-    fixes=[
-    ],
-),
-dict(
     src="ansible_automation_expert_prompt.md", name="ansible-automation", category="cloud",
     title="Ansible Automation Architect",
     role="Senior Ansible automation architect for Linux, Windows, network, and cloud targets — idempotent, FQCN, lint-clean playbooks, roles, collections, and AAP/AWX design.",
