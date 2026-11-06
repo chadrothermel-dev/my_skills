@@ -58,13 +58,13 @@ Azure cloud services, infrastructure as code, configuration management, and scri
 | Skill | Invoke | Persona | Key Focus Areas |
 | :--- | :--- | :--- | :--- |
 | **[Azure Cloud Solutions Architect](skills/azure-solutions-architect/SKILL.md)** | `/azure-solutions-architect` | Senior Principal Azure Architect | Full Azure service catalog, Zero-Trust, Well-Architected Framework (WAF), Landing Zones (CAF), Bicep/Terraform |
-| **[Terraform & OpenTofu IaC Architect](skills/terraform-iac/SKILL.md)** | `/terraform-iac` | Senior Principal IaC Architect | HCL, multi-provider (Azure/AWS/VMware), state & locking, modules, terraform test, ephemeral secrets, Terragrunt, Sentinel/OPA |
 | **[Ansible Automation Architect](skills/ansible-automation/SKILL.md)** | `/ansible-automation` | Senior Principal Automation Architect | Playbooks, Roles/Collections, AWX/AAP, Jinja2, variable precedence, Vault, Windows/Linux modules, Molecule |
 | **[PowerShell Automation Architect](skills/powershell-expert/SKILL.md)** | `/powershell-expert` | PowerShell Principal Engineer | Enterprise scripting, PSScriptAnalyzer, pipeline architecture, PSGallery module integration |
 | **[Infrastructure CI/CD & GitOps Pipeline Engineer](skills/cicd-gitops-pipelines/SKILL.md)** | `/cicd-gitops-pipelines` | Senior Principal DevSecOps Architect | Azure DevOps YAML, GitHub Actions OIDC, quality gates (tflint/Trivy/checkov/Pester), plan-artifact promotion, Atlantis, drift detection |
 | **[Cloud FinOps & Cost Optimization Architect](skills/cloud-finops/SKILL.md)** | `/cloud-finops` | Principal Cloud FinOps Architect | Reservations vs. Savings Plans, Azure Hybrid Benefit, storage tiering math, waste hunting scripts, tagging |
 | **[Microsoft Enterprise AI Architect & Mentor](skills/microsoft-ai-architect/SKILL.md)** | `/microsoft-ai-architect` | Enterprise AI Architect | M365 Copilot agents, Copilot Studio, Microsoft Foundry, Agent Framework / Semantic Kernel, Azure AI Search RAG, MCP, Purview DSPM for AI |
 | **[Personal Web Project Builder & Publisher](skills/web-project-publishing/SKILL.md)** | `/web-project-publishing` | Senior Full-Stack Engineer | Local HTTP/Docker run, hosting matrix (GitHub Pages, Cloudflare, Netlify, Azure SWA), large-media strategy, web-safe video, maps & 3D libraries, Pages Actions deploy, works-locally-broken-online fixes |
+| **[Terraform Expert](skills/terraform-expert/SKILL.md)** | `/terraform-expert` | Senior Principal IaC Architect | Terraform 1.17: HCL, state and backends, moved/import/removed, modules, terraform test, ephemeral secrets, query, Actions, Stacks, CI/CD |
 
 ---
 
@@ -175,11 +175,11 @@ For maximum effectiveness, combine related skills based on your current task:
 
 | Task | Primary Skill | Supporting Skill(s) |
 | :--- | :--- | :--- |
-| Cloud infrastructure deployment | `/azure-solutions-architect` | `/terraform-iac`, `/security-compliance-hardening` |
+| Cloud infrastructure deployment | `/azure-solutions-architect` | `/terraform-expert`, `/security-compliance-hardening` |
 | On-prem VM environment management | `/vmware-vsphere` | `/windows-server`, `/powershell-expert` |
 | Log pipeline engineering | `/cribl-stream` | `/elastic-stack` |
 | Dual-SIEM log routing & optimization | `/cribl-elastic-sentinel-pipelines` | `/elastic-stack`, `/microsoft-sentinel` |
-| Infrastructure automation | `/ansible-automation` | `/linux-sysadmin`, `/windows-server`, `/terraform-iac` |
+| Infrastructure automation | `/ansible-automation` | `/linux-sysadmin`, `/windows-server`, `/terraform-expert` |
 | Security audit & compliance hardening | `/security-compliance-hardening` | `/windows-server`, `/linux-sysadmin`, `/enterprise-networking` |
 | Enterprise PKI & certificate management | `/pki-certificates` | `/windows-server`, `/linux-sysadmin`, `/enterprise-networking` |
 | Production incident response | `/incident-response` | any technology skill, `/executive-communication` |
@@ -189,8 +189,8 @@ For maximum effectiveness, combine related skills based on your current task:
 | Database design, tuning, HA/DR & migrations | `/database-architect` | `/query-language-coach`, `/windows-server`, `/linux-sysadmin`, `/bcdr-recovery-architect` |
 | Understanding, writing, or converting queries | `/query-language-coach` | `/database-architect` |
 | Container platform & Kubernetes ops | `/kubernetes-platform` | `/linux-sysadmin`, `/ansible-automation`, `/enterprise-networking` |
-| Cloud cost reduction & FinOps governance | `/cloud-finops` | `/azure-solutions-architect`, `/terraform-iac` |
-| Infrastructure CI/CD & GitOps delivery | `/cicd-gitops-pipelines` | `/terraform-iac`, `/ansible-automation`, `/powershell-expert` |
+| Cloud cost reduction & FinOps governance | `/cloud-finops` | `/azure-solutions-architect`, `/terraform-expert` |
+| Infrastructure CI/CD & GitOps delivery | `/cicd-gitops-pipelines` | `/terraform-expert`, `/ansible-automation`, `/powershell-expert` |
 | Cloud SIEM, detection & SecOps engineering | `/microsoft-sentinel` | `/azure-solutions-architect`, `/cribl-stream`, `/security-compliance-hardening` |
 | Operational delegation & SOP generation | `/sop-documentation` | any technology skill for context |
 | Entra ID / Conditional Access / Intune rollout | `/entra-intune-identity` | `/security-compliance-hardening`, `/powershell-expert`, `/windows-server` |

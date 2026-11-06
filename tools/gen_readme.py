@@ -22,7 +22,7 @@ FOCUS_OVERRIDES = {
     "personal-finance": "Budget dashboard, debt avalanche/snowball with real payoff math, emergency fund, goal tracking (educational, not investment advice)",
     "meal-planner": "7-day budget meal plans, editable household profile, teen portion scaling, leftovers & prep plan, store-section grocery list",
     "prompt-engineering-architect": "Build/audit/refactor/combine prompts and skills, SKILL.md packaging, description triggers, audit rubric, test inputs",
-    "terraform-iac": "HCL, multi-provider (Azure/AWS/VMware), state & locking, modules, terraform test, ephemeral secrets, Terragrunt, Sentinel/OPA",
+    "terraform-expert": "Terraform 1.17: HCL, state and backends, moved/import/removed, modules, terraform test, ephemeral secrets, query, Actions, Stacks, CI/CD",
     "cicd-gitops-pipelines": "Azure DevOps YAML, GitHub Actions OIDC, quality gates (tflint/Trivy/checkov/Pester), plan-artifact promotion, Atlantis, drift detection",
 }
 
@@ -39,11 +39,11 @@ CATEGORIES = [
 ]
 
 COMBOS = [
-    ("Cloud infrastructure deployment", "azure-solutions-architect", ["terraform-iac", "security-compliance-hardening"]),
+    ("Cloud infrastructure deployment", "azure-solutions-architect", ["terraform-expert", "security-compliance-hardening"]),
     ("On-prem VM environment management", "vmware-vsphere", ["windows-server", "powershell-expert"]),
     ("Log pipeline engineering", "cribl-stream", ["elastic-stack"]),
     ("Dual-SIEM log routing & optimization", "cribl-elastic-sentinel-pipelines", ["elastic-stack", "microsoft-sentinel"]),
-    ("Infrastructure automation", "ansible-automation", ["linux-sysadmin", "windows-server", "terraform-iac"]),
+    ("Infrastructure automation", "ansible-automation", ["linux-sysadmin", "windows-server", "terraform-expert"]),
     ("Security audit & compliance hardening", "security-compliance-hardening", ["windows-server", "linux-sysadmin", "enterprise-networking"]),
     ("Enterprise PKI & certificate management", "pki-certificates", ["windows-server", "linux-sysadmin", "enterprise-networking"]),
     ("Production incident response", "incident-response", ["any technology skill", "executive-communication"]),
@@ -53,8 +53,8 @@ COMBOS = [
     ("Database design, tuning, HA/DR & migrations", "database-architect", ["query-language-coach", "windows-server", "linux-sysadmin", "bcdr-recovery-architect"]),
     ("Understanding, writing, or converting queries", "query-language-coach", ["database-architect"]),
     ("Container platform & Kubernetes ops", "kubernetes-platform", ["linux-sysadmin", "ansible-automation", "enterprise-networking"]),
-    ("Cloud cost reduction & FinOps governance", "cloud-finops", ["azure-solutions-architect", "terraform-iac"]),
-    ("Infrastructure CI/CD & GitOps delivery", "cicd-gitops-pipelines", ["terraform-iac", "ansible-automation", "powershell-expert"]),
+    ("Cloud cost reduction & FinOps governance", "cloud-finops", ["azure-solutions-architect", "terraform-expert"]),
+    ("Infrastructure CI/CD & GitOps delivery", "cicd-gitops-pipelines", ["terraform-expert", "ansible-automation", "powershell-expert"]),
     ("Cloud SIEM, detection & SecOps engineering", "microsoft-sentinel", ["azure-solutions-architect", "cribl-stream", "security-compliance-hardening"]),
     ("Operational delegation & SOP generation", "sop-documentation", ["any technology skill for context"]),
     ("Entra ID / Conditional Access / Intune rollout", "entra-intune-identity", ["security-compliance-hardening", "powershell-expert", "windows-server"]),
