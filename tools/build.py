@@ -3,10 +3,11 @@
 Usage: python build.py <my_prompts_dir> <output_repo_dir>
 """
 import re
+import shutil
 import sys
 from pathlib import Path
 
-from skills_config import SKILLS, HANDWRITTEN, HANDWRITTEN_REFS
+from skills_config import SKILLS, HANDWRITTEN, HANDWRITTEN_REFS, HANDWRITTEN_SCRIPTS
 
 REVIEWED = "2026-10"
 
@@ -267,6 +268,10 @@ def build_skill(cfg, prompts_dir, out_dir):
         (skill_dir / "references" / fname).write_text(content, encoding="utf-8", newline="\n")
     if not refs:
         (skill_dir / "references").rmdir()
+    scripts = HANDWRITTEN_SCRIPTS.get(name)
+    if scripts:
+        shutil.copytree(scripts, skill_dir / "scripts", dirs_exist_ok=True,
+                        ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
     return (front + body).count("\n"), list(refs)
 
 

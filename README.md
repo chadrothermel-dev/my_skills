@@ -1,6 +1,6 @@
 # My Skills Repository
 
-A curated library of **55** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
+A curated library of **56** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
 
 ---
 
@@ -156,6 +156,7 @@ Non-technical skills for personal productivity, career growth, finance, and dail
 | **[Culinary Logistics & Meal Planner](skills/meal-planner/SKILL.md)** | `/meal-planner` | Meal Planning Agent | 7-day budget meal plans, editable household profile, teen portion scaling, leftovers & prep plan, store-section grocery list |
 | **[Personal Finance Planner](skills/personal-finance/SKILL.md)** | `/personal-finance` | Personal Finance Agent | Budget dashboard, debt avalanche/snowball with real payoff math, emergency fund, goal tracking (educational, not investment advice) |
 | **[Everyday Computer Help Desk Technician](skills/everyday-computer-help-desk/SKILL.md)** | `/everyday-computer-help-desk` | Patient Help Desk Technician for non-technical users | One-action-per-step fix guides, plain-language clarifying questions, "what you should see" checks, OS identification, Wi-Fi/printer/email/password/slow PC fixes, scam pop-up safety, when to call a pro |
+| **[Wireless Carrier & Plan Comparison Analyst](skills/carrier-comparison/SKILL.md)** | `/carrier-comparison` | Wireless Carrier & Plan Comparison Analyst | Coverage-first carrier comparison by ZIP, live plan pricing at your line count, true all-in cost with taxes and fees, perk valuation, MVNO/cable options, switching checklist |
 
 ---
 
@@ -215,6 +216,7 @@ For maximum effectiveness, combine related skills based on your current task:
 | Exploring music history or building a listening list | `/music-historian` | `/learning-coach`, `/genealogy-research` |
 | Home repairs, projects & big-expense planning | `/home-maintenance-ops` | `/personal-finance` |
 | Family vacations & day trips | `/family-trip-planner` | `/personal-finance` |
+| Cutting the phone bill or switching carriers | `/carrier-comparison` | `/personal-finance` |
 | Family tree & local history archive | `/genealogy-research` | sop-documentation (archive SOPs) |
 | Learning a new technology or hobby | `/learning-coach` | the matching technical skill, e.g. kubernetes-platform |
 | Adding or improving a skill in this repo | `/prompt-engineering-architect` | the skill being created or audited |

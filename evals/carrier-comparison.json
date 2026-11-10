@@ -1,0 +1,34 @@
+[
+  {
+    "skills": ["carrier-comparison"],
+    "query": "We're on Verizon with 4 lines and pay $240 a month. We live in Lancaster, PA 17601. Find us something cheaper.",
+    "files": [],
+    "expected_behavior": [
+      "Asks at most 2-3 follow-ups that change the answer (device payments in the bill, phones paid off/unlocked, cable internet) or states default assumptions in one line",
+      "Checks coverage for Verizon, AT&T, and T-Mobile at the ZIP before ranking prices, citing carrier maps, the FCC map, or regional test reports",
+      "Fetches current prices from each carrier's own site at 4 lines and cites the source and date for every price",
+      "Returns a comparison table with all-in $/mo, $/line, effective $/mo after perks, and savings per year, plus Lowest price / Best value / Premium picks",
+      "Mentions Verizon-network MVNOs or cable options as low-risk savings because Verizon already works for them"
+    ]
+  },
+  {
+    "skills": ["carrier-comparison"],
+    "query": "T-Mobile is offering us 4 free iPhones if we switch from AT&T. Is that a good deal?",
+    "files": [],
+    "expected_behavior": [
+      "Explains that free phones are usually bill credits spread over 24-36 months and that leaving early makes the remaining balance due",
+      "Compares the required plan's all-in cost over the credit period against cheaper plans with paid-off phones",
+      "Asks whether the current AT&T phones still have installment balances or are locked"
+    ]
+  },
+  {
+    "skills": ["carrier-comparison"],
+    "query": "What does Mint Mobile cost right now for 2 lines?",
+    "files": [],
+    "expected_behavior": [
+      "Looks up the current price live instead of quoting from memory, and cites the source and date",
+      "Points out that the lowest Mint price requires paying several months upfront and shows the upfront total",
+      "Notes that Mint runs on T-Mobile and recommends checking T-Mobile coverage where they live"
+    ]
+  }
+]
