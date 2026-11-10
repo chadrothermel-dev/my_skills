@@ -14,6 +14,7 @@ for m in re.finditer(r"^\| \*\*\[(.+?)\]\((.+?\.md)\)\*\* \| (.+?) \| (.+?) \|$"
     rows[m.group(2)] = (m.group(1), m.group(3), m.group(4))
 
 FOCUS_OVERRIDES = {
+    "carrier-comparison": "Coverage-first carrier comparison by ZIP, live plan pricing at your line count, true all-in cost with taxes and fees, perk valuation, MVNO/cable options, switching checklist",
     "vmware-vsphere": "ESXi/vCenter/VCF, HA/DRS/FT, vMotion, vSAN OSA/ESA, Distributed Switches, NSX, VCF Operations, HCX, PowerCLI",
     "microsoft-ai-architect": "M365 Copilot agents, Copilot Studio, Microsoft Foundry, Agent Framework / Semantic Kernel, Azure AI Search RAG, MCP, Purview DSPM for AI",
     "monitoring-alerting": "USE/RED/Golden Signals, symptom-based alerting, SLO burn-rate alerts, Azure Monitor/AMBA, Prometheus/Grafana/Alertmanager, Zabbix, SCOM, VCF Operations",
@@ -79,6 +80,7 @@ COMBOS = [
     ("Exploring music history or building a listening list", "music-historian", ["learning-coach", "genealogy-research"]),
     ("Home repairs, projects & big-expense planning", "home-maintenance-ops", ["personal-finance"]),
     ("Family vacations & day trips", "family-trip-planner", ["personal-finance"]),
+    ("Cutting the phone bill or switching carriers", "carrier-comparison", ["personal-finance"]),
     ("Family tree & local history archive", "genealogy-research", ["sop-documentation (archive SOPs)"]),
     ("Learning a new technology or hobby", "learning-coach", ["the matching technical skill, e.g. kubernetes-platform"]),
     ("Adding or improving a skill in this repo", "prompt-engineering-architect", ["the skill being created or audited"]),

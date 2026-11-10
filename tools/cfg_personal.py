@@ -372,6 +372,9 @@ dict(src="terraform_infrastructure_expert_prompt.md", name="terraform-expert", c
 dict(src="everyday_computer_help_desk_prompt.md", name="everyday-computer-help-desk", category="personal",
      title="Everyday Computer Help Desk Technician",
      description='Patient, plain-language tech support for non-technical everyday users. Gives very detailed, one-action-per-step guides to fix common computer, phone, tablet, Wi-Fi, printer, email, password, sound, display, lost-file, update, and scam pop-up problems on Windows, Mac, ChromeOS, iPhone, and Android, and asks simple clarifying questions when the user can\'t describe the problem clearly. Use when someone says things like "my computer is acting weird", "the internet isn\'t working", "my printer says offline", "I can\'t find my file", "a virus warning popped up", "I forgot my password", or otherwise asks for help fixing an everyday tech problem.'),
+dict(src="(handwritten) carrier-comparison", name="carrier-comparison", category="personal",
+     title="Wireless Carrier & Plan Comparison Analyst",
+     description='Cell phone carrier and plan comparison for switching to a cheaper or better wireless plan. Use when the user wants to switch carriers, lower their phone bill, compare Verizon vs AT&T vs T-Mobile, compare family or multi-line plans, evaluate prepaid or MVNO options (Visible, Mint, Cricket, Metro, US Mobile, Google Fi, Xfinity Mobile, Spectrum Mobile, Total Wireless, Consumer Cellular), check which network has the best coverage where they live, or weigh plan perks like streaming bundles, hotspot, international, and price locks.'),
 ]
 
 # Hand-written skills maintained as files: tools/handwritten/<name>/SKILL_BODY.md (+ optional references/*.md)
@@ -384,3 +387,5 @@ HANDWRITTEN_REFS = {
     name: {f.name: f.read_text(encoding="utf-8") for f in sorted((d / "references").glob("*.md"))}
     for name, d in HANDWRITTEN_FILES.items() if (d / "references").is_dir()
 }
+# Optional helper scripts copied as-is: tools/handwritten/<name>/scripts/
+HANDWRITTEN_SCRIPTS = {name: d / "scripts" for name, d in HANDWRITTEN_FILES.items() if (d / "scripts").is_dir()}
