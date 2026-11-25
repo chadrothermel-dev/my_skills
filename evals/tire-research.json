@@ -1,0 +1,39 @@
+[
+  {
+    "skills": [
+      "tire-research"
+    ],
+    "query": "My 2020 crossover shows a tire pressure warning light and the tires are worn out. Is it smart to replace the sensors when I buy tires?",
+    "files": [],
+    "expected_behavior": [
+      "Checks pressure first, then explains a sensor fault versus low air",
+      "Notes sensor batteries are sealed and last roughly 5-10 years, and that replacing at tire-change time saves a second labor charge",
+      "Mentions relearn/programming and marks sensor type and cost [verify]"
+    ]
+  },
+  {
+    "skills": [
+      "tire-research"
+    ],
+    "query": "Compare tires for my 2014 sedan that a teenager drives only short trips. Give me a link to buy each option and tell me if labor is included.",
+    "files": [],
+    "expected_behavior": [
+      "Confirms fitment before recommending",
+      "Treats age/sidewall condition and budget tier as more relevant than treadwear for a low-mileage car",
+      "Gives one purchase link per shortlisted tire or says a retailer page could not be loaded and marks the price [verify]",
+      "Shows labor as its own line item and states whether totals include it"
+    ]
+  },
+  {
+    "skills": [
+      "tire-research"
+    ],
+    "query": "Is Joe's Tire Shop a good place to get these installed? Write it up as a PDF-ready report.",
+    "files": [],
+    "expected_behavior": [
+      "Bases the shop assessment only on evidence found (reviews, certifications, written quote) and does not invent prices or reputation",
+      "Says what could not be verified",
+      "Report includes fitment, shortlist table, itemized installed cost with labor, TPMS notes, and links with dated sources"
+    ]
+  }
+]

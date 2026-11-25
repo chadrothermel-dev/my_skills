@@ -129,3 +129,16 @@ Checked against Anthropic's current [prompting best practices](https://platform.
 | 3 new skills: `video-media-production`, `windows-workstation-tuning`, `web-project-publishing` | Recurring themes across recent Claude Code sessions not covered by an existing skill |
 
 **Deliberately not changed:** skill names stay noun-style rather than gerunds, because renaming would break installed `/my-skills:` commands. No `when_to_use` key was added either, because claude.ai uploads reject it.
+
+## 8. Weekly Refresh (2026-11-02)
+
+Checked Anthropic's [skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices): no new requirements; all skills still meet the limits and the lint passes. Two skills updated from recurring themes in recent sessions (no personal details recorded):
+
+| Change | Why |
+| :--- | :--- |
+| `tire-research`: TPMS and low-use/new-driver guidance, itemized quotes with labor shown separately, one verified purchase link per option, installer vetting without invented facts, report format | Several recent sessions asked for these after the first answer |
+| `vmware-vsphere`: health-check and as-built reporting patterns (vCheck-style), Dell VxRail lifecycle caution | A recent session built a vSphere 8/9 and VxRail reporting tool with no matching guidance |
+| 3 eval scenarios each for both skills | Neither had evals |
+| Plugin version 1.6.1 | Patch: updates only |
+
+Not applied: a secondhand report that Agent Skills moved to a neutral foundation (Oct 2026), unconfirmed from an Anthropic source.
