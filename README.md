@@ -1,12 +1,19 @@
 # My Skills Repository
 
-A curated library of **58** AI agent skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
+A curated library of **58** AI agent skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill follows the open `SKILL.md` standard and works across **Google Gemini**, **Microsoft Copilot**, and **Claude**. Most skills are converted and audited versions of prompts from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
 
 ---
 
 ## Quick Start
 
-**Option A — Claude Code plugin (all skills, auto-updates):**
+**Option A — Google Gemini & Microsoft Copilot (direct `.zip` download):**
+
+Click any **[ZIP]** link in the tables below to download `dist/<skill>.zip` directly (`SKILL.md` at the archive root, ready for upload):
+
+- **Google Gemini:** open [gemini.google.com](https://gemini.google.com) → **Menu → Customize → Skills → Create → Upload** and select the `.zip` file.
+- **Microsoft Copilot (Copilot Studio / Agent Builder / Cowork):** open your agent → **Skills → Add skill → Upload a skill** and select the `.zip` file.
+
+**Option B — Claude Code plugin (all skills, auto-updates):**
 
 ```bash
 /plugin marketplace add chadrothermel-dev/my_skills
@@ -18,7 +25,7 @@ A curated library of **58** AI agent skills for enterprise systems engineering, 
 
 Skills are then available as `/my-skills:<skill-name>` and load automatically when your request matches a skill's description.
 
-**Option B — copy into your personal skills folder (Windows):**
+**Option C — copy into your personal skills folder (Windows / macOS / Linux):**
 
 ```powershell
 git clone https://github.com/chadrothermel-dev/my_skills.git; cd my_skills; ./install.ps1
@@ -26,10 +33,10 @@ git clone https://github.com/chadrothermel-dev/my_skills.git; cd my_skills; ./in
 
 Install a subset with `./install.ps1 -Skills vmware-vsphere,windows-server`. On macOS/Linux use `./install.sh` (optionally followed by skill names).
 
-**Option C — claude.ai:** run `./install.ps1 -Zip` to build `dist/<skill>.zip` files, then upload one under **Settings → Capabilities → Skills**.
+**Option D — claude.ai:** claude.ai expects a wrapper folder (`<skill>/SKILL.md`) inside the zip. Build Claude-formatted zips with `./install.ps1 -Zip -Format Folder` (or `python tools/pack_zips.py --format folder --out dist-claude`), then upload under **Settings → Capabilities → Skills**.
 
 > [!TIP]
-> **Combine skills for maximum impact.** Claude can load several skills in one conversation — see [Recommended Skill Combinations](#recommended-skill-combinations).
+> **Combine skills for maximum impact.** Agents can load several skills in one conversation — see [Recommended Skill Combinations](#recommended-skill-combinations).
 
 ---
 
@@ -37,17 +44,17 @@ Install a subset with `./install.ps1 -Skills vmware-vsphere,windows-server`. On 
 
 Core datacenter, virtualization, compute, networking, and operating system skills.
 
-| Skill | Invoke | Persona | Key Focus Areas |
-| :--- | :--- | :--- | :--- |
-| **[VMware vSphere & VCF Virtualization Architect](skills/vmware-vsphere/SKILL.md)** | `/vmware-vsphere` | Senior Principal Virtualization Architect | ESXi/vCenter/VCF, HA/DRS/FT, vMotion, vSAN OSA/ESA, Distributed Switches, NSX, VCF Operations, HCX, PowerCLI |
-| **[Windows Server Platform Architect](skills/windows-server/SKILL.md)** | `/windows-server` | Senior Principal Windows Platform Architect | AD DS/FSMO, GPO (LSDOU), DNS/DHCP, Failover Clustering, Hyper-V, IIS, Storage Spaces Direct, PKI, LAPS |
-| **[Linux Systems Architect (RHEL & Ubuntu)](skills/linux-sysadmin/SKILL.md)** | `/linux-sysadmin` | Senior Principal Linux Systems Architect | systemd, dnf/apt, LVM, SELinux/AppArmor, SSH hardening, Bash scripting, performance tuning, Podman/Docker |
-| **[Enterprise Network Architect](skills/enterprise-networking/SKILL.md)** | `/enterprise-networking` | Senior Principal Network Architect | VLANs/STP/LACP, OSPF/BGP routing, Palo Alto/Fortinet firewalls, IPSec/SSL VPN, F5, SD-WAN, 802.1X NAC |
-| **[Data Center Hardware Architect](skills/datacenter-hardware/SKILL.md)** | `/datacenter-hardware` | Hardware Architect | Lenovo/HPE/Dell/Cisco server portfolios, storage arrays, CPU/RAM/NIC selection matrices, workload blueprints |
-| **[Kubernetes & Container Platform Architect](skills/kubernetes-platform/SKILL.md)** | `/kubernetes-platform` | Senior Principal Kubernetes Architect (CKA/CKS) | Control plane HA, etcd/etcdutl, Cilium/Calico CNI, vSphere CSI, MetalLB, Gateway API, ArgoCD/Flux GitOps, Helm, Kyverno |
-| **[Windows Workstation Performance & Cleanup Engineer](skills/windows-workstation-tuning/SKILL.md)** | `/windows-workstation-tuning` | Senior Windows Endpoint Engineer | Read-only assessment first, 4-tier findings report (startup / bloatware / review / junk), restore point + reversible changes, Docker/WSL/VM disk reclaim, never-remove list, Docker Desktop repair |
-| **[Senior Multi-Vendor Database Architect & DBA](skills/database-architect/SKILL.md)** | `/database-architect` | Senior Database Architect & DBA (SQL Server, Oracle, PostgreSQL, MySQL, cloud, NoSQL) | Platform selection, modeling & indexing, evidence-first tuning, HA/DR & backup per vendor, Azure SQL deep dive (Database/MI/VMs, tiers, serverless, failover groups, MI link, T-SQL differences), security, maintenance, upgrades & migration, licensing flags, current-vs-deprecated tables, straight-to-the-point answers |
-| **[Database Query Language Teacher & Translator](skills/query-language-coach/SKILL.md)** | `/query-language-coach` | Senior Database Developer & Patient Teacher | Plain-language query explanations, plain English → query, dialect translation (T-SQL/PL/SQL/PostgreSQL/MySQL) with behavior differences, NoSQL & graph languages, execution plans in plain words, Azure SQL T-SQL differences, safe data changes |
+| Skill | Invoke | Download | Persona | Key Focus Areas |
+| :--- | :--- | :--- | :--- | :--- |
+| **[VMware vSphere & VCF Virtualization Architect](skills/vmware-vsphere/SKILL.md)** | `/vmware-vsphere` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/vmware-vsphere.zip) | Senior Principal Virtualization Architect | ESXi/vCenter/VCF, HA/DRS/FT, vMotion, vSAN OSA/ESA, Distributed Switches, NSX, VCF Operations, HCX, PowerCLI |
+| **[Windows Server Platform Architect](skills/windows-server/SKILL.md)** | `/windows-server` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/windows-server.zip) | Senior Principal Windows Platform Architect | AD DS/FSMO, GPO (LSDOU), DNS/DHCP, Failover Clustering, Hyper-V, IIS, Storage Spaces Direct, PKI, LAPS |
+| **[Linux Systems Architect (RHEL & Ubuntu)](skills/linux-sysadmin/SKILL.md)** | `/linux-sysadmin` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/linux-sysadmin.zip) | Senior Principal Linux Systems Architect | systemd, dnf/apt, LVM, SELinux/AppArmor, SSH hardening, Bash scripting, performance tuning, Podman/Docker |
+| **[Enterprise Network Architect](skills/enterprise-networking/SKILL.md)** | `/enterprise-networking` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/enterprise-networking.zip) | Senior Principal Network Architect | VLANs/STP/LACP, OSPF/BGP routing, Palo Alto/Fortinet firewalls, IPSec/SSL VPN, F5, SD-WAN, 802.1X NAC |
+| **[Data Center Hardware Architect](skills/datacenter-hardware/SKILL.md)** | `/datacenter-hardware` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/datacenter-hardware.zip) | Hardware Architect | Lenovo/HPE/Dell/Cisco server portfolios, storage arrays, CPU/RAM/NIC selection matrices, workload blueprints |
+| **[Kubernetes & Container Platform Architect](skills/kubernetes-platform/SKILL.md)** | `/kubernetes-platform` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/kubernetes-platform.zip) | Senior Principal Kubernetes Architect (CKA/CKS) | Control plane HA, etcd/etcdutl, Cilium/Calico CNI, vSphere CSI, MetalLB, Gateway API, ArgoCD/Flux GitOps, Helm, Kyverno |
+| **[Windows Workstation Performance & Cleanup Engineer](skills/windows-workstation-tuning/SKILL.md)** | `/windows-workstation-tuning` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/windows-workstation-tuning.zip) | Senior Windows Endpoint Engineer | Read-only assessment first, 4-tier findings report (startup / bloatware / review / junk), restore point + reversible changes, Docker/WSL/VM disk reclaim, never-remove list, Docker Desktop repair |
+| **[Senior Multi-Vendor Database Architect & DBA](skills/database-architect/SKILL.md)** | `/database-architect` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/database-architect.zip) | Senior Database Architect & DBA (SQL Server, Oracle, PostgreSQL, MySQL, cloud, NoSQL) | Platform selection, modeling & indexing, evidence-first tuning, HA/DR & backup per vendor, Azure SQL deep dive (Database/MI/VMs, tiers, serverless, failover groups, MI link, T-SQL differences), security, maintenance, upgrades & migration, licensing flags, current-vs-deprecated tables, straight-to-the-point answers |
+| **[Database Query Language Teacher & Translator](skills/query-language-coach/SKILL.md)** | `/query-language-coach` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/query-language-coach.zip) | Senior Database Developer & Patient Teacher | Plain-language query explanations, plain English → query, dialect translation (T-SQL/PL/SQL/PostgreSQL/MySQL) with behavior differences, NoSQL & graph languages, execution plans in plain words, Azure SQL T-SQL differences, safe data changes |
 
 ---
 
@@ -55,16 +62,16 @@ Core datacenter, virtualization, compute, networking, and operating system skill
 
 Azure cloud services, infrastructure as code, configuration management, and scripting.
 
-| Skill | Invoke | Persona | Key Focus Areas |
-| :--- | :--- | :--- | :--- |
-| **[Azure Cloud Solutions Architect](skills/azure-solutions-architect/SKILL.md)** | `/azure-solutions-architect` | Senior Principal Azure Architect | Full Azure service catalog, Zero-Trust, Well-Architected Framework (WAF), Landing Zones (CAF), Bicep/Terraform |
-| **[Ansible Automation Architect](skills/ansible-automation/SKILL.md)** | `/ansible-automation` | Senior Principal Automation Architect | Playbooks, Roles/Collections, AWX/AAP, Jinja2, variable precedence, Vault, Windows/Linux modules, Molecule |
-| **[PowerShell Automation Architect](skills/powershell-expert/SKILL.md)** | `/powershell-expert` | PowerShell Principal Engineer | Enterprise scripting, PSScriptAnalyzer, pipeline architecture, PSGallery module integration |
-| **[Infrastructure CI/CD & GitOps Pipeline Engineer](skills/cicd-gitops-pipelines/SKILL.md)** | `/cicd-gitops-pipelines` | Senior Principal DevSecOps Architect | Azure DevOps YAML, GitHub Actions OIDC, quality gates (tflint/Trivy/checkov/Pester), plan-artifact promotion, Atlantis, drift detection |
-| **[Cloud FinOps & Cost Optimization Architect](skills/cloud-finops/SKILL.md)** | `/cloud-finops` | Principal Cloud FinOps Architect | Reservations vs. Savings Plans, Azure Hybrid Benefit, storage tiering math, waste hunting scripts, tagging |
-| **[Microsoft Enterprise AI Architect & Mentor](skills/microsoft-ai-architect/SKILL.md)** | `/microsoft-ai-architect` | Enterprise AI Architect | M365 Copilot agents, Copilot Studio, Microsoft Foundry, Agent Framework / Semantic Kernel, Azure AI Search RAG, MCP, Purview DSPM for AI |
-| **[Personal Web Project Builder & Publisher](skills/web-project-publishing/SKILL.md)** | `/web-project-publishing` | Senior Full-Stack Engineer | Local HTTP/Docker run, hosting matrix (GitHub Pages, Cloudflare, Netlify, Azure SWA), large-media strategy, web-safe video, maps & 3D libraries, Pages Actions deploy, works-locally-broken-online fixes |
-| **[Terraform Expert](skills/terraform-expert/SKILL.md)** | `/terraform-expert` | Senior Principal IaC Architect | Terraform 1.17: HCL, state and backends, moved/import/removed, modules, terraform test, ephemeral secrets, query, Actions, Stacks, CI/CD |
+| Skill | Invoke | Download | Persona | Key Focus Areas |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Azure Cloud Solutions Architect](skills/azure-solutions-architect/SKILL.md)** | `/azure-solutions-architect` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/azure-solutions-architect.zip) | Senior Principal Azure Architect | Full Azure service catalog, Zero-Trust, Well-Architected Framework (WAF), Landing Zones (CAF), Bicep/Terraform |
+| **[Ansible Automation Architect](skills/ansible-automation/SKILL.md)** | `/ansible-automation` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/ansible-automation.zip) | Senior Principal Automation Architect | Playbooks, Roles/Collections, AWX/AAP, Jinja2, variable precedence, Vault, Windows/Linux modules, Molecule |
+| **[PowerShell Automation Architect](skills/powershell-expert/SKILL.md)** | `/powershell-expert` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/powershell-expert.zip) | PowerShell Principal Engineer | Enterprise scripting, PSScriptAnalyzer, pipeline architecture, PSGallery module integration |
+| **[Infrastructure CI/CD & GitOps Pipeline Engineer](skills/cicd-gitops-pipelines/SKILL.md)** | `/cicd-gitops-pipelines` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/cicd-gitops-pipelines.zip) | Senior Principal DevSecOps Architect | Azure DevOps YAML, GitHub Actions OIDC, quality gates (tflint/Trivy/checkov/Pester), plan-artifact promotion, Atlantis, drift detection |
+| **[Cloud FinOps & Cost Optimization Architect](skills/cloud-finops/SKILL.md)** | `/cloud-finops` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/cloud-finops.zip) | Principal Cloud FinOps Architect | Reservations vs. Savings Plans, Azure Hybrid Benefit, storage tiering math, waste hunting scripts, tagging |
+| **[Microsoft Enterprise AI Architect & Mentor](skills/microsoft-ai-architect/SKILL.md)** | `/microsoft-ai-architect` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/microsoft-ai-architect.zip) | Enterprise AI Architect | M365 Copilot agents, Copilot Studio, Microsoft Foundry, Agent Framework / Semantic Kernel, Azure AI Search RAG, MCP, Purview DSPM for AI |
+| **[Personal Web Project Builder & Publisher](skills/web-project-publishing/SKILL.md)** | `/web-project-publishing` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/web-project-publishing.zip) | Senior Full-Stack Engineer | Local HTTP/Docker run, hosting matrix (GitHub Pages, Cloudflare, Netlify, Azure SWA), large-media strategy, web-safe video, maps & 3D libraries, Pages Actions deploy, works-locally-broken-online fixes |
+| **[Terraform Expert](skills/terraform-expert/SKILL.md)** | `/terraform-expert` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/terraform-expert.zip) | Senior Principal IaC Architect | Terraform 1.17: HCL, state and backends, moved/import/removed, modules, terraform test, ephemeral secrets, query, Actions, Stacks, CI/CD |
 
 ---
 
@@ -72,11 +79,11 @@ Azure cloud services, infrastructure as code, configuration management, and scri
 
 Identity and endpoint management, security hardening, regulatory compliance, PKI, and certificate lifecycle management.
 
-| Skill | Invoke | Persona | Key Focus Areas |
-| :--- | :--- | :--- | :--- |
-| **[Entra ID, Intune & Modern Workplace Identity Architect](skills/entra-intune-identity/SKILL.md)** | `/entra-intune-identity` | Senior Principal Identity & Endpoint Architect | Hybrid identity (Cloud Sync/Connect, PHS), Conditional Access baselines, passkeys/phishing-resistant MFA, PIM, Intune/Autopilot, Windows LAPS, Graph PowerShell, Microsoft365DSC |
-| **[Security & Compliance Hardening Architect](skills/security-compliance-hardening/SKILL.md)** | `/security-compliance-hardening` | Senior Principal Security Architect | CIS/NIST/STIG/ISO 27001/SOC 2, Zero-Trust, IAM/PAM/PIM, vulnerability/patch management, hardening checklists |
-| **[PKI, TLS & Certificate Lifecycle Architect](skills/pki-certificates/SKILL.md)** | `/pki-certificates` | Senior Principal PKI Architect | AD CS hierarchy & templates (ESC risks), CRL/OCSP, ACME/SCEP, 200→47-day public cert lifetimes, Key Vault/Vault PKI, OpenSSL, TLS hardening |
+| Skill | Invoke | Download | Persona | Key Focus Areas |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Entra ID, Intune & Modern Workplace Identity Architect](skills/entra-intune-identity/SKILL.md)** | `/entra-intune-identity` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/entra-intune-identity.zip) | Senior Principal Identity & Endpoint Architect | Hybrid identity (Cloud Sync/Connect, PHS), Conditional Access baselines, passkeys/phishing-resistant MFA, PIM, Intune/Autopilot, Windows LAPS, Graph PowerShell, Microsoft365DSC |
+| **[Security & Compliance Hardening Architect](skills/security-compliance-hardening/SKILL.md)** | `/security-compliance-hardening` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/security-compliance-hardening.zip) | Senior Principal Security Architect | CIS/NIST/STIG/ISO 27001/SOC 2, Zero-Trust, IAM/PAM/PIM, vulnerability/patch management, hardening checklists |
+| **[PKI, TLS & Certificate Lifecycle Architect](skills/pki-certificates/SKILL.md)** | `/pki-certificates` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/pki-certificates.zip) | Senior Principal PKI Architect | AD CS hierarchy & templates (ESC risks), CRL/OCSP, ACME/SCEP, 200→47-day public cert lifetimes, Key Vault/Vault PKI, OpenSSL, TLS hardening |
 
 ---
 
@@ -84,13 +91,13 @@ Identity and endpoint management, security hardening, regulatory compliance, PKI
 
 Metrics and alerting, log pipelines, SIEM platforms, and observability architecture.
 
-| Skill | Invoke | Persona | Key Focus Areas |
-| :--- | :--- | :--- | :--- |
-| **[Infrastructure Monitoring, Metrics & Alerting Architect](skills/monitoring-alerting/SKILL.md)** | `/monitoring-alerting` | Senior Principal Monitoring Architect | USE/RED/Golden Signals, symptom-based alerting, SLO burn-rate alerts, Azure Monitor/AMBA, Prometheus/Grafana/Alertmanager, Zabbix, SCOM, VCF Operations |
-| **[Microsoft Sentinel Architect & SecOps Engineer](skills/microsoft-sentinel/SKILL.md)** | `/microsoft-sentinel` | Senior Principal Microsoft Sentinel Architect | Workspace design, DCR/DCE, AMA, CCF, Logs Ingestion API, cost optimization (Analytics/Basic/Auxiliary/Archive), Commitment Tiers, ASIM, SOAR Logic Apps |
-| **[Cribl Stream, Edge, Lake & Search Expert](skills/cribl-stream/SKILL.md)** | `/cribl-stream` | Senior Observability Pipeline Architect | All pipeline functions, Source/Destination catalog, C.* expressions, volume reduction, Pack-first design, Lake & Search |
-| **[Cribl Pipeline Architect for Elastic & Microsoft Sentinel](skills/cribl-elastic-sentinel-pipelines/SKILL.md)** | `/cribl-elastic-sentinel-pipelines` | Dual-SIEM Pipeline Specialist | Pack-first design, ECS compliance, Sentinel DCR/DCE & ASIM mapping, Clone/Output Router, SIEM cost reduction |
-| **[Elastic Stack & Elastic Cloud Serverless Architect](skills/elastic-stack/SKILL.md)** | `/elastic-stack` | Senior Security Analytics Architect | Elasticsearch, KQL/ES\|QL/EQL, ingest pipelines, Elastic Agent/Fleet, SIEM detection rules, MITRE ATT&CK, APM |
+| Skill | Invoke | Download | Persona | Key Focus Areas |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Infrastructure Monitoring, Metrics & Alerting Architect](skills/monitoring-alerting/SKILL.md)** | `/monitoring-alerting` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/monitoring-alerting.zip) | Senior Principal Monitoring Architect | USE/RED/Golden Signals, symptom-based alerting, SLO burn-rate alerts, Azure Monitor/AMBA, Prometheus/Grafana/Alertmanager, Zabbix, SCOM, VCF Operations |
+| **[Microsoft Sentinel Architect & SecOps Engineer](skills/microsoft-sentinel/SKILL.md)** | `/microsoft-sentinel` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/microsoft-sentinel.zip) | Senior Principal Microsoft Sentinel Architect | Workspace design, DCR/DCE, AMA, CCF, Logs Ingestion API, cost optimization (Analytics/Basic/Auxiliary/Archive), Commitment Tiers, ASIM, SOAR Logic Apps |
+| **[Cribl Stream, Edge, Lake & Search Expert](skills/cribl-stream/SKILL.md)** | `/cribl-stream` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/cribl-stream.zip) | Senior Observability Pipeline Architect | All pipeline functions, Source/Destination catalog, C.* expressions, volume reduction, Pack-first design, Lake & Search |
+| **[Cribl Pipeline Architect for Elastic & Microsoft Sentinel](skills/cribl-elastic-sentinel-pipelines/SKILL.md)** | `/cribl-elastic-sentinel-pipelines` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/cribl-elastic-sentinel-pipelines.zip) | Dual-SIEM Pipeline Specialist | Pack-first design, ECS compliance, Sentinel DCR/DCE & ASIM mapping, Clone/Output Router, SIEM cost reduction |
+| **[Elastic Stack & Elastic Cloud Serverless Architect](skills/elastic-stack/SKILL.md)** | `/elastic-stack` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/elastic-stack.zip) | Senior Security Analytics Architect | Elasticsearch, KQL/ES\|QL/EQL, ingest pipelines, Elastic Agent/Fleet, SIEM detection rules, MITRE ATT&CK, APM |
 
 ---
 
@@ -98,9 +105,9 @@ Metrics and alerting, log pipelines, SIEM platforms, and observability architect
 
 Enterprise data protection, replication, cyber recovery, and DR orchestration.
 
-| Skill | Invoke | Persona | Key Focus Areas |
-| :--- | :--- | :--- | :--- |
-| **[Enterprise BCDR & Cyber Recovery Architect](skills/bcdr-recovery-architect/SKILL.md)** | `/bcdr-recovery-architect` | BCDR Architect | Rubrik (Atlas/Radar/Sonar), Zerto CDP journaling, Veeam v12+ (HLR/SOBR/CDP), Cohesity FortKnox, NetApp MetroCluster, Pure ActiveCluster, ASR, 3-2-1-1-0, Clean Room |
+| Skill | Invoke | Download | Persona | Key Focus Areas |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Enterprise BCDR & Cyber Recovery Architect](skills/bcdr-recovery-architect/SKILL.md)** | `/bcdr-recovery-architect` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/bcdr-recovery-architect.zip) | BCDR Architect | Rubrik (Atlas/Radar/Sonar), Zerto CDP journaling, Veeam v12+ (HLR/SOBR/CDP), Cohesity FortKnox, NetApp MetroCluster, Pure ActiveCluster, ASR, 3-2-1-1-0, Clean Room |
 
 ---
 
@@ -108,13 +115,13 @@ Enterprise data protection, replication, cyber recovery, and DR orchestration.
 
 Incident management, project delivery, stakeholder communication, procedure documentation, and knowledge transfer.
 
-| Skill | Invoke | Persona | Key Focus Areas |
-| :--- | :--- | :--- | :--- |
-| **[Incident Commander & SRE Troubleshooter](skills/incident-response/SKILL.md)** | `/incident-response` | Senior Principal SRE & Incident Commander | P1-P4 severity, 5 Whys/Ishikawa RCA, runbook templates, blameless post-mortems, SLI/SLO/SLA, diagnostics |
-| **[IT Infrastructure Project Manager & ITIL Practitioner](skills/it-project-management/SKILL.md)** | `/it-project-management` | Senior IT Project Management Architect | Agile/Scrum/Kanban, ITIL 4, Change/Incident/Problem management, RACI, risk registers, EVM, Azure DevOps Boards |
-| **[Systems & Procedure Documentation Architect](skills/sop-documentation/SKILL.md)** | `/sop-documentation` | Principal Documentation Architect | Zero-Excuse SOPs, tacit knowledge extraction (shorthand expansion, interview, legacy refactor), runbooks, SAD, tribal gotchas, escalation gates |
-| **[Enterprise Technical Trainer & Instructional Designer](skills/enterprise-trainer/SKILL.md)** | `/enterprise-trainer` | Principal Enterprise Technical Trainer & Instructional Designer | Ready-to-teach timed lesson plans, verified subject mastery map, ABCD objectives & Bloom's, hands-on sandbox labs, VILT/ILT timing, assessments & rubrics, Kirkpatrick L1–L4, rollout & train-the-trainer |
-| **[Technical Communication & Executive Translator](skills/executive-communication/SKILL.md)** | `/executive-communication` | Principal Technical Communications Strategist | BLUF writing, audience translation matrix, exec status updates, outage notifications, CAB summaries, business cases, vendor escalations |
+| Skill | Invoke | Download | Persona | Key Focus Areas |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Incident Commander & SRE Troubleshooter](skills/incident-response/SKILL.md)** | `/incident-response` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/incident-response.zip) | Senior Principal SRE & Incident Commander | P1-P4 severity, 5 Whys/Ishikawa RCA, runbook templates, blameless post-mortems, SLI/SLO/SLA, diagnostics |
+| **[IT Infrastructure Project Manager & ITIL Practitioner](skills/it-project-management/SKILL.md)** | `/it-project-management` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/it-project-management.zip) | Senior IT Project Management Architect | Agile/Scrum/Kanban, ITIL 4, Change/Incident/Problem management, RACI, risk registers, EVM, Azure DevOps Boards |
+| **[Systems & Procedure Documentation Architect](skills/sop-documentation/SKILL.md)** | `/sop-documentation` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/sop-documentation.zip) | Principal Documentation Architect | Zero-Excuse SOPs, tacit knowledge extraction (shorthand expansion, interview, legacy refactor), runbooks, SAD, tribal gotchas, escalation gates |
+| **[Enterprise Technical Trainer & Instructional Designer](skills/enterprise-trainer/SKILL.md)** | `/enterprise-trainer` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/enterprise-trainer.zip) | Principal Enterprise Technical Trainer & Instructional Designer | Ready-to-teach timed lesson plans, verified subject mastery map, ABCD objectives & Bloom's, hands-on sandbox labs, VILT/ILT timing, assessments & rubrics, Kirkpatrick L1–L4, rollout & train-the-trainer |
+| **[Technical Communication & Executive Translator](skills/executive-communication/SKILL.md)** | `/executive-communication` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/executive-communication.zip) | Principal Technical Communications Strategist | BLUF writing, audience translation matrix, exec status updates, outage notifications, CAB summaries, business cases, vendor escalations |
 
 ---
 
@@ -122,15 +129,15 @@ Incident management, project delivery, stakeholder communication, procedure docu
 
 Short, repeatable skills for every workday: start and end the day, clear the inbox, process meetings, make decisions, and digest reading.
 
-| Skill | Invoke | Persona | Key Focus Areas |
-| :--- | :--- | :--- | :--- |
-| **[Daily Kickoff & Shutdown Ritual Coach](skills/daily-kickoff-shutdown/SKILL.md)** | `/daily-kickoff-shutdown` | Daily Operations Coach (ADHD-aware) | 5-min morning kickoff (one win, real focus time, < 2-min first step), midday re-anchor, end-of-day shutdown, work log & brag capture, standup generation, Floor Day mode |
-| **[Inbox & Message Triage Assistant](skills/inbox-triage/SKILL.md)** | `/inbox-triage` | Executive Assistant & Comms Triage Specialist | 6-bucket triage, consequence ranking, hidden-ask & deadline detection, phishing red flags, BLUF reply drafts, "no" templates |
-| **[Meeting Notes, Decisions & Action Item Extractor](skills/meeting-notes/SKILL.md)** | `/meeting-notes` | Program Coordinator & Meeting Scribe | Decision vs. discussion separation, owner/due-date enforcement, "your actions" list, CAB/incident/design/vendor/1:1 add-ons, follow-up email draft |
-| **[Everyday Decision Coach & Decision-Fatigue Breaker](skills/decision-coach/SKILL.md)** | `/decision-coach` | Decision Strategist (ADHD-aware) | Two-way vs. one-way door sizing, default rules, satisficing, weighted matrix, pre-mortem, research-loop breaker, always-recommend output |
-| **[Rapid Research & Briefing Analyst](skills/research-briefing/SKILL.md)** | `/research-briefing` | Senior Research Analyst | 2-minute layered briefings, "does this affect me?" impact checks, source credibility ladder, fact/claim/inference labeling, compare & explain modes |
-| **[Pennsylvania & U.S. Federal Government Research Analyst](skills/pa-federal-gov-research/SKILL.md)** | `/pa-federal-gov-research` | Nonpartisan Government Research Analyst & former legislative staffer | PA General Assembly + Congress bill status with exact status ladder, printer's numbers & text versions, laws/regulations (Federal Register, PA Bulletin, IRRC), budgets & spending (IFO, CBO, USAspending), official data (Census, BLS, data.pa.gov), news vs. official record, as-of dates on every live fact, nonpartisan |
-| **[Public Records Request Assistant (PA Right-to-Know & Federal FOIA)](skills/public-records-requests/SKILL.md)** | `/public-records-requests` | Open-Records Specialist (not an attorney) | Already-public check first, right law & right office, specific send-ready requests, RTKL 5-day/30-day/15-day and FOIA 20-day/90-day deadline math, fee limits & waivers, appeal drafts (OOR, OGIS), drafts only |
+| Skill | Invoke | Download | Persona | Key Focus Areas |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Daily Kickoff & Shutdown Ritual Coach](skills/daily-kickoff-shutdown/SKILL.md)** | `/daily-kickoff-shutdown` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/daily-kickoff-shutdown.zip) | Daily Operations Coach (ADHD-aware) | 5-min morning kickoff (one win, real focus time, < 2-min first step), midday re-anchor, end-of-day shutdown, work log & brag capture, standup generation, Floor Day mode |
+| **[Inbox & Message Triage Assistant](skills/inbox-triage/SKILL.md)** | `/inbox-triage` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/inbox-triage.zip) | Executive Assistant & Comms Triage Specialist | 6-bucket triage, consequence ranking, hidden-ask & deadline detection, phishing red flags, BLUF reply drafts, "no" templates |
+| **[Meeting Notes, Decisions & Action Item Extractor](skills/meeting-notes/SKILL.md)** | `/meeting-notes` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/meeting-notes.zip) | Program Coordinator & Meeting Scribe | Decision vs. discussion separation, owner/due-date enforcement, "your actions" list, CAB/incident/design/vendor/1:1 add-ons, follow-up email draft |
+| **[Everyday Decision Coach & Decision-Fatigue Breaker](skills/decision-coach/SKILL.md)** | `/decision-coach` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/decision-coach.zip) | Decision Strategist (ADHD-aware) | Two-way vs. one-way door sizing, default rules, satisficing, weighted matrix, pre-mortem, research-loop breaker, always-recommend output |
+| **[Rapid Research & Briefing Analyst](skills/research-briefing/SKILL.md)** | `/research-briefing` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/research-briefing.zip) | Senior Research Analyst | 2-minute layered briefings, "does this affect me?" impact checks, source credibility ladder, fact/claim/inference labeling, compare & explain modes |
+| **[Pennsylvania & U.S. Federal Government Research Analyst](skills/pa-federal-gov-research/SKILL.md)** | `/pa-federal-gov-research` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/pa-federal-gov-research.zip) | Nonpartisan Government Research Analyst & former legislative staffer | PA General Assembly + Congress bill status with exact status ladder, printer's numbers & text versions, laws/regulations (Federal Register, PA Bulletin, IRRC), budgets & spending (IFO, CBO, USAspending), official data (Census, BLS, data.pa.gov), news vs. official record, as-of dates on every live fact, nonpartisan |
+| **[Public Records Request Assistant (PA Right-to-Know & Federal FOIA)](skills/public-records-requests/SKILL.md)** | `/public-records-requests` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/public-records-requests.zip) | Open-Records Specialist (not an attorney) | Already-public check first, right law & right office, specific send-ready requests, RTKL 5-day/30-day/15-day and FOIA 20-day/90-day deadline math, fee limits & waivers, appeal drafts (OOR, OGIS), drafts only |
 
 ---
 
@@ -138,27 +145,27 @@ Short, repeatable skills for every workday: start and end the day, clear the inb
 
 Non-technical skills for personal productivity, career growth, finance, and daily life.
 
-| Skill | Invoke | Persona | Key Focus Areas |
-| :--- | :--- | :--- | :--- |
-| **[Adult ADHD Executive Function Coach & Behavioral Analyst](skills/adhd-executive-function-coach/SKILL.md)** | `/adhd-executive-function-coach` | ADHD Life Strategist & Executive Function Coach (not a clinician) | Behavioral decoding (ABC model), 10 ADHD behavioral archetypes (Waiting Mode, Restraint Collapse, Urgency Addiction), 7 executive functions, task initiation, time blindness, working memory, RSD, workplace strategies for IT pros, parenting, habit formation |
-| **[Weekly Reset & Life Operating System Coach](skills/weekly-reset-planner/SKILL.md)** | `/weekly-reset-planner` | Personal Operations Coach (GTD + ADHD scaffolding) | 20–30 min weekly reset, brain dump → sort buckets, Big 3 priorities, time-blindness padding, daily/monthly check-ins |
-| **[Health, Fitness & Sustainable Habit Coach](skills/fitness-habit-coach/SKILL.md)** | `/fitness-habit-coach` | Personal Trainer & Habit Coach (non-medical) | Minimum-effective-dose strength plans, "Floor" plans for bad weeks, sleep & energy, desk-worker correctives, habit stacking |
-| **[Home Maintenance & Household Operations Manager](skills/home-maintenance-ops/SKILL.md)** | `/home-maintenance-ops` | Household Ops Manager ("Home as Infrastructure") | Home asset inventory, seasonal PM schedules, DIY vs. pro decisions, contractor vetting, chore matrix, capital replacement forecast |
-| **[Family Travel & Trip Logistics Planner](skills/family-trip-planner/SKILL.md)** | `/family-trip-planner` | Travel Logistics Planner | Day trips to week-long vacations, pacing rules, teen buy-in, booking priority, weather backups, packing & prep timelines, Game Day mode |
-| **[Genealogy & Local History Research Assistant](skills/genealogy-research/SKILL.md)** | `/genealogy-research` | Professional Genealogist & Local Historian | Genealogical Proof Standard, PA/Mid-Atlantic record map, PA German church records, brick-wall strategies, archive naming & metadata |
-| **[Learning Strategist & Skill Acquisition Coach](skills/learning-coach/SKILL.md)** | `/learning-coach` | Learning Scientist & Skill Coach | Project-first learning plans, retrieval & spaced repetition, Anki flashcards, teach & quiz modes, ADHD-friendly 20–30 min sessions |
-| **[Career Interest Discovery & Occupational Fit Assessment](skills/career-interest-assessment/SKILL.md)** | `/career-interest-assessment` | Career Assessment Specialist & Vocational Counselor | Step-by-step RIASEC (Holland Code) interest inventory, O\*NET work values, strengths & peak experiences, work style, constraints, ranked occupation matches, 30-day exploration plan; works for teens through career changers |
-| **[Infrastructure Career Strategist & Interview Coach](skills/career-interview-coach/SKILL.md)** | `/career-interview-coach` | Career Strategist & Former Infrastructure Hiring Manager | Brag document/XYZ bullets, resume & LinkedIn tailoring, STAR-L story bank, mock interviews, cert roadmap, negotiation scripts, ADHD-aware job search |
-| **[Formal Logic Engine & Argument Analyzer](skills/formal-logic-analyzer/SKILL.md)** | `/formal-logic-analyzer` | Analytical Philosophy Evaluator | Syllogistic mapping, enthymeme extraction, fallacy & bias matrix, countermodels, epistemic crux analysis |
-| **[Investing Mentor & Market Strategist for Beginners](skills/investing-mentor/SKILL.md)** | `/investing-mentor` | Veteran Investing Mentor & Educator (not a licensed adviser) | One-question-at-a-time beginner intake, investing order of operations, index funds & allocation templates, stock deep-dive method, high-risk & scam warnings, fiduciary referrals |
-| **[End-of-Life Planning & Legacy Organizer](skills/end-of-life-planning/SKILL.md)** | `/end-of-life-planning` | Compassionate Planning Guide (estate paralegal + hospice social worker + organizer; not an attorney) | Gentle module-by-module interview, will/trust/POA/advance directive, beneficiary checks, asset & digital-life inventory (no secrets in chat), final wishes, prioritized to-do plan, Letter of Instruction |
-| **[Video & Media Production Engineer](skills/video-media-production/SKILL.md)** | `/video-media-production` | Senior Post-Production Engineer & Media Archivist | Archival/stock footage sourcing with rights notes, 4:3-to-16:9 options, FFmpeg trim/join/encode recipes, PowerPoint & VLC kiosk loops, soundtrack rights, YouTube & web publishing |
-| **[Tire Evaluation & Best-Value Buying Research Analyst](skills/tire-research/SKILL.md)** | `/tire-research` | Veteran Tire Specialist & Consumer Research Analyst | Vehicle & fitment intake (size, load, speed), sidewall & wear-pattern diagnosis, tire categories incl. 3PMSF/EV, out-the-door cost per 10k miles, deep research loop with stop rule, mandatory double-check pass |
-| **[Music History Expert & Listening Guide](skills/music-historian/SKILL.md)** | `/music-historian` | Veteran Music Historian & Educator | Classical to rock, jazz, blues, country, R&B/soul/funk, hip-hop, electronic, Latin, Caribbean & global; lineage maps, forces of change (technology, migration, industry), plain-language listening vocabulary, listening guides from what you like, contested firsts, fair credit, no lyric reproduction |
-| **[Culinary Logistics & Meal Planner](skills/meal-planner/SKILL.md)** | `/meal-planner` | Meal Planning Agent | 7-day budget meal plans, editable household profile, teen portion scaling, leftovers & prep plan, store-section grocery list |
-| **[Personal Finance Planner](skills/personal-finance/SKILL.md)** | `/personal-finance` | Personal Finance Agent | Budget dashboard, debt avalanche/snowball with real payoff math, emergency fund, goal tracking (educational, not investment advice) |
-| **[Everyday Computer Help Desk Technician](skills/everyday-computer-help-desk/SKILL.md)** | `/everyday-computer-help-desk` | Patient Help Desk Technician for non-technical users | One-action-per-step fix guides, plain-language clarifying questions, "what you should see" checks, OS identification, Wi-Fi/printer/email/password/slow PC fixes, scam pop-up safety, when to call a pro |
-| **[Wireless Carrier & Plan Comparison Analyst](skills/carrier-comparison/SKILL.md)** | `/carrier-comparison` | Wireless Carrier & Plan Comparison Analyst | Coverage-first carrier comparison by ZIP, live plan pricing at your line count, true all-in cost with taxes and fees, perk valuation, MVNO/cable options, switching checklist |
+| Skill | Invoke | Download | Persona | Key Focus Areas |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Adult ADHD Executive Function Coach & Behavioral Analyst](skills/adhd-executive-function-coach/SKILL.md)** | `/adhd-executive-function-coach` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/adhd-executive-function-coach.zip) | ADHD Life Strategist & Executive Function Coach (not a clinician) | Behavioral decoding (ABC model), 10 ADHD behavioral archetypes (Waiting Mode, Restraint Collapse, Urgency Addiction), 7 executive functions, task initiation, time blindness, working memory, RSD, workplace strategies for IT pros, parenting, habit formation |
+| **[Weekly Reset & Life Operating System Coach](skills/weekly-reset-planner/SKILL.md)** | `/weekly-reset-planner` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/weekly-reset-planner.zip) | Personal Operations Coach (GTD + ADHD scaffolding) | 20–30 min weekly reset, brain dump → sort buckets, Big 3 priorities, time-blindness padding, daily/monthly check-ins |
+| **[Health, Fitness & Sustainable Habit Coach](skills/fitness-habit-coach/SKILL.md)** | `/fitness-habit-coach` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/fitness-habit-coach.zip) | Personal Trainer & Habit Coach (non-medical) | Minimum-effective-dose strength plans, "Floor" plans for bad weeks, sleep & energy, desk-worker correctives, habit stacking |
+| **[Home Maintenance & Household Operations Manager](skills/home-maintenance-ops/SKILL.md)** | `/home-maintenance-ops` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/home-maintenance-ops.zip) | Household Ops Manager ("Home as Infrastructure") | Home asset inventory, seasonal PM schedules, DIY vs. pro decisions, contractor vetting, chore matrix, capital replacement forecast |
+| **[Family Travel & Trip Logistics Planner](skills/family-trip-planner/SKILL.md)** | `/family-trip-planner` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/family-trip-planner.zip) | Travel Logistics Planner | Day trips to week-long vacations, pacing rules, teen buy-in, booking priority, weather backups, packing & prep timelines, Game Day mode |
+| **[Genealogy & Local History Research Assistant](skills/genealogy-research/SKILL.md)** | `/genealogy-research` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/genealogy-research.zip) | Professional Genealogist & Local Historian | Genealogical Proof Standard, PA/Mid-Atlantic record map, PA German church records, brick-wall strategies, archive naming & metadata |
+| **[Learning Strategist & Skill Acquisition Coach](skills/learning-coach/SKILL.md)** | `/learning-coach` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/learning-coach.zip) | Learning Scientist & Skill Coach | Project-first learning plans, retrieval & spaced repetition, Anki flashcards, teach & quiz modes, ADHD-friendly 20–30 min sessions |
+| **[Career Interest Discovery & Occupational Fit Assessment](skills/career-interest-assessment/SKILL.md)** | `/career-interest-assessment` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/career-interest-assessment.zip) | Career Assessment Specialist & Vocational Counselor | Step-by-step RIASEC (Holland Code) interest inventory, O\*NET work values, strengths & peak experiences, work style, constraints, ranked occupation matches, 30-day exploration plan; works for teens through career changers |
+| **[Infrastructure Career Strategist & Interview Coach](skills/career-interview-coach/SKILL.md)** | `/career-interview-coach` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/career-interview-coach.zip) | Career Strategist & Former Infrastructure Hiring Manager | Brag document/XYZ bullets, resume & LinkedIn tailoring, STAR-L story bank, mock interviews, cert roadmap, negotiation scripts, ADHD-aware job search |
+| **[Formal Logic Engine & Argument Analyzer](skills/formal-logic-analyzer/SKILL.md)** | `/formal-logic-analyzer` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/formal-logic-analyzer.zip) | Analytical Philosophy Evaluator | Syllogistic mapping, enthymeme extraction, fallacy & bias matrix, countermodels, epistemic crux analysis |
+| **[Investing Mentor & Market Strategist for Beginners](skills/investing-mentor/SKILL.md)** | `/investing-mentor` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/investing-mentor.zip) | Veteran Investing Mentor & Educator (not a licensed adviser) | One-question-at-a-time beginner intake, investing order of operations, index funds & allocation templates, stock deep-dive method, high-risk & scam warnings, fiduciary referrals |
+| **[End-of-Life Planning & Legacy Organizer](skills/end-of-life-planning/SKILL.md)** | `/end-of-life-planning` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/end-of-life-planning.zip) | Compassionate Planning Guide (estate paralegal + hospice social worker + organizer; not an attorney) | Gentle module-by-module interview, will/trust/POA/advance directive, beneficiary checks, asset & digital-life inventory (no secrets in chat), final wishes, prioritized to-do plan, Letter of Instruction |
+| **[Video & Media Production Engineer](skills/video-media-production/SKILL.md)** | `/video-media-production` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/video-media-production.zip) | Senior Post-Production Engineer & Media Archivist | Archival/stock footage sourcing with rights notes, 4:3-to-16:9 options, FFmpeg trim/join/encode recipes, PowerPoint & VLC kiosk loops, soundtrack rights, YouTube & web publishing |
+| **[Tire Evaluation & Best-Value Buying Research Analyst](skills/tire-research/SKILL.md)** | `/tire-research` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/tire-research.zip) | Veteran Tire Specialist & Consumer Research Analyst | Vehicle & fitment intake (size, load, speed), sidewall & wear-pattern diagnosis, tire categories incl. 3PMSF/EV, out-the-door cost per 10k miles, deep research loop with stop rule, mandatory double-check pass |
+| **[Music History Expert & Listening Guide](skills/music-historian/SKILL.md)** | `/music-historian` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/music-historian.zip) | Veteran Music Historian & Educator | Classical to rock, jazz, blues, country, R&B/soul/funk, hip-hop, electronic, Latin, Caribbean & global; lineage maps, forces of change (technology, migration, industry), plain-language listening vocabulary, listening guides from what you like, contested firsts, fair credit, no lyric reproduction |
+| **[Culinary Logistics & Meal Planner](skills/meal-planner/SKILL.md)** | `/meal-planner` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/meal-planner.zip) | Meal Planning Agent | 7-day budget meal plans, editable household profile, teen portion scaling, leftovers & prep plan, store-section grocery list |
+| **[Personal Finance Planner](skills/personal-finance/SKILL.md)** | `/personal-finance` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/personal-finance.zip) | Personal Finance Agent | Budget dashboard, debt avalanche/snowball with real payoff math, emergency fund, goal tracking (educational, not investment advice) |
+| **[Everyday Computer Help Desk Technician](skills/everyday-computer-help-desk/SKILL.md)** | `/everyday-computer-help-desk` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/everyday-computer-help-desk.zip) | Patient Help Desk Technician for non-technical users | One-action-per-step fix guides, plain-language clarifying questions, "what you should see" checks, OS identification, Wi-Fi/printer/email/password/slow PC fixes, scam pop-up safety, when to call a pro |
+| **[Wireless Carrier & Plan Comparison Analyst](skills/carrier-comparison/SKILL.md)** | `/carrier-comparison` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/carrier-comparison.zip) | Wireless Carrier & Plan Comparison Analyst | Coverage-first carrier comparison by ZIP, live plan pricing at your line count, true all-in cost with taxes and fees, perk valuation, MVNO/cable options, switching checklist |
 
 ---
 
@@ -166,9 +173,9 @@ Non-technical skills for personal productivity, career growth, finance, and dail
 
 Skills for building and maintaining this library.
 
-| Skill | Invoke | Persona | Key Focus Areas |
-| :--- | :--- | :--- | :--- |
-| **[Prompt Engineering Architect & Skill Builder](skills/prompt-engineering-architect/SKILL.md)** | `/prompt-engineering-architect` | Principal Prompt Engineer | Build/audit/refactor/combine prompts and skills, SKILL.md packaging, description triggers, audit rubric, test inputs |
+| Skill | Invoke | Download | Persona | Key Focus Areas |
+| :--- | :--- | :--- | :--- | :--- |
+| **[Prompt Engineering Architect & Skill Builder](skills/prompt-engineering-architect/SKILL.md)** | `/prompt-engineering-architect` | [ZIP](https://github.com/chadrothermel-dev/my_skills/raw/main/dist/prompt-engineering-architect.zip) | Principal Prompt Engineer | Build/audit/refactor/combine prompts and skills, SKILL.md packaging, description triggers, audit rubric, test inputs |
 
 ---
 
@@ -227,14 +234,32 @@ For maximum effectiveness, combine related skills based on your current task:
 
 ---
 
-## Using These Skills with Claude
+## Using These Skills Across Platforms
 
 | Platform | How |
 | :--- | :--- |
+| **Google Gemini** | Download any **[ZIP]** above (`dist/<name>.zip`, `SKILL.md` at root) → *Menu → Customize → Skills → Create → Upload*. |
+| **Microsoft Copilot** | Download any **[ZIP]** above (`dist/<name>.zip`, `SKILL.md` at root) → Copilot Studio / Agent Builder → *Skills → Add skill → Upload a skill*. |
 | **Claude Code (plugin)** | `/plugin marketplace add chadrothermel-dev/my_skills` → `/plugin install my-skills@my-skills`. Invoke as `/my-skills:<name>` or just describe your task. |
 | **Claude Code (personal)** | `./install.ps1` copies skills to `~/.claude/skills/<name>/`. Invoke as `/<name>`. |
-| **claude.ai / Desktop** | `./install.ps1 -Zip`, then upload a zip under *Settings → Capabilities → Skills*. |
+| **claude.ai / Desktop** | `./install.ps1 -Zip -Format Folder` (or `python tools/pack_zips.py --format folder`), then upload a zip under *Settings → Capabilities → Skills*. |
 | **API / agents** | Upload via the Skills API, or use a `SKILL.md` body (minus frontmatter) as the system prompt. |
+
+---
+
+## Rebuilding Skill Zips
+
+The `dist/<skill>.zip` files are rebuilt automatically by GitHub Actions whenever `skills/` changes on `main`. To rebuild them locally:
+
+```bash
+python tools/pack_zips.py --clean
+```
+
+To verify `dist/` is up to date without modifying files:
+
+```bash
+python tools/pack_zips.py --check
+```
 
 ---
 

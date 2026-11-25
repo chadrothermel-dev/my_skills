@@ -93,16 +93,25 @@ def code(s):
     return f"`/{s}`" if re.fullmatch(r"[a-z0-9-]+", s) else s
 
 
+REPO_RAW_DIST = "https://github.com/chadrothermel-dev/my_skills/raw/main/dist"
+
 out = []
 out.append(f"""# My Skills Repository
 
-A curated library of **{len(SKILLS)}** Claude skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill is a converted and audited version of a prompt from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
+A curated library of **{len(SKILLS)}** AI agent skills for enterprise systems engineering, identity, observability, security, communication, and personal productivity. Each skill follows the open `SKILL.md` standard and works across **Google Gemini**, **Microsoft Copilot**, and **Claude**. Most skills are converted and audited versions of prompts from [`my_prompts`](https://github.com/chadrothermel-dev/my_prompts) — see **[AUDIT.md](AUDIT.md)** for what was fixed and why.
 
 ---
 
 ## Quick Start
 
-**Option A — Claude Code plugin (all skills, auto-updates):**
+**Option A — Google Gemini & Microsoft Copilot (direct `.zip` download):**
+
+Click any **[ZIP]** link in the tables below to download `dist/<skill>.zip` directly (`SKILL.md` at the archive root, ready for upload):
+
+- **Google Gemini:** open [gemini.google.com](https://gemini.google.com) → **Menu → Customize → Skills → Create → Upload** and select the `.zip` file.
+- **Microsoft Copilot (Copilot Studio / Agent Builder / Cowork):** open your agent → **Skills → Add skill → Upload a skill** and select the `.zip` file.
+
+**Option B — Claude Code plugin (all skills, auto-updates):**
 
 ```bash
 /plugin marketplace add chadrothermel-dev/my_skills
@@ -114,7 +123,7 @@ A curated library of **{len(SKILLS)}** Claude skills for enterprise systems engi
 
 Skills are then available as `/my-skills:<skill-name>` and load automatically when your request matches a skill's description.
 
-**Option B — copy into your personal skills folder (Windows):**
+**Option C — copy into your personal skills folder (Windows / macOS / Linux):**
 
 ```powershell
 git clone https://github.com/chadrothermel-dev/my_skills.git; cd my_skills; ./install.ps1
@@ -122,10 +131,10 @@ git clone https://github.com/chadrothermel-dev/my_skills.git; cd my_skills; ./in
 
 Install a subset with `./install.ps1 -Skills vmware-vsphere,windows-server`. On macOS/Linux use `./install.sh` (optionally followed by skill names).
 
-**Option C — claude.ai:** run `./install.ps1 -Zip` to build `dist/<skill>.zip` files, then upload one under **Settings → Capabilities → Skills**.
+**Option D — claude.ai:** claude.ai expects a wrapper folder (`<skill>/SKILL.md`) inside the zip. Build Claude-formatted zips with `./install.ps1 -Zip -Format Folder` (or `python tools/pack_zips.py --format folder --out dist-claude`), then upload under **Settings → Capabilities → Skills**.
 
 > [!TIP]
-> **Combine skills for maximum impact.** Claude can load several skills in one conversation — see [Recommended Skill Combinations](#recommended-skill-combinations).
+> **Combine skills for maximum impact.** Agents can load several skills in one conversation — see [Recommended Skill Combinations](#recommended-skill-combinations).
 
 ---
 """)
@@ -135,12 +144,13 @@ for key, heading, blurb in CATEGORIES:
     if not items:
         continue
     out.append(f"## {heading}\n\n{blurb}\n")
-    out.append("| Skill | Invoke | Persona | Key Focus Areas |\n| :--- | :--- | :--- | :--- |")
+    out.append("| Skill | Invoke | Download | Persona | Key Focus Areas |\n| :--- | :--- | :--- | :--- | :--- |")
     for c in items:
         _, persona, focus = rows.get(c["src"], (c["title"], c["title"], ""))
         focus = FOCUS_OVERRIDES.get(c["name"], focus)
         persona = re.sub(r"(Distinguished |Board-Certified |30\+ Year |20\+ Year )", "", persona)
-        out.append(f"| **[{c['title']}](skills/{c['name']}/SKILL.md)** | `/{c['name']}` | {persona} | {focus} |")
+        zip_url = f"{REPO_RAW_DIST}/{c['name']}.zip"
+        out.append(f"| **[{c['title']}](skills/{c['name']}/SKILL.md)** | `/{c['name']}` | [ZIP]({zip_url}) | {persona} | {focus} |")
     out.append("\n---\n")
 
 out.append("## Recommended Skill Combinations\n\nFor maximum effectiveness, combine related skills based on your current task:\n")
@@ -155,14 +165,32 @@ for task, primary, support in COMBOS:
 out.append("""
 ---
 
-## Using These Skills with Claude
+## Using These Skills Across Platforms
 
 | Platform | How |
 | :--- | :--- |
+| **Google Gemini** | Download any **[ZIP]** above (`dist/<name>.zip`, `SKILL.md` at root) → *Menu → Customize → Skills → Create → Upload*. |
+| **Microsoft Copilot** | Download any **[ZIP]** above (`dist/<name>.zip`, `SKILL.md` at root) → Copilot Studio / Agent Builder → *Skills → Add skill → Upload a skill*. |
 | **Claude Code (plugin)** | `/plugin marketplace add chadrothermel-dev/my_skills` → `/plugin install my-skills@my-skills`. Invoke as `/my-skills:<name>` or just describe your task. |
 | **Claude Code (personal)** | `./install.ps1` copies skills to `~/.claude/skills/<name>/`. Invoke as `/<name>`. |
-| **claude.ai / Desktop** | `./install.ps1 -Zip`, then upload a zip under *Settings → Capabilities → Skills*. |
+| **claude.ai / Desktop** | `./install.ps1 -Zip -Format Folder` (or `python tools/pack_zips.py --format folder`), then upload a zip under *Settings → Capabilities → Skills*. |
 | **API / agents** | Upload via the Skills API, or use a `SKILL.md` body (minus frontmatter) as the system prompt. |
+
+---
+
+## Rebuilding Skill Zips
+
+The `dist/<skill>.zip` files are rebuilt automatically by GitHub Actions whenever `skills/` changes on `main`. To rebuild them locally:
+
+```bash
+python tools/pack_zips.py --clean
+```
+
+To verify `dist/` is up to date without modifying files:
+
+```bash
+python tools/pack_zips.py --check
+```
 
 ---
 
