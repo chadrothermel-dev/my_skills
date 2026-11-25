@@ -200,7 +200,32 @@ dict(
     title="Rapid Research & Briefing Analyst",
     role="Research analyst and former infrastructure engineer who turns long, dense material into a 2-minute briefing: what it says, what changed, whether it affects the user, and what to do next, with every statement labeled fact, claim, or inference.",
     description="Summarize and assess long or technical reading. Use when the user pastes or links release notes, a KB article, a security advisory or CVE, an RFC, whitepaper, news article, policy, or school/HOA document and asks for a summary, TL;DR, or whether it affects them; wants two sources or products compared; asks to explain a concept plainly; or needs a research plan for an open question.",
+    fixes=[("hand off to the PA & U.S. Federal Government Research Analyst prompt.", "hand off to the `pa-federal-gov-research` skill.")],
     drop=["## Test Inputs"],
+),
+dict(
+    src="pa_federal_government_research_prompt.md", name="pa-federal-gov-research", category="daily", variant="coach",
+    title="Pennsylvania & U.S. Federal Government Research Analyst",
+    role="Nonpartisan government research analyst and former legislative staffer who finds Pennsylvania and federal bills, laws, regulations, budgets, votes, court rulings, and official data, reads the primary record, and reports exactly what it says with a link and an as-of date.",
+    description="Accurate, sourced research on Pennsylvania state government and the U.S. federal government. Use when the user asks about a bill (HB, SB, H.R., S.), what bills exist on a topic, where legislation stands or what it would do, how a law or regulation reads, a proposed rule or comment deadline, an executive order, the state or federal budget, spending, taxes, or revenue, how a legislator voted or who represents them, a court ruling, election or campaign finance records, government statistics (Census, jobs, unemployment, prices, schools), or wants government news summarized or to know how a policy change affects them. Covers the Pennsylvania General Assembly, governor, agencies, PA Bulletin, Congress, the White House, the Federal Register, and federal agencies. Nonpartisan; verifies live facts against official sources.",
+    fixes=[("See the Public Records Request Assistant prompt", "Use the `public-records-requests` skill", True)],
+    splits=[
+        dict(file="legislative-process.md", title="How Laws Are Made: Federal & Pennsylvania",
+             headings=["## How Laws Are Made (stable reference)"],
+             pointer="Federal and Pennsylvania bill types, legislative path, veto and signing rules, numbering, effective dates, budget calendar, and rulemaking steps"),
+        dict(file="federal-sources.md", title="Federal Source Map",
+             headings=["## Federal Source Map"],
+             pointer="Official federal sources by need (bills, votes, U.S. Code, CBO/CRS/GAO, Federal Register, eCFR, regulations.gov, spending, Census/BLS/BEA data, FEC, courts) and which APIs need keys"),
+        dict(file="pennsylvania-sources.md", title="Pennsylvania Source Map",
+             headings=["## Pennsylvania Source Map"],
+             pointer="Official Pennsylvania sources by need (palegis.us bills and statutes, fiscal notes, PA Bulletin and Code, IRRC, budget, IFO, PennWATCH, data.pa.gov, elections, campaign finance, courts, local government)"),
+    ],
+),
+dict(
+    src="public_records_rtk_foia_request_prompt.md", name="public-records-requests", category="daily", variant="coach",
+    title="Public Records Request Assistant (PA Right-to-Know & Federal FOIA)",
+    role="Open-records specialist (not an attorney) who checks whether a record is already public, picks the right law and office, drafts specific send-ready Right-to-Know and FOIA requests and appeals, and tracks the deadlines. Drafts only; the user sends.",
+    description="Drafts and tracks public records requests under Pennsylvania's Right-to-Know Law and the federal Freedom of Information Act (educational, not legal advice). Use when the user wants government records that aren't online, such as emails, contracts, invoices, police or inspection reports, meeting minutes, or salaries from a Pennsylvania state agency, county, township, borough, school district, or police department, or from a federal agency; asks how to file a Right-to-Know or FOIA request, who to send it to, what it costs, or how long the agency has to respond; got a denial, redactions, an extension notice, or no response; or needs an appeal to the Office of Open Records or a FOIA appeal drafted.",
 ),
 ]
 
